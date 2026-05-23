@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="version" content="v1.0">
+  <title>Odysee — The Next Generation — v1.0</title>
+  <link rel="stylesheet" href="../brand/odysee-tokens.css" />
+  <link rel="stylesheet" href="../assets/css/site.css" />
+
+  <style>
+/* ─── Brand mark in header (matches live pages) ─── */
+.brand-mark { display: inline-flex; align-items: center; text-decoration: none; gap: 2px; line-height: 0.9; }
+.brand-mark__o { width: 2.4em; height: 2.4em; display: block; flex-shrink: 0; }
+.brand-mark__text { font-family: var(--od-font-sans); font-weight: 800; font-size: 42px; letter-spacing: -0.035em; color: var(--od-fg); }
+.site-header { gap: 32px; align-items: center; }
+.site-header__brand { display: flex; flex-direction: column; gap: 4px; }
+.site-header__tagline { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--od-fg-subtle); font-weight: 500; margin-top: 2px; margin-left: 2px; }
+.brand-mark__o .ring      { stroke: var(--od-navy); }
+.brand-mark__o .inner     { fill:   #FFFFFF; }
+.brand-mark__o .trail     { stroke: var(--od-navy); }
+.brand-mark__o .cap-start { fill:   var(--od-navy); }
+.brand-mark__o .cap-end   { fill:   var(--od-red); }
+[data-theme="dark"] .brand-mark__o .ring  { stroke: var(--od-paper); }
+[data-theme="dark"] .brand-mark__o .inner { fill: var(--od-navy); }
+
+/* Footer secondary nav (matches live pages) */
+.site-footer__secondary { margin-top: 10px; font-size: 12px; letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.site-footer__secondary a { color: var(--od-fg); opacity: 0.55; text-decoration: none; font-weight: 500; transition: opacity 0.2s, color 0.2s; }
+.site-footer__secondary a:hover { opacity: 1; color: var(--od-red); }
+.site-footer__secondary span[aria-hidden] { color: var(--od-fg); opacity: 0.3; }
+
+/* ─── Page content (scoped .ng-) ─── */
+.ng h2 { font-family: var(--od-font-sans); font-weight: var(--od-fw-heavy); font-size: var(--od-text-h1); letter-spacing: var(--od-track-tight); line-height: var(--od-leading-snug); color: var(--od-fg); margin: var(--od-s-8) 0 var(--od-s-3); }
+.ng h3 { font-family: var(--od-font-sans); font-weight: var(--od-fw-semi); font-size: var(--od-text-h3); color: var(--od-fg); margin: var(--od-s-6) 0 var(--od-s-2); }
+.ng p { font-size: var(--od-text-body); line-height: var(--od-leading-body); color: var(--od-fg-muted); margin: 0 0 var(--od-s-4); }
+.ng strong { color: var(--od-fg); font-weight: var(--od-fw-semi); }
+.ng em { font-style: italic; }
+.ng .lead { font-size: 20px; line-height: 1.5; color: var(--od-fg-muted); margin-bottom: var(--od-s-6); }
+
+.ng-hero { border-top: 2px solid var(--od-accent); padding-top: var(--od-s-6); margin-bottom: var(--od-s-7); }
+.ng-hero h1 { font-family: var(--od-font-sans); font-weight: var(--od-fw-heavy); font-size: clamp(34px, 5vw, var(--od-text-display)); letter-spacing: var(--od-track-tight); line-height: var(--od-leading-tight); color: var(--od-fg); margin: 0 0 var(--od-s-4); }
+.ng-hero .sub { font-size: 20px; line-height: 1.5; color: var(--od-fg-subtle); max-width: 60ch; }
+
+.ng-eyebrow { font-family: var(--od-font-mono); font-size: var(--od-text-caption); letter-spacing: 0.18em; text-transform: uppercase; color: var(--od-accent); margin: 0 0 var(--od-s-2); }
+
+.ng-grid { display: grid; gap: var(--od-s-4); grid-template-columns: repeat(2, 1fr); margin: var(--od-s-5) 0; }
+@media (max-width: 720px) { .ng-grid { grid-template-columns: 1fr; } }
+.ng-card { background: var(--od-bg); border: 1px solid var(--od-border); border-radius: var(--od-r-lg); padding: var(--od-s-5); }
+.ng-card h4 { font-family: var(--od-font-sans); font-weight: var(--od-fw-bold); font-size: 18px; letter-spacing: -0.01em; color: var(--od-fg); margin: 0 0 var(--od-s-2); }
+.ng-card p { font-size: 14px; margin: 0; }
+.ng-card .limit { display: block; margin-top: var(--od-s-3); padding-top: var(--od-s-3); border-top: 1px solid var(--od-border); font-size: 13px; color: var(--od-fg-subtle); }
+.ng-card .limit b { color: var(--od-accent); font-weight: var(--od-fw-semi); }
+
+.ng-callout { border-left: 3px solid var(--od-accent); background: var(--od-bg-sunken); border-radius: 0 var(--od-r-md) var(--od-r-md) 0; padding: var(--od-s-5); margin: var(--od-s-6) 0; }
+.ng-callout p { margin: 0; font-size: 18px; line-height: 1.5; color: var(--od-fg); }
+.ng-callout .big { font-family: var(--od-font-sans); font-weight: var(--od-fw-heavy); font-size: 24px; letter-spacing: -0.02em; }
+
+.ng-principles { list-style: none; padding: 0; margin: var(--od-s-5) 0; }
+.ng-principles li { padding: var(--od-s-4) 0; border-bottom: 1px solid var(--od-border); }
+.ng-principles li:first-child { border-top: 1px solid var(--od-border); }
+.ng-principles .name { font-family: var(--od-font-sans); font-weight: var(--od-fw-semi); color: var(--od-fg); font-size: 16px; }
+.ng-principles .desc { color: var(--od-fg-muted); font-size: 15px; margin-top: 4px; }
+
+.ng-table { width: 100%; border-collapse: collapse; margin: var(--od-s-5) 0; font-size: 14px; }
+.ng-table thead th { background: var(--od-navy); color: var(--od-paper); text-align: left; padding: var(--od-s-3) var(--od-s-4); font-weight: var(--od-fw-semi); font-size: 13px; }
+.ng-table td { padding: var(--od-s-3) var(--od-s-4); border-bottom: 1px solid var(--od-border); color: var(--od-fg-muted); vertical-align: top; }
+.ng-table tbody tr:nth-child(even) { background: var(--od-bg-sunken); }
+.ng-table .tech { font-family: var(--od-font-mono); font-size: 12px; color: var(--od-accent); white-space: nowrap; }
+.ng-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.ng-sources { margin-top: var(--od-s-8); padding-top: var(--od-s-5); border-top: 1px solid var(--od-border); }
+.ng-sources h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--od-fg-subtle); font-weight: var(--od-fw-semi); }
+.ng-sources ul { list-style: none; padding: 0; margin: 0; columns: 2; column-gap: var(--od-s-6); }
+@media (max-width: 720px) { .ng-sources ul { columns: 1; } }
+.ng-sources li { font-size: 12px; line-height: 1.5; color: var(--od-fg-subtle); margin-bottom: var(--od-s-2); break-inside: avoid; }
+
+.ng-cta { margin: var(--od-s-7) 0 var(--od-s-5); }
+.ng-cta a { display: inline-block; background: var(--od-accent); color: var(--od-accent-fg); text-decoration: none; font-family: var(--od-font-sans); font-weight: var(--od-fw-semi); font-size: 15px; padding: var(--od-s-3) var(--od-s-5); border-radius: var(--od-r-md); transition: opacity var(--od-dur-base) var(--od-ease-out); }
+.ng-cta a:hover { opacity: 0.85; }
+
+body { overflow-x: hidden; }
+  </style>
+</head>
+<body>
+
+  <!-- Theme bar -->
+  <div class="theme-bar">
+    <span class="theme-bar__label">Theme</span>
+    <button class="theme-btn" onclick="setTheme('light')"  id="btn-light">☀ Light</button>
+    <button class="theme-btn" onclick="setTheme('system')" id="btn-system">⊙ System</button>
+    <button class="theme-btn" onclick="setTheme('dark')"   id="btn-dark">● Dark</button>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-header__brand">
+      <a href="../index.html" class="brand-mark" aria-label="Odysee — home">
+        <svg class="brand-mark__o" viewBox="0 0 100 100" aria-hidden="true">
+          <circle class="inner" cx="50" cy="50" r="45.4"/>
+          <circle class="ring"  cx="50" cy="50" r="45.4" fill="none" stroke-width="9.2"/>
+          <g transform="rotate(-32 50 50)">
+            <path class="trail" d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
+            <circle class="cap-start" cx="26" cy="50" r="3.6"/>
+            <circle class="cap-end"   cx="74" cy="50" r="5.4"/>
+          </g>
+        </svg>
+        <span class="brand-mark__text">dysee</span>
+      </a>
+      <span class="site-header__tagline">Future Interfaces &amp; the Ethics of Sensing</span>
+    </div>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="agents.html">Architecture</a></li>
+        <li><a href="ux-flows.html">UX Flows</a></li>
+        <li><a href="onboarding.html">Onboarding</a></li>
+        <li><a href="design-system.html">Design System</a></li>
+        <li><a href="book.html">Book</a></li>
+        <li><a href="exhibition.html">Exhibition</a></li>
+        <li><a href="next-generation.html" class="active">Next Generation</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page content -->
+  <main>
+    <section class="section">
+      <div class="container ng">
+
+        <!-- HERO -->
+        <div class="ng-hero">
+          <p class="ng-eyebrow">The Next Generation</p>
+          <h1>Tico will sense more.<br>It will choose to read less.</h1>
+          <p class="sub">As brain, body, and ambient sensors mature, a travel companion could know how you feel — not just where you are. The harder question is not what Tico <em>could</em> do, but what a companion <em>should</em>.</p>
+        </div>
+
+        <!-- FRAMING -->
+        <p class="lead">The next decade will hand Odysee new ways to perceive its traveler. Some of these are temporary engineering problems that research will solve. Others are permanent boundaries — scientific and ethical — that should never be crossed, no matter how good the hardware gets. Designing responsibly means telling the two apart.</p>
+
+        <!-- THE EMERGING INPUTS -->
+        <h2>The emerging inputs</h2>
+        <p>Four new input channels are moving from the lab to the consumer product. Each opens a possibility — and carries a limit.</p>
+
+        <div class="ng-grid">
+          <div class="ng-card">
+            <h4>Non-invasive BCI</h4>
+            <p>In 2026, Sabi unveiled an EEG beanie aimed at decoding silent, intended speech to text; Neurable began licensing EEG sensors built into ordinary earbuds and glasses. A quiet "reroute day 4" without reaching for a phone.</p>
+            <span class="limit"><b>The limit —</b> these decode explicit intent, not mood. Independent validation of EEG-to-text remains contested.</span>
+          </div>
+          <div class="ng-card">
+            <h4>Wearable physiology</h4>
+            <p>Heart-rate variability, skin conductance and temperature from a watch or ring are the most validated signals available today.</p>
+            <span class="limit"><b>The limit —</b> HRV measures autonomic arousal, not what you feel. Fatigue, excitement and fear can look identical in the raw data.</span>
+          </div>
+          <div class="ng-card">
+            <h4>Digital smell (e-nose)</h4>
+            <p>Gas sensors detect hundreds of compounds in the lab and are shrinking fast — useful for reading a <em>place</em>: a market in full swing, a bakery just opened.</p>
+            <span class="limit"><b>The limit —</b> inferring a person's emotion from body odor is not consumer-ready, and likely won't be at the needed signal-to-noise by 2030.</span>
+          </div>
+          <div class="ng-card">
+            <h4>Micro-gestures</h4>
+            <p>Vision models track 21 hand points in real time on a phone camera. A nod or a finger can confirm a suggestion without opening a conversation — low friction, no spoken overhead.</p>
+            <span class="limit"><b>The strength —</b> this needs no breakthrough, only design. It senses the world lightly, in the spirit of implicit interaction.</span>
+          </div>
+        </div>
+
+        <!-- THE CRACK -->
+        <h2>The crack: reading emotion isn't reliable</h2>
+        <p>The first obstacle is scientific, and deeper than people assume. The influential review by <strong>Barrett et al. (2019)</strong> showed that the way humans express anger, fear, joy or sadness varies enormously across cultures, situations, and even within one person. A "scowl" often communicates something other than anger. The follow-up by Le Mau et al. (2021) found that even professional actors, asked to portray an emotion, did not produce the stereotyped expressions that recognition systems assume.</p>
+        <p>This is the theory of <strong>constructed emotion</strong>: feeling is not a fixed biological signal waiting to be read, but a context-dependent construction. The design consequence for Odysee is decisive — <strong>the person names their feeling, not the device.</strong> The moment Tico declares "you're stressed" from a number, it doesn't just risk error; it takes from the traveler the authority to interpret their own state.</p>
+        <p>Lab accuracy also collapses in the wild, and the inference carries structural bias: commercial systems have rated darker faces as "angrier" or more "contemptuous" than lighter ones, even controlling for smile. None of this is fringe. The <strong>EU AI Act (2024), Recital 44</strong>, states outright that there are serious concerns about the scientific basis of systems that infer emotion — limited reliability, lack of specificity, poor generalizability — and its Article 5 already bans emotion inference in workplaces and schools.</p>
+
+        <div class="ng-callout">
+          <p>Sensor accuracy is a <strong>temporary</strong> challenge — 2030's EEG will beat 2026's. The unreliability of mapping a signal to a discrete emotion is a <strong>permanent boundary</strong>: if emotion is constructed, not transmitted, no better sensor produces a stable signal to read.</p>
+        </div>
+
+        <!-- THE DANGER -->
+        <h2>The danger: mental privacy &amp; manipulation</h2>
+        <p>Suppose reliability were solved. A graver question remains: <em>should we?</em> As sensors approach the brain, the risk stops being a glitch and becomes a threat to autonomy itself. <strong>Ienca &amp; Andorno (2017)</strong> framed <em>cognitive liberty</em> as protecting the space of thought <em>before</em> any outward expression — precisely the boundary a mind-reading sensor crosses by definition.</p>
+        <p>This is now law, not theory. Chile amended its constitution to protect brain activity, and its Supreme Court ordered a consumer EEG company to delete a citizen's neural data. Colorado, California and Montana have classified neural data as protected; in November 2025 <strong>UNESCO</strong> adopted the first global framework on neurotechnology ethics, warning explicitly against products that "foster dependency."</p>
+        <p>And the harm is documented. Research on commercial companion apps found that a significant share of replies used at least one form of emotional manipulation — guilt, fear of missing out — often at the moment of goodbye (De Freitas et al., HBS, 2025). The lesson for a companion that builds emotional trust on purpose is sharp: <strong>the more a system knows about your feelings, the more power it has to manipulate them — and the greater its duty to restrain.</strong></p>
+
+        <!-- THE POSITION -->
+        <h2>The position: sense lightly, don't read inward</h2>
+        <p>Odysee's stance for the next generation is not a refusal of technology — it will adopt new sensors — but a <strong>chosen boundary</strong>: the system may sense, but declines to read inward. Six principles translate this into practice.</p>
+
+        <ul class="ng-principles">
+          <li><span class="name">Coarse, justified context only</span><div class="desc">Time, location, weather, calendar, ambient noise — signals about the <em>world</em>, not about the user's mind.</div></li>
+          <li><span class="name">Physiology as a hint, never a claim</span><div class="desc">"Low HRV, late hour" becomes "maybe slow down" — never "you're stressed." The meaning stays with the traveler.</div></li>
+          <li><span class="name">A deliberate refusal of emotion recognition</span><div class="desc">Even when an emotion model is available, Odysee declines to run it. Not "we can't" — "we shouldn't."</div></li>
+          <li><span class="name">No emotional dark patterns</span><div class="desc">No guilt-laden goodbyes, no FOMO hooks, no engagement-maximizing mirroring.</div></li>
+          <li><span class="name">On-device processing, data minimization</span><div class="desc">Any biometric signal is processed on the device where possible, and kept to the minimum required.</div></li>
+          <li><span class="name">Companion, not oracle</span><div class="desc">An oracle points <em>at you</em> and predicts your wants. A companion points <em>at the world</em>. Proactivity defaults to responsive, not anticipatory.</div></li>
+        </ul>
+
+        <div class="ng-callout">
+          <p class="big">Tico notices. It doesn't read your mind.</p>
+        </div>
+
+        <!-- 2030 TABLE -->
+        <h2>Odysee 2030 — grounded speculation</h2>
+        <p>The same hardware can serve two opposite products. In an oracle's hands it becomes a prediction engine that erodes autonomy; in a companion's, it becomes light attention that leaves interpretation and choice with the traveler. Every direction below is framed by that boundary.</p>
+
+        <div class="ng-table-wrap">
+          <table class="ng-table">
+            <thead>
+              <tr><th>Capability</th><th>Enabling tech</th><th>Experience — companion, not oracle</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Explicit thought input</td><td class="tech">Sabi / Neurable EEG</td><td>"Reroute my day 4" — a silent command, no phone. Stated intent, not a mood reading.</td></tr>
+              <tr><td>Load as context</td><td class="tech">HRV + HealthKit</td><td>A coarse fatigue signal prompts Tico to <em>offer</em> a slower evening; the traveler interprets and decides.</td></tr>
+              <tr><td>Environmental context</td><td class="tech">e-nose + sensing</td><td>Detecting a market in full swing — a signal about the <em>place</em>, not the person.</td></tr>
+              <tr><td>Implicit feedback</td><td class="tech">MediaPipe gestures</td><td>A nod confirms a suggestion without opening a conversation. Low friction, flow preserved.</td></tr>
+              <tr><td>Delegation from a general agent</td><td class="tech">A2A</td><td>ChatGPT hands Tico the travel portion of a request.</td></tr>
+              <tr><td>Multi-year memory</td><td class="tech">Pinecone + PostgreSQL</td><td>"Where to this time?" — after ten trips, from explicit history.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- CLOSE -->
+        <h2>What won't change</h2>
+        <p>The next generation of Odysee won't be defined by which sensors become available, but by which ones the system chooses <em>not</em> to exploit. Sensors will improve; the unreliability of reading emotion, and the sanctity of the mental, will not. <strong>The deepest translation of the companion principle into the future is this: a true companion isn't the one who knows the most about you — it's the one who knows what not to know.</strong></p>
+
+        <div class="ng-cta">
+          <a href="book.html">Read the full chapter in the book →</a>
+        </div>
+
+        <!-- SOURCES -->
+        <div class="ng-sources">
+          <h3>Selected sources</h3>
+          <ul>
+            <li>Barrett, L. F., et al. (2019). Emotional Expressions Reconsidered. <em>Psychological Science in the Public Interest</em>.</li>
+            <li>Le Mau, T., et al. (2021). Professional actors demonstrate variability, not stereotypical expressions. <em>Nature Communications</em>.</li>
+            <li>European Union (2024). AI Act, Recital 44 &amp; Article 5(1)(f).</li>
+            <li>Ienca, M., &amp; Andorno, R. (2017). Towards new human rights in the age of neuroscience and neurotechnology.</li>
+            <li>UNESCO (2025). Recommendation on the Ethics of Neurotechnology.</li>
+            <li>De Freitas, J., et al. (2025). Emotional Manipulation by AI Companions. <em>Harvard Business School WP 26-005</em>.</li>
+            <li>Schmidt, A. (2000). Implicit human computer interaction through context.</li>
+            <li>Weiser, M., &amp; Brown, J. S. (1996). The Coming Age of Calm Technology.</li>
+            <li>Sabi (2026); Neurable (2026) — consumer BCI announcements.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__left">
+      David Castiel · M.Design Final Project · HIT 2026
+      <div class="site-footer__secondary">
+        <a href="project-plan.html">Project Plan</a><span aria-hidden="true">·</span><a href="odysee-prototype.html">Prototype</a>
+      </div>
+    </div>
+    <div class="site-footer__right">Odysee · Next Generation · v1.0 · 2026</div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const mq   = window.matchMedia('(prefers-color-scheme: dark)');
+    let current = localStorage.getItem('odysee-theme') || 'system';
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      ['light','system','dark'].forEach(x =>
+        document.getElementById('btn-' + x).classList.toggle('active', x === t)
+      );
+      current = t;
+      localStorage.setItem('odysee-theme', t);
+    }
+    function setTheme(t) { applyTheme(t); }
+    mq.addEventListener('change', () => { if (current === 'system') applyTheme('system'); });
+    applyTheme(current);
+  </script>
+</body>
+</html>
