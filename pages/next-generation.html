@@ -261,7 +261,7 @@ body { overflow-x: hidden; }
     const mq   = window.matchMedia('(prefers-color-scheme: dark)');
     let current = localStorage.getItem('odysee-theme') || 'system';
     function applyTheme(t) {
-      root.setAttribute('data-theme', t);
+      root.setAttribute('data-theme', t === 'system' ? (mq.matches ? 'dark' : 'light') : t);
       ['light','system','dark'].forEach(x =>
         document.getElementById('btn-' + x).classList.toggle('active', x === t)
       );
