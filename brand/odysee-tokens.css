@@ -1,116 +1,83 @@
-/* odysee-tokens.css — Brand tokens for Odysee.
-   Drop into web, native (via codegen), or paste into Figma variables.
-   ---------------------------------------------------------------------
-   Two cascades: :root for light, [data-theme="dark"] for dark UI. */
+/* ============================================================
+   Odysee — Brand v5 design tokens  (canonical, from Tico_V5)
+   Single source of truth for the website. Import once, globally.
+   Fonts: add to <head>:
+   Latin:  https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap
+   Hebrew: https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap
+   ============================================================ */
 
-:root {
-  /* ─── Core palette ──────────────────────────────────────────────── */
-  --od-navy:       #0C1F3F;   /* Odysee Navy — primary ink           */
-  --od-navy-deep:  #08152C;   /* Pressed / shadow                     */
-  --od-red:        #B85A3E;   /* Terracotta — accent, CTAs        */
-  --od-red-deep:   #8E3D24;   /* Pressed terracotta                          */
-  --od-ivory:      #F6F4EF;   /* Page tone                            */
-  --od-paper:      #FFFFFF;   /* Pure white                           */
+:root{
+  /* --- Primary --- */
+  --od-navy:        #1d3d60;   /* Odysee Navy — primary brand colour   */
+  --od-orange:      #e5763c;   /* Tico Orange — primary accent / voice */
 
-  /* ─── Neutrals ──────────────────────────────────────────────────── */
-  --od-mist-50:    #F4F6FA;
-  --od-mist-100:   #E7EBF2;
-  --od-mist-200:   #CDD4E0;
-  --od-mist-300:   #A6AFC0;
-  --od-mist-500:   #6B7588;
-  --od-mist-700:   #3D475A;
-  --od-mist-900:   #0E1B33;
+  /* --- Navy scale (deep -> light) --- */
+  --od-navy-900:    #12273e;   /* ink / darkest surface */
+  --od-navy-800:    #173352;
+  --od-navy-700:    #1d3d60;   /* == --od-navy */
+  --od-navy-500:    #3a5d83;
+  --od-navy-300:    #8499b3;
+  --od-navy-100:    #dde4ed;
+  --od-navy-50:     #eef2f7;
 
-  /* ─── Semantic (light) ──────────────────────────────────────────── */
-  --od-bg:         var(--od-paper);
-  --od-bg-alt:     var(--od-ivory);
-  --od-bg-sunken:  var(--od-mist-50);
-  --od-fg:         var(--od-navy);
-  --od-fg-muted:   var(--od-mist-700);
-  --od-fg-subtle:  var(--od-mist-500);
-  --od-border:     var(--od-mist-100);
-  --od-border-strong: var(--od-mist-200);
+  /* --- Orange scale --- */
+  --od-orange-900:  #a4481d;
+  --od-orange-700:  #c75d29;
+  --od-orange-500:  #e5763c;   /* == --od-orange */
+  --od-orange-300:  #f0a575;
+  --od-orange-100:  #fbe3d3;
+  --od-orange-50:   #fdf2ea;
 
-  --od-accent:     var(--od-red);
-  --od-accent-fg:  var(--od-paper);
-  --od-link:       var(--od-red);
+  /* --- Sand neutrals (warm) --- */
+  --od-sand-50:     #faf6f0;   /* default light background */
+  --od-sand-100:    #f4efe7;
+  --od-sand-200:    #e9e0d2;
+  --od-sand-300:    #d6cab4;
+  --od-sand-400:    #b6a78c;
 
-  --od-success:    #1F8A5B;
-  --od-warning:    #C58A1A;
-  --od-danger:     var(--od-red);
-  --od-info:       #2A6FDB;
+  /* --- Travel accents --- */
+  --od-teal:        #2f8f93;
+  --od-teal-deep:   #1c6b6f;
+  --od-teal-light:  #9ccccd;
+  --od-sun:         #f2c14e;
+  --od-sun-light:   #f8dd96;
 
-  /* ─── Type ──────────────────────────────────────────────────────── */
-  --od-font-sans:  'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --od-font-mono:  'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  /* --- Semantic --- */
+  --od-success:     #3f9d6b;
+  --od-warning:     #e5a13c;
+  --od-error:       #d2553f;
 
-  --od-fw-regular: 400;
-  --od-fw-medium:  500;
-  --od-fw-semi:    600;
-  --od-fw-bold:    700;
-  --od-fw-heavy:   800;
+  /* --- Base --- */
+  --od-white:       #ffffff;
+  --od-ink:         #1d3d60;
 
-  /* Web type scale */
-  --od-text-display: 64px;
-  --od-text-title:   40px;
-  --od-text-h1:      32px;
-  --od-text-h2:      24px;
-  --od-text-h3:      20px;
-  --od-text-body:    16px;
-  --od-text-small:   14px;
-  --od-text-caption: 12px;
+  /* --- Signature gradient --- */
+  --od-gradient-sunset: linear-gradient(90deg, #12273e 0%, #1d3d60 38%, #e5763c 100%);
 
-  --od-leading-tight: 1.1;
-  --od-leading-snug:  1.25;
-  --od-leading-body:  1.55;
-  --od-leading-loose: 1.75;
+  /* --- Typography --- */
+  --od-font-display: "Sora", system-ui, sans-serif;            /* headlines  */
+  --od-font-body:    "Plus Jakarta Sans", system-ui, sans-serif;/* body / UI */
+  --od-font-hebrew:  "Heebo", system-ui, sans-serif;            /* Hebrew     */
+  --od-font-mono:    "JetBrains Mono", ui-monospace, monospace; /* code       */
 
-  --od-track-tight:  -0.035em;
-  --od-track-normal: -0.005em;
-  --od-track-caps:    0.30em;
+  /* --- Motion (from the design system) --- */
+  --od-ease-tico:   cubic-bezier(.34, 1.56, .64, 1);
+  --od-dur-idle:    4s;
+  --od-dur-think:   1.5s;
 
-  /* ─── Spacing (8pt grid) ────────────────────────────────────────── */
-  --od-s-1: 4px;
-  --od-s-2: 8px;
-  --od-s-3: 12px;
-  --od-s-4: 16px;
-  --od-s-5: 24px;
-  --od-s-6: 32px;
-  --od-s-7: 48px;
-  --od-s-8: 64px;
-  --od-s-9: 96px;
-
-  /* ─── Radius ────────────────────────────────────────────────────── */
-  --od-r-sm:   6px;
-  --od-r-md:   10px;
-  --od-r-lg:   16px;
-  --od-r-xl:   24px;
-  --od-r-pill: 999px;
-  /* iOS app-icon squircle uses 22.37% of the icon edge */
-  --od-r-app:  22.37%;
-
-  /* ─── Elevation ─────────────────────────────────────────────────── */
-  --od-shadow-sm: 0 1px 2px rgba(12,31,63,0.06), 0 1px 1px rgba(12,31,63,0.04);
-  --od-shadow-md: 0 6px 16px -6px rgba(12,31,63,0.16), 0 2px 4px rgba(12,31,63,0.04);
-  --od-shadow-lg: 0 24px 48px -16px rgba(12,31,63,0.22), 0 6px 12px rgba(12,31,63,0.06);
-
-  /* ─── Motion ────────────────────────────────────────────────────── */
-  --od-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --od-ease-in:  cubic-bezier(0.7, 0, 0.84, 0);
-  --od-dur-fast: 140ms;
-  --od-dur-base: 240ms;
-  --od-dur-slow: 480ms;
+  /* --- Semantic surface aliases (light = default) --- */
+  --od-bg:          var(--od-sand-50);
+  --od-surface:     var(--od-white);
+  --od-text:        var(--od-navy-900);
+  --od-text-muted:  var(--od-navy-500);
+  --od-border:      var(--od-sand-200);
 }
 
-/* ─── Dark theme ──────────────────────────────────────────────────── */
-[data-theme="dark"] {
-  --od-bg:         var(--od-navy);
-  --od-bg-alt:     var(--od-navy-deep);
-  --od-bg-sunken:  #060F22;
-  --od-fg:         var(--od-paper);
-  --od-fg-muted:   #B5BCC9;
-  --od-fg-subtle:  #6B7588;
-  --od-border:     rgba(255,255,255,0.10);
-  --od-border-strong: rgba(255,255,255,0.18);
-  --od-link:       #FF6A5F;
+/* Dark / navy surfaces (e.g. exhibition, hero, footer) */
+[data-theme="dark"]{
+  --od-bg:          var(--od-navy-900);
+  --od-surface:     var(--od-navy-800);
+  --od-text:        var(--od-sand-50);
+  --od-text-muted:  var(--od-navy-300);
+  --od-border:      var(--od-navy-700);
 }
