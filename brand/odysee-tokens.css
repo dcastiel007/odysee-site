@@ -81,3 +81,61 @@
   --od-text-muted:  var(--od-navy-300);
   --od-border:      var(--od-navy-700);
 }
+
+/* ============================================================
+   Legacy bridge — DO NOT REMOVE
+   site.css (the alias layer) and the page inline-styles still
+   reference the older --od-* token names. This block maps every
+   one of them onto the canonical V5 tokens above, so the clean
+   file is a safe SUPERSET. Without this, site.css aliases resolve
+   to nothing → black text, broken accents (the Safari symptom).
+
+   Theme-flipping names alias the flipping tokens (--od-text /
+   --od-surface / --od-border), so they auto-flip via the
+   [data-theme="dark"] block — no duplicate dark overrides needed.
+   ============================================================ */
+:root{
+  /* text / foreground (flip with theme) */
+  --od-fg:            var(--od-text);          /* navy-900 / sand-50 */
+  --od-fg-muted:      var(--od-text-muted);    /* navy-500 / navy-300 */
+  --od-fg-subtle:     var(--od-navy-300);      /* captions, TOC numbers */
+
+  /* surfaces (flip with theme) */
+  --od-bg-alt:        var(--od-surface);       /* white / navy-800 */
+  --od-bg-sunken:     var(--od-surface);       /* cards */
+  --od-border-strong: var(--od-border);        /* sand-200 / navy-700 */
+
+  /* brand accent (static) */
+  --od-red:           var(--od-orange);
+  --od-red-deep:      var(--od-orange-700);
+  --od-gold:          var(--od-orange);        /* any --od-gold callers */
+
+  /* interactive / info → V5 teal (static) */
+  --od-info:          var(--od-teal);
+
+  /* semantic (static) */
+  --od-danger:        var(--od-error);
+
+  /* dark-flip ring + paper (static; used only on dark surfaces) */
+  --od-paper:         var(--od-sand-50);
+  --od-ivory:         var(--od-sand-50);
+
+  /* mist neutrals → sand/navy (for any page still calling them) */
+  --od-mist-50:       var(--od-sand-50);
+  --od-mist-100:      var(--od-sand-100);
+  --od-mist-200:      var(--od-sand-200);
+  --od-mist-300:      var(--od-sand-300);
+  --od-mist-500:      var(--od-navy-300);
+  --od-mist-700:      var(--od-navy-500);
+  --od-mist-900:      var(--od-navy-900);
+  --od-navy-deep:     var(--od-navy-900);
+
+  /* fonts */
+  --od-font-sans:     var(--od-font-display);  /* Sora */
+
+  /* radii */
+  --od-r-sm:          6px;
+  --od-r-md:          10px;
+  --od-r-lg:          16px;
+  --od-r-xl:          24px;
+}
