@@ -9,7 +9,7 @@
  *  (adjust relative path per page depth)
  * ============================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Heebo:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&family=Heebo:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ─── Legacy variable aliases ─────────────────────────────────
    The HTML uses var(--gold), var(--text-primary), etc. in many
@@ -63,7 +63,7 @@ html {
 body {
   background: var(--od-bg);
   color: var(--od-fg);
-  font-family: var(--od-font-body);
+  font-family: var(--od-font-sans);
   font-weight: 400;
   line-height: 1.7;
   transition: background 0.25s ease, color 0.25s ease;
@@ -125,9 +125,9 @@ body {
 }
 
 /* ─── Typography ──────────────────────────────────────────── */
-h1 { font-family: var(--od-font-display); font-size: 2.25rem;  font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;  color: var(--od-fg); margin-bottom: 0.5rem; }
-h2 { font-family: var(--od-font-display); font-size: 1.5rem;   font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; color: var(--od-fg); margin-bottom: 0.4rem; }
-h3 { font-family: var(--od-font-display); font-size: 1.1rem;   font-weight: 600; color: var(--od-red); margin-bottom: 0.3rem; }
+h1 { font-size: 2.25rem;  font-weight: 800; letter-spacing: -0.025em; line-height: 1.1;  color: var(--od-fg); margin-bottom: 0.5rem; }
+h2 { font-size: 1.5rem;   font-weight: 700; letter-spacing: -0.015em; line-height: 1.25; color: var(--od-fg); margin-bottom: 0.4rem; }
+h3 { font-size: 1.1rem;   font-weight: 600; color: var(--od-red); margin-bottom: 0.3rem; }
 h4 { font-size: 0.875rem; font-weight: 500; color: var(--od-fg-muted); text-transform: uppercase; letter-spacing: 0.09em; }
 
 p { color: var(--od-fg-muted); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 1rem; }
