@@ -139,3 +139,67 @@
   --od-r-lg:          16px;
   --od-r-xl:          24px;
 }
+
+/* ============================================================
+   Legacy bridge — part 2: design vocabulary
+   The page inline-styles (next-generation, etc.) consume a full
+   spacing / type / weight / leading / tracking / motion scale that
+   lived in the v1.0 tokens and was dropped by the clean V5 file.
+   Restored verbatim from brand v1.0 (commit 0d58843). Without these,
+   margins/padding/gap collapse to 0 → crammed text (the symptom).
+   ============================================================ */
+:root{
+  /* accent (maps to V5 orange) */
+  --od-accent:        var(--od-orange);
+  --od-accent-fg:     var(--od-sand-50);
+
+  /* font weights */
+  --od-fw-regular:    400;
+  --od-fw-medium:     500;
+  --od-fw-semi:       600;
+  --od-fw-bold:       700;
+  --od-fw-heavy:      800;
+
+  /* type scale */
+  --od-text-display:  64px;
+  --od-text-title:    40px;
+  --od-text-h1:       32px;
+  --od-text-h2:       24px;
+  --od-text-h3:       20px;
+  --od-text-body:     16px;
+  --od-text-small:    14px;
+  --od-text-caption:  12px;
+
+  /* line-height */
+  --od-leading-tight: 1.1;
+  --od-leading-snug:  1.25;
+  --od-leading-body:  1.55;
+  --od-leading-loose: 1.75;
+
+  /* letter-spacing */
+  --od-track-tight:   -0.035em;
+  --od-track-normal:  -0.005em;
+  --od-track-caps:    0.30em;
+
+  /* spacing scale (8px grid) */
+  --od-s-1: 4px;
+  --od-s-2: 8px;
+  --od-s-3: 12px;
+  --od-s-4: 16px;
+  --od-s-5: 24px;
+  --od-s-6: 32px;
+  --od-s-7: 48px;
+  --od-s-8: 64px;
+  --od-s-9: 96px;
+
+  /* radii not already bridged */
+  --od-r-pill: 999px;
+  --od-r-app:  22.37%;
+
+  /* motion */
+  --od-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --od-ease-in:  cubic-bezier(0.7, 0, 0.84, 0);
+  --od-dur-fast: 140ms;
+  --od-dur-base: 240ms;
+  --od-dur-slow: 480ms;
+}
