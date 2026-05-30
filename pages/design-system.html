@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odysee — Design System — v1.0</title>
+<title>Odysee — Design System — V5</title>
 <link rel="stylesheet" href="../brand/odysee-tokens.css" />
 <link rel="stylesheet" href="../assets/css/site.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&family=Heebo:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* =================================================================
-   Odysee Design System — Brand v1.0
+   Odysee Design System — Brand V5
    Part I: Philosophy (marketing) · Part II: Storybook (technical)
    Structure follows pages/agents.html (cover + TOC + doc-section)
    ================================================================= */
 
-/* ─── Brand mark in header (Brand v1.0 — dotted trail) ─── */
+/* ─── Brand mark in header (Brand V5 — Tico face) ─── */
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -50,7 +50,7 @@
 .brand-mark__o .inner     { fill:   #FFFFFF; }
 .brand-mark__o .trail     { stroke: var(--od-navy, var(--text-primary)); }
 .brand-mark__o .cap-start { fill:   var(--od-navy, var(--text-primary)); }
-.brand-mark__o .cap-end   { fill:   var(--od-red,  var(--gold)); }
+.brand-mark__o .cap-end   { fill:   #E5763C; }
 [data-theme="dark"] .brand-mark__o .ring { stroke: var(--od-paper, var(--text-primary)); }
 
 /* Footer secondary nav */
@@ -89,7 +89,7 @@
   content: '';
   position: absolute;
   width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(184,90,62,0.06) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(229,118,60,0.06) 0%, transparent 65%);
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -124,15 +124,15 @@
   color: var(--od-fg, var(--text-primary));
   line-height: 0.9;
 }
-.hero-mark__o .ring      { stroke: var(--od-navy, var(--text-primary)); }
-.hero-mark__o .inner     { fill:   #FFFFFF; }
-.hero-mark__o .trail     { stroke: var(--od-navy, var(--text-primary)); }
-.hero-mark__o .cap-start { fill:   var(--od-navy, var(--text-primary)); }
-.hero-mark__o .cap-end   { fill:   var(--od-red,  var(--gold)); }
-/* Dark: flip only the ring to white (like the header). Fill stays white,
-   trail + start stay navy so the dotted arc reads against the white disc.
-   Flipping trail/start to white here was the bug — white-on-white = invisible. */
-[data-theme="dark"] .hero-mark__o .ring   { stroke: var(--od-paper, var(--text-primary)); }
+/* Tico face — mirrors the header (.brand-mark__o) exactly: same vars, same
+   fallback chain, so header and hero render identically. Schema unification
+   (site.css) is the real fix; until then, share the header's working hooks. */
+.hero-mark__o .ring    { stroke: var(--od-navy, var(--text-primary)); }
+.hero-mark__o .cap-end { fill:   #E5763C; }
+[data-theme="dark"] .hero-mark__o .ring { stroke: var(--od-paper, var(--text-primary)); }
+/* Brand-mark blueprints (The Mark): strokes flip navy -> sand-white with theme, no disc */
+.bp-stroke { stroke: #1D3D60; }
+[data-theme="dark"] .bp-stroke { stroke: #FAF6F0; }
 
 .cover-sub {
   font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif);
@@ -493,13 +493,13 @@
   margin-bottom: 6px;
 }
 .voice-card .example.yes {
-  background: rgba(78,205,196,0.08);
-  border-left: 2px solid #4ECDC4;
+  background: rgba(47,143,147,0.08);
+  border-left: 2px solid #2F8F93;
   color: var(--text-primary);
 }
 .voice-card .example.no {
-  background: rgba(224,90,95,0.06);
-  border-left: 2px solid #E05A5F;
+  background: rgba(210,85,63,0.06);
+  border-left: 2px solid #D2553F;
   color: var(--text-muted);
   opacity: 0.85;
 }
@@ -510,8 +510,8 @@
   text-transform: uppercase;
   margin-right: 6px;
 }
-.voice-card .example.yes b { color: #4ECDC4; }
-.voice-card .example.no b { color: #E05A5F; }
+.voice-card .example.yes b { color: #2F8F93; }
+.voice-card .example.no b { color: #D2553F; }
 
 /* ─── Philosophy: principles list ─── */
 .principles {
@@ -667,7 +667,7 @@
   letter-spacing: 0.02em;
 }
 .type-row .meta .tag {
-  background: rgba(184,90,62,0.12);
+  background: rgba(229,118,60,0.12);
   color: var(--od-red, var(--gold));
   padding: 1px 8px;
   border-radius: 10px;
@@ -679,19 +679,19 @@
 }
 .t-display {
   font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif);
-  font-size: 44px; font-weight: 800;
+  font-size: 64px; font-weight: 800;
   letter-spacing: -0.035em; line-height: 1;
 }
 .t-h1   { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 32px; font-weight: 700; letter-spacing: -0.02em; }
-.t-h2   { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 22px; font-weight: 500; }
-.t-h3   { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 16px; font-weight: 500; color: var(--od-red, var(--gold)); }
-.t-body { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--text-secondary); }
-.t-label { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--od-red, var(--gold)); }
-.t-caption { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 11px; color: var(--text-muted); }
-.t-mono { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 13px; color: #4ECDC4; }
+.t-h2   { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 24px; font-weight: 600; }
+.t-h3   { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 20px; font-weight: 600; color: var(--od-red, #E5763C); }
+.t-body { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 16px; font-weight: 400; line-height: 1.55; color: var(--text-secondary); }
+.t-label { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 12px; font-weight: 500; letter-spacing: 0.30em; text-transform: uppercase; color: var(--od-red, #E5763C); }
+.t-caption { font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif); font-size: 12px; color: var(--text-muted); }
+.t-mono { font-family: var(--font-mono, 'JetBrains Mono', monospace); font-size: 13px; color: #2F8F93; }
 .t-heb-disp { font-family: 'Heebo', 'Noto Sans Hebrew', system-ui, sans-serif; font-size: 38px; font-weight: 800; }
 .t-heb-h1   { font-family: 'Heebo', 'Noto Sans Hebrew', system-ui, sans-serif; font-size: 28px; font-weight: 700; }
-.t-heb-body { font-family: 'Heebo', 'Noto Sans Hebrew', system-ui, sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--text-secondary); }
+.t-heb-body { font-family: 'Heebo', 'Noto Sans Hebrew', system-ui, sans-serif; font-size: 16px; font-weight: 400; line-height: 1.55; color: var(--text-secondary); }
 
 /* Spacing */
 .spacing-row {
@@ -710,7 +710,7 @@
 .spacing-token {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
-  color: #4ECDC4;
+  color: #2F8F93;
   min-width: 100px;
 }
 .spacing-px {
@@ -789,11 +789,11 @@
 .btn-primary { background: var(--od-red, var(--gold)); color: var(--od-paper, #FFFFFF); }
 .btn-primary:hover { filter: brightness(1.08); }
 .btn-secondary { background: transparent; color: var(--od-red, var(--gold)); border-color: var(--od-red, var(--gold)); }
-.btn-secondary:hover { background: rgba(184,90,62,0.10); }
+.btn-secondary:hover { background: rgba(229,118,60,0.10); }
 .btn-ghost { background: transparent; color: var(--text-secondary); border-color: var(--border); }
 .btn-ghost:hover { color: var(--text-primary); border-color: var(--text-secondary); }
-.btn-danger { background: transparent; color: #E05A5F; border-color: #E05A5F; }
-.btn-danger:hover { background: rgba(224,90,95,0.10); }
+.btn-danger { background: transparent; color: #D2553F; border-color: #D2553F; }
+.btn-danger:hover { background: rgba(210,85,63,0.10); }
 .btn-sm { font-size: 11px; padding: 6px 13px; }
 .btn-lg { font-size: 15px; padding: 13px 28px; border-radius: 10px; }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
@@ -810,16 +810,16 @@
   padding: 3px 11px;
   border-radius: 20px;
 }
-.pill-key     { background: rgba(184,90,62,0.18); color: #B85A3E; }
-.pill-design  { background: rgba(124,111,205,0.14); color: #7C6FCD; }
-.pill-dev     { background: rgba(78,205,196,0.14);  color: #4ECDC4; }
-.pill-impl    { background: rgba(78,205,196,0.08);  color: #4ECDC4; }
-.pill-qa      { background: rgba(248,183,67,0.14);  color: #F8B743; }
-.pill-content { background: rgba(184,90,62,0.10);   color: #B85A3E; }
-.pill-docs    { background: rgba(124,111,205,0.14); color: #7C6FCD; }
-.pill-fix     { background: rgba(224,90,95,0.14);   color: #E05A5F; }
-.pill-submit  { background: rgba(184,90,62,0.24);   color: #B85A3E; }
-.pill-live    { background: rgba(184,90,62,0.22);   color: #B85A3E; }
+.pill-key     { background: rgba(229,118,60,0.16); color: #E5763C; }
+.pill-design  { background: rgba(242,193,78,0.18); color: #F2C14E; }
+.pill-dev     { background: rgba(47,143,147,0.14); color: #2F8F93; }
+.pill-impl    { background: rgba(28,107,111,0.12); color: #1C6B6F; }
+.pill-qa      { background: rgba(229,161,60,0.16); color: #E5A13C; }
+.pill-content { background: rgba(229,118,60,0.10); color: #E5763C; }
+.pill-docs    { background: rgba(58,93,131,0.14);  color: #3A5D83; }
+.pill-fix     { background: rgba(210,85,63,0.14);  color: #D2553F; }
+.pill-submit  { background: rgba(229,118,60,0.24); color: #E5763C; }
+.pill-live    { background: rgba(229,118,60,0.22); color: #E5763C; }
 
 /* Components — Cards */
 .card-grid {
@@ -835,7 +835,7 @@
   padding: 24px;
   transition: border-color 0.2s ease;
 }
-.ds-card:hover { border-color: rgba(184,90,62,0.4); }
+.ds-card:hover { border-color: rgba(229,118,60,0.4); }
 .ds-card .eyebrow {
   font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif);
   font-size: 9px;
@@ -895,13 +895,13 @@
 }
 .ds-input:focus { border-color: var(--od-red, var(--gold)); }
 .ds-input::placeholder { color: var(--text-muted); }
-.ds-input.error { border-color: #E05A5F; }
+.ds-input.error { border-color: #D2553F; }
 .input-hint {
   font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif);
   font-size: 11px;
   color: var(--text-muted);
 }
-.input-hint.error { color: #E05A5F; }
+.input-hint.error { color: #D2553F; }
 
 /* Components — Tables */
 .ds-table-wrap { overflow-x: auto; margin-top: 24px; }
@@ -932,7 +932,7 @@
 .ds-table .td-mono {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
-  color: #4ECDC4;
+  color: #2F8F93;
 }
 .ds-table .td-primary { color: var(--text-primary); font-weight: 500; }
 
@@ -953,9 +953,9 @@
 .ds-notif .title { font-weight: 500; margin-bottom: 2px; }
 .ds-notif .msg { font-size: 12px; opacity: 0.85; }
 .notif-info    { background: rgba(42,111,219,0.08); border-color: var(--od-info,    #2A6FDB); color: var(--od-info,    #2A6FDB); }
-.notif-success { background: rgba(31,138,91,0.10);  border-color: var(--od-success, #1F8A5B); color: var(--od-success, #1F8A5B); }
-.notif-warn    { background: rgba(197,138,26,0.10); border-color: var(--od-warning, #C58A1A); color: var(--od-warning, #C58A1A); }
-.notif-error   { background: rgba(184,90,62,0.10);  border-color: var(--od-danger,  #B85A3E); color: var(--od-danger,  #B85A3E); }
+.notif-success { background: rgba(63,157,107,0.10);  border-color: var(--od-success, #3F9D6B); color: var(--od-success, #3F9D6B); }
+.notif-warn    { background: rgba(229,161,60,0.10); border-color: var(--od-warning, #E5A13C); color: var(--od-warning, #E5A13C); }
+.notif-error   { background: rgba(210,85,63,0.10);  border-color: var(--od-error, #D2553F); color: var(--od-error, #D2553F); }
 
 /* Status table */
 .status-row {
@@ -999,7 +999,7 @@
   transition: all 0.2s ease;
   cursor: pointer;
 }
-.icon-cell:hover { border-color: var(--od-red, var(--gold)); background: rgba(184,90,62,0.06); }
+.icon-cell:hover { border-color: var(--od-red, var(--gold)); background: rgba(229,118,60,0.06); }
 .icon-cell svg { width: 22px; height: 22px; color: var(--od-red, var(--gold)); }
 .icon-cell span {
   font-family: var(--od-font-sans, 'Sora', system-ui, sans-serif);
@@ -1025,9 +1025,9 @@
   line-height: 1.75;
   margin: 0;
 }
-.c-key    { color: #B85A3E; }
-.c-val    { color: #4ECDC4; }
-.c-prop   { color: #7C6FCD; }
+.c-key    { color: #E5763C; }
+.c-val    { color: #2F8F93; }
+.c-prop   { color: #3A5D83; }
 .c-cmt    { color: #4A5568; }
 
 /* doc-foot reused from agents.html */
@@ -1054,7 +1054,7 @@
 
 body { overflow-x: hidden; }
 </style>
-<meta name="version" content="v1.0">
+<meta name="version" content="V5">
 </head>
 <body>
 
@@ -1089,17 +1089,15 @@ body { overflow-x: hidden; }
 
 <!-- ─── COVER ─── -->
 <div class="cover">
-  <div class="cover-tag">Brand System · v1.0 · 2026</div>
+  <div class="cover-tag">Brand System · V5 · 2026</div>
 
   <div class="hero-mark">
-    <svg class="hero-mark__o" viewBox="0 0 100 100" aria-hidden="true">
-      <circle class="inner" cx="50" cy="50" r="45.4"/>
-      <circle class="ring"  cx="50" cy="50" r="45.4" fill="none" stroke-width="9.2"/>
-      <g transform="rotate(-32 50 50)">
-        <path class="trail" d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-        <circle class="cap-start" cx="26" cy="50" r="3.6"/>
-        <circle class="cap-end"   cx="74" cy="50" r="5.4"/>
-      </g>
+    <svg class="hero-mark__o" viewBox="0 0 1000 1000" aria-hidden="true" fill="none">
+      <path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+      <path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+      <path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+      <circle class="cap-end" cx="725" cy="399" r="48"/>
+      <circle class="cap-end" cx="300" cy="399" r="48"/>
     </svg>
     <span class="hero-mark__text">dysee</span>
   </div>
@@ -1165,10 +1163,10 @@ body { overflow-x: hidden; }
     </div>
     <div>
       <p>
-        The mark sits where the 'O' should be — a roundel containing a dotted trail.
-        The brand and the word are the same thing: <em class="em">[roundel]dysee</em>.
-        Travel is built from discrete steps, not from a single unbroken line, and the name
-        carries that idea before you've read a word of copy.
+        The mark sits where the 'O' should be — the Tico face.
+        The brand and the word are the same thing: <em class="em">[face]dysee</em>.
+        Tico looks out from inside the name itself — a companion present in the word
+        before you've read a line of copy.
       </p>
       <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">
         Always written in Latin script — even within Hebrew text. Never transliterated.
@@ -1184,52 +1182,65 @@ body { overflow-x: hidden; }
   <h2>The Mark</h2>
   <span class="h2-he">הסמל</span>
   <p class="lead">
-    A circle, a trail, two points. The roundel is the world. The trail is the journey across it.
+    A circle, two lenses, two points of attention. The circle is Tico. The pupils look out at the world — with you, not at you.
   </p>
   <p>
-    Twenty-four short dashes arc through 48 degrees of the lower hemisphere, rotated −32° so the
-    path reads as motion — not a smile. The start point is navy, small and certain: where you are.
-    The end point is terracotta, larger and warmer: where you're going. The arc is dotted because
-    travel is built from intervals — a flight, a city, a meal, a morning — not a continuous line.
+    The face is one outer circle and two lenses, with two pupils that always sit in Tico Orange. The pupils
+    point outward — at the world you're moving through — never inward at the person using it. A mouth appears
+    only when Tico speaks; the rest of the time the face is simply present and attentive. This settles a tension
+    that runs through the project: a companion is not an oracle. The face shows Tico's own state and looks out at
+    the world. It senses lightly, and refuses to read inward.
   </p>
 
   <div class="mark-anatomy">
     <div>
       <svg viewBox="0 0 300 300" width="300" height="300" aria-hidden="true">
-        <!-- Construction guides -->
-        <circle cx="150" cy="150" r="136" fill="none" stroke="rgba(184,90,62,0.18)" stroke-width="0.5" stroke-dasharray="2 4"/>
-        <line x1="14" y1="150" x2="286" y2="150" stroke="rgba(184,90,62,0.15)" stroke-width="0.5" stroke-dasharray="2 4"/>
-        <line x1="150" y1="14" x2="150" y2="286" stroke="rgba(184,90,62,0.15)" stroke-width="0.5" stroke-dasharray="2 4"/>
-
-        <!-- The mark itself, scaled 3x -->
-        <circle cx="150" cy="150" r="136.2" fill="#FFFFFF" stroke="var(--od-navy, #0C1F3F)" stroke-width="27.6"/>
-        <g transform="rotate(-32 150 150)">
-          <path d="M 78 150 A 72 72 0 0 0 222 150" fill="none" stroke="var(--od-navy, #0C1F3F)" stroke-width="19.5" stroke-linecap="round" stroke-dasharray="0.3 36"/>
-          <circle cx="78" cy="150" r="10.8" fill="var(--od-navy, #0C1F3F)"/>
-          <circle cx="222" cy="150" r="16.2" fill="var(--od-red, #B85A3E)"/>
+        <!-- The mark itself (canonical geometry, viewBox 1000 scaled to fit) -->
+        <g transform="translate(20,20) scale(0.26)">
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+          <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+          <circle cx="300" cy="399" r="48" fill="#E5763C"/>
         </g>
-
         <!-- Annotations -->
-        <text x="148" y="58" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#B85A3E" letter-spacing="1">r = 45.4 · sw = 9.2</text>
-        <text x="148" y="295" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" fill="#B85A3E" letter-spacing="1">rotate(-32°)</text>
+        <text x="150" y="30" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#E5763C" letter-spacing="1">stroke 50 · navy</text>
+        <text x="150" y="288" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#E5763C" letter-spacing="1">pupils r 48 · orange</text>
       </svg>
+
+      <!-- Speaking state: the mouth appears only here -->
+      <div style="display:flex; align-items:center; gap:14px; margin-top:18px;">
+        <svg viewBox="0 0 120 120" width="84" height="84" aria-hidden="true">
+          <g transform="translate(8,8) scale(0.104)">
+            <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+            <ellipse cx="500" cy="734" rx="64" ry="44" fill="#E5763C"/>
+            <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+            <circle cx="300" cy="399" r="48" fill="#E5763C"/>
+          </g>
+        </svg>
+        <div>
+          <p style="font-family:var(--od-font-sans,'Sora',system-ui,sans-serif); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--od-red,#E5763C); margin:0 0 4px;">Speaking state</p>
+          <p style="font-size:13px; line-height:1.55; color:var(--text-secondary,#6B6560); margin:0;">The mouth appears only when Tico speaks. The static mark has no mouth.</p>
+        </div>
+      </div>
     </div>
     <dl class="anatomy-notes">
-      <dt>Roundel</dt>
-      <dd>r = 45.4, stroke 9.2. White interior so the trail reads against any surface — page, video, sticker.</dd>
-      <dt>Trail Arc</dt>
-      <dd>M 26 50 A 24 24 0 0 0 74 50. Dasharray <code style="font-family:var(--font-mono);font-size:11px;color:#4ECDC4">0.1 12</code> = round caps with wide gaps. Rotated −32° so it reads as motion, not a smile.</dd>
-      <dt>Start · Navy</dt>
-      <dd>r = 3.6. Small, certain. The pinpoint of <em>here</em>.</dd>
-      <dt>Destination · Terracotta</dt>
-      <dd>r = 5.4. Larger, warmer. The gravity of <em>there</em> — the place pulling the journey forward.</dd>
+      <dt>Face circle</dt>
+      <dd>Outer ring, stroke 50. Navy on light, sand-white on dark. Tico — present, attentive.</dd>
+      <dt>Lenses</dt>
+      <dd>Two eye forms. How Tico takes in the world around you.</dd>
+      <dt>Pupils · Orange</dt>
+      <dd>r = 48 at (725,399) and (300,399). Always Tico Orange. The point of attention — aimed outward.</dd>
+      <dt>Mouth</dt>
+      <dd>Appears only in the speaking state — never in the static mark. Silent by default.</dd>
     </dl>
   </div>
 
   <p style="margin-top:32px;">
-    The wordmark replaces the 'O' of Odysee with the roundel itself. The brand mark and the word
-    are not separate elements that sit beside each other — they share a glyph. There is no version
-    of the name without the mark.
+    The wordmark replaces the 'O' of Odysee with the face itself. The mark and the word are not separate
+    elements that sit beside each other — they share a glyph. There is no version of the name without the face.
   </p>
 </div>
 
@@ -1239,48 +1250,49 @@ body { overflow-x: hidden; }
   <h2>The Palette</h2>
   <span class="h2-he">הפלטה</span>
   <p class="lead">
-    Navy. Terracotta. Ivory. Night sky over warm earth, with the paper that holds them.
+    Navy. Tico Orange. Sand. A cool night sky, one warm point of life, and the warm paper that holds them both.
   </p>
   <p>
-    The combination is older than design — it's how almost every culture has rendered the
-    contrast between the technological and the human. <em class="em">Navy</em> is the system:
-    precise, dark, cool. <em class="em">Terracotta</em> is the traveler: warm, human, slightly
-    imperfect. <em class="em">Ivory</em> is the page that lets both speak.
+    The contrast is older than design — it's how almost every culture has rendered the difference
+    between the technological and the human. <em class="em">Navy</em> is the system: precise, dark,
+    cool. <em class="em">Tico Orange</em> is the companion's voice: warm, human, alive — the single
+    point of attention on the page. <em class="em">Sand</em> is the surface that lets both speak.
   </p>
 
   <div class="palette-story">
     <div class="palette-card">
-      <div class="swatch" style="background:#0C1F3F;"></div>
+      <div class="swatch" style="background:#1D3D60;"></div>
       <div class="label-block">
         <div class="name">Navy</div>
-        <div class="hex">#0C1F3F</div>
-        <div class="meaning">The system. Precise, dark, cool. Carries the logo at rest, anchors dark surfaces, frames the work.</div>
+        <div class="hex">#1D3D60</div>
+        <div class="meaning">The system. Precise, dark, cool. Carries the mark at rest, anchors dark surfaces, frames the work.</div>
       </div>
     </div>
     <div class="palette-card">
-      <div class="swatch" style="background:#B85A3E;"></div>
+      <div class="swatch" style="background:#E5763C;"></div>
       <div class="label-block">
-        <div class="name">Terracotta</div>
-        <div class="hex">#B85A3E</div>
-        <div class="meaning">The traveler. Warm, human, slightly imperfect. Used for action, accent, the destination cap — never for body text.</div>
+        <div class="name">Tico Orange</div>
+        <div class="hex">#E5763C</div>
+        <div class="meaning">The companion's voice. Warm, human, alive. Interactive elements, CTAs, the pupils — never body text.</div>
       </div>
     </div>
     <div class="palette-card">
-      <div class="swatch" style="background:#F6F4EF; border-bottom:1px solid var(--border);"></div>
+      <div class="swatch" style="background:#FAF6F0; border-bottom:1px solid var(--border);"></div>
       <div class="label-block">
-        <div class="name">Ivory</div>
-        <div class="hex">#F6F4EF</div>
-        <div class="meaning">The page. Light, warm, restful. Not white — paper. Default surface in light mode, text on dark surfaces.</div>
+        <div class="name">Sand</div>
+        <div class="hex">#FAF6F0</div>
+        <div class="meaning">The page. Light, warm, restful. Not white — warm paper. Default light surface, and the warm-white the mark flips to on dark.</div>
       </div>
     </div>
   </div>
 
   <p style="margin-top:32px;">
-    Around these three sit a quiet family of mist neutrals (50→900) for surfaces and text, and a
-    functional signal layer — <em class="em">blue</em> for info, <em class="em">green</em> for success,
-    <em class="em">amber</em> for warnings, <em class="em">terracotta</em> for errors — defined as semantic
-    tokens outside the brand palette. Teal and purple survive only as a project-management overlay in the
-    status tracker, not as product colour. The signals appear sparingly. The brand is the three.
+    Around these three sit a warm family of <em class="em">Sand</em> neutrals (50→400) for surfaces and
+    text, two travel accents — <em class="em">teal</em> and <em class="em">sun</em> — for wayfinding
+    moments, and a functional signal layer: <em class="em">green</em> for success, <em class="em">amber</em>
+    for warnings, a distinct <em class="em">red</em> for errors — defined as semantic tokens outside the
+    brand palette. Purple is retired; orange now carries the warmth it used to hint at. The signals appear
+    sparingly. The brand is the three.
   </p>
 </div>
 
@@ -1393,7 +1405,7 @@ body { overflow-x: hidden; }
   <div class="title">Storybook</div>
   <div class="sub">
     Reference for the tokens, components, and patterns that make up the working system.
-    Every value below is exported from <code style="font-family:var(--font-mono);color:#4ECDC4;font-size:13px">brand/odysee-tokens.css</code>.
+    Every value below is exported from <code style="font-family:var(--font-mono);color:#2F8F93;font-size:13px">brand/odysee-tokens.css</code>.
   </div>
 </div>
 
@@ -1407,87 +1419,77 @@ body { overflow-x: hidden; }
   <h2>Logo &amp; Brand Mark</h2>
   <span class="h2-he">לוגו וסמל</span>
   <p>
-    The brand mark is a roundel with a dotted trail. Construction specs:
-    inner circle <em class="em">r=45.4</em>, outer ring <em class="em">stroke-width=9.2</em>,
-    trail arc <em class="em">M 26 50 A 24 24 0 0 0 74 50</em> with
-    <em class="em">dasharray "0.1 12"</em> rotated <em class="em">-32°</em>. Start cap
-    <em class="em">r=3.6</em> (navy), destination cap <em class="em">r=5.4</em> (terracotta).
+    The brand mark is the Tico face — one outer circle, two lenses, two pupils. Construction specs
+    (viewBox 1000): three structural strokes at <em class="em">stroke-width=50</em>, pupils
+    <em class="em">r=48</em> at <em class="em">(725,399)</em> and <em class="em">(300,399)</em>.
+    Structural strokes are navy on light, sand-white on dark; pupils are <em class="em">always Tico Orange</em>.
+    A mouth ellipse appears only in the speaking state.
   </p>
 
   <h3>Wordmark</h3>
   <p>
-    The roundel replaces the 'O' of Odysee. Sora 800, letter-spacing
+    The face replaces the 'O' of Odysee. Sora 800, letter-spacing
     <em class="em">−0.035em</em>. Always lockup — never separated.
   </p>
 
   <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;">
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:36px 48px;display:flex;align-items:center;gap:4px;">
-      <svg width="58" height="58" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="45.4" fill="#FFFFFF"/>
-        <circle cx="50" cy="50" r="45.4" fill="none" stroke="#0C1F3F" stroke-width="9.2"/>
-        <g transform="rotate(-32 50 50)">
-          <path d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke="#0C1F3F" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-          <circle cx="26" cy="50" r="3.6" fill="#0C1F3F"/>
-          <circle cx="74" cy="50" r="5.4" fill="#B85A3E"/>
-        </g>
+    <div style="background:#FAF6F0;border:1px solid var(--border);border-radius:12px;padding:36px 48px;display:flex;align-items:center;gap:4px;">
+      <svg width="58" height="58" viewBox="0 0 1000 1000" aria-hidden="true">
+        <path stroke="#1D3D60" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+        <path stroke="#1D3D60" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+        <path stroke="#1D3D60" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+        <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+        <circle cx="300" cy="399" r="48" fill="#E5763C"/>
       </svg>
-      <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.035em;color:#0C1F3F;">dysee</span>
+      <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.035em;color:#1D3D60;">dysee</span>
     </div>
-    <div style="background:#0C1F3F;border:1px solid var(--border);border-radius:12px;padding:36px 48px;display:flex;align-items:center;gap:4px;">
-      <svg width="58" height="58" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="45.4" fill="#FFFFFF"/>
-        <circle cx="50" cy="50" r="45.4" fill="none" stroke="#F6F4EF" stroke-width="9.2"/>
-        <g transform="rotate(-32 50 50)">
-          <path d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke="#F6F4EF" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-          <circle cx="26" cy="50" r="3.6" fill="#F6F4EF"/>
-          <circle cx="74" cy="50" r="5.4" fill="#B85A3E"/>
-        </g>
+    <div style="background:#12273E;border:1px solid var(--border);border-radius:12px;padding:36px 48px;display:flex;align-items:center;gap:4px;">
+      <svg width="58" height="58" viewBox="0 0 1000 1000" aria-hidden="true">
+        <path stroke="#FAF6F0" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+        <path stroke="#FAF6F0" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+        <path stroke="#FAF6F0" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+        <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+        <circle cx="300" cy="399" r="48" fill="#E5763C"/>
       </svg>
-      <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.035em;color:#F6F4EF;">dysee</span>
+      <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:48px;letter-spacing:-0.035em;color:#FAF6F0;">dysee</span>
     </div>
   </div>
 
-  <h3>Roundel-only</h3>
-  <p>Use the roundel alone where the wordmark would compete or wouldn't fit — favicons, avatars, app icons, watermarks at small sizes.</p>
+  <h3>Mark-only</h3>
+  <p>Use the face alone where the wordmark would compete or wouldn't fit — favicons, avatars, app icons, watermarks at small sizes.</p>
   <div style="display:flex;gap:20px;align-items:flex-end;margin-top:24px;flex-wrap:wrap;">
     <div style="text-align:center;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;">
-        <svg width="96" height="96" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="45.4" fill="#FFFFFF"/>
-          <circle cx="50" cy="50" r="45.4" fill="none" stroke="#0C1F3F" stroke-width="9.2"/>
-          <g transform="rotate(-32 50 50)">
-            <path d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke="#0C1F3F" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-            <circle cx="26" cy="50" r="3.6" fill="#0C1F3F"/>
-            <circle cx="74" cy="50" r="5.4" fill="#B85A3E"/>
-          </g>
+        <svg width="96" height="96" viewBox="0 0 1000 1000" aria-hidden="true">
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+          <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+          <circle cx="300" cy="399" r="48" fill="#E5763C"/>
         </svg>
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:6px;">96 px</div>
     </div>
     <div style="text-align:center;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;">
-        <svg width="56" height="56" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="45.4" fill="#FFFFFF"/>
-          <circle cx="50" cy="50" r="45.4" fill="none" stroke="#0C1F3F" stroke-width="9.2"/>
-          <g transform="rotate(-32 50 50)">
-            <path d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke="#0C1F3F" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-            <circle cx="26" cy="50" r="3.6" fill="#0C1F3F"/>
-            <circle cx="74" cy="50" r="5.4" fill="#B85A3E"/>
-          </g>
+        <svg width="56" height="56" viewBox="0 0 1000 1000" aria-hidden="true">
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+          <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+          <circle cx="300" cy="399" r="48" fill="#E5763C"/>
         </svg>
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:6px;">56 px</div>
     </div>
     <div style="text-align:center;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;">
-        <svg width="32" height="32" viewBox="0 0 100 100" aria-hidden="true">
-          <circle cx="50" cy="50" r="45.4" fill="#FFFFFF"/>
-          <circle cx="50" cy="50" r="45.4" fill="none" stroke="#0C1F3F" stroke-width="9.2"/>
-          <g transform="rotate(-32 50 50)">
-            <path d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke="#0C1F3F" stroke-width="6.5" stroke-linecap="round" stroke-dasharray="0.1 12"/>
-            <circle cx="26" cy="50" r="3.6" fill="#0C1F3F"/>
-            <circle cx="74" cy="50" r="5.4" fill="#B85A3E"/>
-          </g>
+        <svg width="32" height="32" viewBox="0 0 1000 1000" aria-hidden="true">
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>
+          <path class="bp-stroke" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>
+          <circle cx="725" cy="399" r="48" fill="#E5763C"/>
+          <circle cx="300" cy="399" r="48" fill="#E5763C"/>
         </svg>
       </div>
       <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-muted);margin-top:6px;">32 px</div>
@@ -1501,68 +1503,95 @@ body { overflow-x: hidden; }
   <h2>Colors</h2>
   <span class="h2-he">צבעים</span>
   <p>
-    Brand foundation, mist neutrals (cool blue-grey, seven steps), and signal accents.
-    Click any swatch to copy hex.
+    Brand foundation, warm Sand neutrals (five steps), travel accents, and the project-tracker
+    status overlay. Click any swatch to copy hex.
   </p>
 
   <div class="color-group-label">Foundation · יסוד</div>
   <div class="color-grid">
-    <div class="color-swatch" onclick="copyColor('#0C1F3F')">
-      <div class="swatch-block" style="background:#0C1F3F;"></div>
-      <div class="swatch-info"><div class="swatch-name">Navy</div><div class="swatch-hex">#0C1F3F</div></div>
+    <div class="color-swatch" onclick="copyColor('#1D3D60')">
+      <div class="swatch-block" style="background:#1D3D60;"></div>
+      <div class="swatch-info"><div class="swatch-name">Navy</div><div class="swatch-hex">#1D3D60</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#08152C')">
-      <div class="swatch-block" style="background:#08152C;"></div>
-      <div class="swatch-info"><div class="swatch-name">Navy Deep — pressed</div><div class="swatch-hex">#08152C</div></div>
+    <div class="color-swatch" onclick="copyColor('#12273E')">
+      <div class="swatch-block" style="background:#12273E;"></div>
+      <div class="swatch-info"><div class="swatch-name">Navy Deep — pressed</div><div class="swatch-hex">#12273E</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#B85A3E')">
-      <div class="swatch-block" style="background:#B85A3E;"></div>
-      <div class="swatch-info"><div class="swatch-name">Terracotta</div><div class="swatch-hex">#B85A3E</div></div>
+    <div class="color-swatch" onclick="copyColor('#E5763C')">
+      <div class="swatch-block" style="background:#E5763C;"></div>
+      <div class="swatch-info"><div class="swatch-name">Tico Orange</div><div class="swatch-hex">#E5763C</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#8E3D24')">
-      <div class="swatch-block" style="background:#8E3D24;"></div>
-      <div class="swatch-info"><div class="swatch-name">Terracotta Deep — pressed</div><div class="swatch-hex">#8E3D24</div></div>
+    <div class="color-swatch" onclick="copyColor('#C75D29')">
+      <div class="swatch-block" style="background:#C75D29;"></div>
+      <div class="swatch-info"><div class="swatch-name">Orange Deep — pressed</div><div class="swatch-hex">#C75D29</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#F6F4EF')">
-      <div class="swatch-block" style="background:#F6F4EF; border-bottom:1px solid var(--border);"></div>
-      <div class="swatch-info"><div class="swatch-name">Ivory — page tone</div><div class="swatch-hex">#F6F4EF</div></div>
+    <div class="color-swatch" onclick="copyColor('#FAF6F0')">
+      <div class="swatch-block" style="background:#FAF6F0; border-bottom:1px solid var(--border);"></div>
+      <div class="swatch-info"><div class="swatch-name">Sand — page tone</div><div class="swatch-hex">#FAF6F0</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#FFFFFF')">
       <div class="swatch-block" style="background:#FFFFFF; border-bottom:1px solid var(--border);"></div>
-      <div class="swatch-info"><div class="swatch-name">Paper — pure white</div><div class="swatch-hex">#FFFFFF</div></div>
+      <div class="swatch-info"><div class="swatch-name">White — pure white</div><div class="swatch-hex">#FFFFFF</div></div>
     </div>
   </div>
 
-  <div class="color-group-label">Mist Neutrals · נייטרלים · 50 → 900</div>
-  <p style="font-size:12px;color:var(--text-muted);margin-top:-8px;">Cool blue-grey scale for surfaces, borders, and text hierarchy across both themes. Source: <code style="font-family:var(--font-mono);font-size:11px;color:#4ECDC4">odysee-tokens.css</code>.</p>
-  <div class="mist-grid">
-    <div class="mist-cell" onclick="copyColor('#F4F6FA')"><div class="block" style="background:#F4F6FA;border-bottom:1px solid var(--border);"></div><div class="meta"><div class="step">50</div><div class="hex">#F4F6FA</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#E7EBF2')"><div class="block" style="background:#E7EBF2;"></div><div class="meta"><div class="step">100</div><div class="hex">#E7EBF2</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#CDD4E0')"><div class="block" style="background:#CDD4E0;"></div><div class="meta"><div class="step">200</div><div class="hex">#CDD4E0</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#A6AFC0')"><div class="block" style="background:#A6AFC0;"></div><div class="meta"><div class="step">300</div><div class="hex">#A6AFC0</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#6B7588')"><div class="block" style="background:#6B7588;"></div><div class="meta"><div class="step">500</div><div class="hex">#6B7588</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#3D475A')"><div class="block" style="background:#3D475A;"></div><div class="meta"><div class="step">700</div><div class="hex">#3D475A</div></div></div>
-    <div class="mist-cell" onclick="copyColor('#0E1B33')"><div class="block" style="background:#0E1B33;"></div><div class="meta"><div class="step">900</div><div class="hex">#0E1B33</div></div></div>
+  <div class="color-group-label">Sand Neutrals · נייטרלים · 50 → 400</div>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:-8px;">Warm neutral scale for surfaces, borders, and text hierarchy across both themes. Source: <code style="font-family:var(--font-mono);font-size:11px;color:#2F8F93">odysee-tokens.css</code>.</p>
+  <div class="mist-grid" style="grid-template-columns:repeat(5,1fr);">
+    <div class="mist-cell" onclick="copyColor('#FAF6F0')"><div class="block" style="background:#FAF6F0;border-bottom:1px solid var(--border);"></div><div class="meta"><div class="step">50</div><div class="hex">#FAF6F0</div></div></div>
+    <div class="mist-cell" onclick="copyColor('#F4EFE7')"><div class="block" style="background:#F4EFE7;border-bottom:1px solid var(--border);"></div><div class="meta"><div class="step">100</div><div class="hex">#F4EFE7</div></div></div>
+    <div class="mist-cell" onclick="copyColor('#E9E0D2')"><div class="block" style="background:#E9E0D2;"></div><div class="meta"><div class="step">200</div><div class="hex">#E9E0D2</div></div></div>
+    <div class="mist-cell" onclick="copyColor('#D6CAB4')"><div class="block" style="background:#D6CAB4;"></div><div class="meta"><div class="step">300</div><div class="hex">#D6CAB4</div></div></div>
+    <div class="mist-cell" onclick="copyColor('#B6A78C')"><div class="block" style="background:#B6A78C;"></div><div class="meta"><div class="step">400</div><div class="hex">#B6A78C</div></div></div>
+  </div>
+
+  <div class="color-group-label">Travel Accents · אקסנטים</div>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:-8px;">Teal and Sun — for wayfinding, maps, and live-AI moments. Used sparingly, never as body or primary action.</p>
+  <div class="color-grid">
+    <div class="color-swatch" onclick="copyColor('#2F8F93')">
+      <div class="swatch-block" style="background:#2F8F93;"></div>
+      <div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#2F8F93</div></div>
+    </div>
+    <div class="color-swatch" onclick="copyColor('#1C6B6F')">
+      <div class="swatch-block" style="background:#1C6B6F;"></div>
+      <div class="swatch-info"><div class="swatch-name">Teal Deep</div><div class="swatch-hex">#1C6B6F</div></div>
+    </div>
+    <div class="color-swatch" onclick="copyColor('#9CCCCD')">
+      <div class="swatch-block" style="background:#9CCCCD; border-bottom:1px solid var(--border);"></div>
+      <div class="swatch-info"><div class="swatch-name">Teal Light</div><div class="swatch-hex">#9CCCCD</div></div>
+    </div>
+    <div class="color-swatch" onclick="copyColor('#F2C14E')">
+      <div class="swatch-block" style="background:#F2C14E;"></div>
+      <div class="swatch-info"><div class="swatch-name">Sun</div><div class="swatch-hex">#F2C14E</div></div>
+    </div>
+    <div class="color-swatch" onclick="copyColor('#F8DD96')">
+      <div class="swatch-block" style="background:#F8DD96; border-bottom:1px solid var(--border);"></div>
+      <div class="swatch-info"><div class="swatch-name">Sun Light</div><div class="swatch-hex">#F8DD96</div></div>
+    </div>
   </div>
 
   <div class="color-group-label">Status Overlay · שכבת ניהול פרויקט</div>
-  <p style="font-size:12px;color:var(--text-muted);margin:-4px 0 14px;">Tracker and agent-board status colours — outside the brand palette by design. The product's semantic signals (info / success / warning / error) live in the Tokens reference, not here.</p>
+  <p style="font-size:12px;color:var(--text-muted);margin:-4px 0 14px;">Tracker and agent-board status colours, borrowing the accent hues as a code. The product's semantic signals (success / warning / error) live in the Tokens reference. Purple is retired in V5 — Design moves to Sun, Docs to Navy 500.</p>
   <div class="color-grid">
-    <div class="color-swatch" onclick="copyColor('#4ECDC4')">
-      <div class="swatch-block" style="background:#4ECDC4;"></div>
-      <div class="swatch-info"><div class="swatch-name">Teal — Dev / Interactive</div><div class="swatch-hex">#4ECDC4</div></div>
+    <div class="color-swatch" onclick="copyColor('#2F8F93')">
+      <div class="swatch-block" style="background:#2F8F93;"></div>
+      <div class="swatch-info"><div class="swatch-name">Teal — Dev</div><div class="swatch-hex">#2F8F93</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#7C6FCD')">
-      <div class="swatch-block" style="background:#7C6FCD;"></div>
-      <div class="swatch-info"><div class="swatch-name">Purple — Design / Docs</div><div class="swatch-hex">#7C6FCD</div></div>
+    <div class="color-swatch" onclick="copyColor('#F2C14E')">
+      <div class="swatch-block" style="background:#F2C14E;"></div>
+      <div class="swatch-info"><div class="swatch-name">Sun — Design</div><div class="swatch-hex">#F2C14E</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#F8B743')">
-      <div class="swatch-block" style="background:#F8B743;"></div>
-      <div class="swatch-info"><div class="swatch-name">Amber — QA</div><div class="swatch-hex">#F8B743</div></div>
+    <div class="color-swatch" onclick="copyColor('#3A5D83')">
+      <div class="swatch-block" style="background:#3A5D83;"></div>
+      <div class="swatch-info"><div class="swatch-name">Navy 500 — Docs</div><div class="swatch-hex">#3A5D83</div></div>
     </div>
-    <div class="color-swatch" onclick="copyColor('#E05A5F')">
-      <div class="swatch-block" style="background:#E05A5F;"></div>
-      <div class="swatch-info"><div class="swatch-name">Red — Fix</div><div class="swatch-hex">#E05A5F</div></div>
+    <div class="color-swatch" onclick="copyColor('#E5A13C')">
+      <div class="swatch-block" style="background:#E5A13C;"></div>
+      <div class="swatch-info"><div class="swatch-name">Warning — QA</div><div class="swatch-hex">#E5A13C</div></div>
+    </div>
+    <div class="color-swatch" onclick="copyColor('#D2553F')">
+      <div class="swatch-block" style="background:#D2553F;"></div>
+      <div class="swatch-info"><div class="swatch-name">Error — Fix</div><div class="swatch-hex">#D2553F</div></div>
     </div>
   </div>
 </div>
@@ -1573,16 +1602,16 @@ body { overflow-x: hidden; }
   <h2>Typography</h2>
   <span class="h2-he">טיפוגרפיה</span>
   <p>
-    Three families. <em class="em">Sora</em> for Latin display, UI, and headings.
-    <em class="em">Heebo</em> for all Hebrew. <em class="em">JetBrains Mono</em> for code,
-    hex values, and technical labels.
+    Two families, plus one technical face. <em class="em">Sora</em> for Latin display, UI,
+    headings, and body. <em class="em">Heebo</em> for all Hebrew. <em class="em">JetBrains Mono</em>
+    for code, hex values, and technical labels — not a brand text family. The minimal count is itself a statement.
   </p>
 
   <h3>Latin Scale · Sora</h3>
   <div class="type-stack">
     <div class="type-row">
       <div class="specimen t-display">Display — Personal Travel Companion</div>
-      <div class="meta"><span>44 px</span><span>weight 800</span><span>tracking −0.035em</span><span class="tag">Sora</span></div>
+      <div class="meta"><span>64 px</span><span>weight 800</span><span>tracking −0.035em</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
       <div class="specimen t-h1">H1 — A System That Knows You</div>
@@ -1590,23 +1619,23 @@ body { overflow-x: hidden; }
     </div>
     <div class="type-row">
       <div class="specimen t-h2">H2 — Multi-Agent Architecture</div>
-      <div class="meta"><span>22 px</span><span>weight 500</span><span class="tag">Sora</span></div>
+      <div class="meta"><span>24 px</span><span>weight 600</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-h3">H3 — Section Label / Terracotta</div>
-      <div class="meta"><span>16 px</span><span>weight 500</span><span>color terracotta</span><span class="tag">Sora</span></div>
+      <div class="specimen t-h3">H3 — Section Label / Tico Orange</div>
+      <div class="meta"><span>20 px</span><span>weight 600</span><span>color Tico Orange</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
       <div class="specimen t-body">Body — Odysee analyzes preferences, budget, and schedule to craft a personalized travel experience. Every recommendation is powered by eleven specialized AI agents working in concert.</div>
-      <div class="meta"><span>15 px</span><span>weight 400</span><span>line-height 1.7</span><span class="tag">Sora</span></div>
+      <div class="meta"><span>16 px</span><span>weight 400</span><span>line-height 1.55</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
       <div class="specimen t-label">Label — Section Title / Key Info</div>
-      <div class="meta"><span>10 px</span><span>weight 500</span><span>UPPERCASE · 0.16em</span><span class="tag">Sora</span></div>
+      <div class="meta"><span>12 px</span><span>weight 500</span><span>UPPERCASE · 0.30em</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-caption">Caption — Version 1.0 · HIT M.Design · 2026</div>
-      <div class="meta"><span>11 px</span><span>weight 400</span><span>color muted</span><span class="tag">Sora</span></div>
+      <div class="specimen t-caption">Caption — Version V5 · HIT M.Design · 2026</div>
+      <div class="meta"><span>12 px</span><span>weight 400</span><span>color muted</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
       <div class="specimen t-mono">const tico = new TravelCompanion({ lang: 'he' });</div>
@@ -1626,7 +1655,7 @@ body { overflow-x: hidden; }
     </div>
     <div class="type-row">
       <div class="specimen t-heb-body hebrew">Odysee מנתחת את ההעדפות, התקציב ולוח הזמנים שלך כדי לעצב חוויית נסיעה אישית. כל המלצה מופעלת על-ידי אחד-עשר סוכני AI מתמחים שפועלים בתיאום.</div>
-      <div class="meta"><span>15 px</span><span>weight 400</span><span>line-height 1.7</span><span class="tag">Heebo</span></div>
+      <div class="meta"><span>16 px</span><span>weight 400</span><span>line-height 1.55</span><span class="tag">Heebo</span></div>
     </div>
   </div>
 </div>
@@ -1777,7 +1806,7 @@ body { overflow-x: hidden; }
   <p>The working library — buttons, badges, cards, inputs, tables, and notifications.</p>
 
   <h3>Buttons</h3>
-  <p style="font-size:13px;">Four variants × three sizes. Terracotta primary; transparent or ghost for everything secondary.</p>
+  <p style="font-size:13px;">Four variants × three sizes. Tico Orange primary; transparent or ghost for everything secondary.</p>
   <div class="btn-row">
     <button class="btn btn-primary">Primary Action</button>
     <button class="btn btn-secondary">Secondary</button>
@@ -1807,7 +1836,7 @@ body { overflow-x: hidden; }
   </div>
 
   <h3>Cards</h3>
-  <p style="font-size:13px;">Base layout unit. 1px border, 12px radius, no shadows. Border lifts to terracotta on hover.</p>
+  <p style="font-size:13px;">Base layout unit. 1px border, 12px radius, no shadows. Border lifts to Tico Orange on hover.</p>
   <div class="card-grid">
     <div class="ds-card">
       <div class="eyebrow">AGT-01 · Stage 1</div>
@@ -1815,7 +1844,7 @@ body { overflow-x: hidden; }
       <div class="body">Builds a structured model of the traveler's style, budget thresholds, interests, and constraints through natural conversation.</div>
       <div class="foot">
         <span class="pill pill-impl">✓ Implemented</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#4ECDC4;">Pinecone · Claude</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#2F8F93;">Pinecone · Claude</span>
       </div>
     </div>
     <div class="ds-card">
@@ -1824,13 +1853,13 @@ body { overflow-x: hidden; }
       <div class="body">Monitors real-time position, crowd levels, and time-of-day to surface proactive, hyper-relevant suggestions before the traveler asks.</div>
       <div class="foot">
         <span class="pill pill-impl">✓ Implemented</span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#4ECDC4;">HERE · Google Places</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#2F8F93;">HERE · Google Places</span>
       </div>
     </div>
   </div>
 
   <h3>Inputs</h3>
-  <p style="font-size:13px;">Minimal. Border on focus lifts to terracotta. Errors get a red border and a hint below.</p>
+  <p style="font-size:13px;">Minimal. Border on focus lifts to Tico Orange. Errors get a red border and a hint below.</p>
   <div class="input-stack">
     <div class="ds-input-wrap">
       <label class="ds-label">Destination</label>
@@ -1907,16 +1936,16 @@ body { overflow-x: hidden; }
   <p>Consistent across the project plan, agent dashboard, and spec documents.</p>
 
   <div style="margin-top:24px;">
-    <div class="status-row"><div><span class="pill pill-key">KEY</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#B85A3E;"></div><span class="status-hex">#B85A3E</span></div><div class="status-use">Critical milestones, must-ship features</div></div>
-    <div class="status-row"><div><span class="pill pill-design">DESIGN</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#7C6FCD;"></div><span class="status-hex">#7C6FCD</span></div><div class="status-use">Visual design, UX flows, prototyping</div></div>
-    <div class="status-row"><div><span class="pill pill-dev">DEV</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#4ECDC4;"></div><span class="status-hex">#4ECDC4</span></div><div class="status-use">Frontend / backend development</div></div>
-    <div class="status-row"><div><span class="pill pill-impl">IMPL</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#4ECDC4;"></div><span class="status-hex">#4ECDC4</span></div><div class="status-use">Implementation, integration work</div></div>
-    <div class="status-row"><div><span class="pill pill-qa">QA</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#F8B743;"></div><span class="status-hex">#F8B743</span></div><div class="status-use">Testing, quality assurance</div></div>
-    <div class="status-row"><div><span class="pill pill-content">CONTENT</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#B85A3E;"></div><span class="status-hex">#B85A3E</span></div><div class="status-use">Copy, narrative, scenarios</div></div>
-    <div class="status-row"><div><span class="pill pill-docs">DOCS</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#7C6FCD;"></div><span class="status-hex">#7C6FCD</span></div><div class="status-use">Documentation, academic writing</div></div>
-    <div class="status-row"><div><span class="pill pill-fix">FIX</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E05A5F;"></div><span class="status-hex">#E05A5F</span></div><div class="status-use">Bug fixes, corrections, patches</div></div>
-    <div class="status-row"><div><span class="pill pill-submit">SUBMIT</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#B85A3E;"></div><span class="status-hex">#B85A3E</span></div><div class="status-use">Submission deadline markers</div></div>
-    <div class="status-row"><div><span class="pill pill-live">LIVE</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#B85A3E;"></div><span class="status-hex">#B85A3E</span></div><div class="status-use">Exhibition days, live deployment</div></div>
+    <div class="status-row"><div><span class="pill pill-key">KEY</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E5763C;"></div><span class="status-hex">#E5763C</span></div><div class="status-use">Critical milestones, must-ship features</div></div>
+    <div class="status-row"><div><span class="pill pill-design">DESIGN</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#F2C14E;"></div><span class="status-hex">#F2C14E</span></div><div class="status-use">Visual design, UX flows, prototyping</div></div>
+    <div class="status-row"><div><span class="pill pill-dev">DEV</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#2F8F93;"></div><span class="status-hex">#2F8F93</span></div><div class="status-use">Frontend / backend development</div></div>
+    <div class="status-row"><div><span class="pill pill-impl">IMPL</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#1C6B6F;"></div><span class="status-hex">#1C6B6F</span></div><div class="status-use">Implementation, integration work</div></div>
+    <div class="status-row"><div><span class="pill pill-qa">QA</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E5A13C;"></div><span class="status-hex">#E5A13C</span></div><div class="status-use">Testing, quality assurance</div></div>
+    <div class="status-row"><div><span class="pill pill-content">CONTENT</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E5763C;"></div><span class="status-hex">#E5763C</span></div><div class="status-use">Copy, narrative, scenarios</div></div>
+    <div class="status-row"><div><span class="pill pill-docs">DOCS</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#3A5D83;"></div><span class="status-hex">#3A5D83</span></div><div class="status-use">Documentation, academic writing</div></div>
+    <div class="status-row"><div><span class="pill pill-fix">FIX</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#D2553F;"></div><span class="status-hex">#D2553F</span></div><div class="status-use">Bug fixes, corrections, patches</div></div>
+    <div class="status-row"><div><span class="pill pill-submit">SUBMIT</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E5763C;"></div><span class="status-hex">#E5763C</span></div><div class="status-use">Submission deadline markers</div></div>
+    <div class="status-row"><div><span class="pill pill-live">LIVE</span></div><div class="status-col-color"><div class="mini-swatch" style="background:#E5763C;"></div><span class="status-hex">#E5763C</span></div><div class="status-use">Exhibition days, live deployment</div></div>
   </div>
 </div>
 
@@ -1925,7 +1954,7 @@ body { overflow-x: hidden; }
   <p class="section-label">13 — <span>Storybook</span></p>
   <h2>Icons</h2>
   <span class="h2-he">אייקונים</span>
-  <p>Inline SVG only. 22×22 default, stroke 1.5. Color via <code style="font-family:var(--font-mono);font-size:13px;color:#4ECDC4">currentColor</code>.</p>
+  <p>Inline SVG only. 22×22 default, stroke 1.5. Color via <code style="font-family:var(--font-mono);font-size:13px;color:#2F8F93">currentColor</code>.</p>
 
   <div class="icon-grid">
     <div class="icon-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>clock</span></div>
@@ -1948,50 +1977,65 @@ body { overflow-x: hidden; }
   <span class="h2-he">משתני CSS</span>
   <p>
     Complete variable list. Imported via
-    <code style="font-family:var(--font-mono);color:#4ECDC4;font-size:13px;">brand/odysee-tokens.css</code>
+    <code style="font-family:var(--font-mono);color:#2F8F93;font-size:13px;">brand/odysee-tokens.css</code>
     on every page.
   </p>
 
   <div class="code-block">
 <pre><span class="c-cmt">/* ── odysee-tokens.css · :root (light by default) ── */</span>
 <span class="c-key">:root</span> {
-  <span class="c-cmt">/* Core palette */</span>
-  <span class="c-prop">--od-navy</span>:          <span class="c-val">#0C1F3F</span>;  <span class="c-cmt">/* primary ink */</span>
-  <span class="c-prop">--od-navy-deep</span>:     <span class="c-val">#08152C</span>;  <span class="c-cmt">/* pressed / shadow */</span>
-  <span class="c-prop">--od-red</span>:           <span class="c-val">#B85A3E</span>;  <span class="c-cmt">/* terracotta — accent, CTAs */</span>
-  <span class="c-prop">--od-red-deep</span>:      <span class="c-val">#8E3D24</span>;  <span class="c-cmt">/* pressed terracotta */</span>
-  <span class="c-prop">--od-ivory</span>:        <span class="c-val">#F6F4EF</span>;  <span class="c-cmt">/* page tone */</span>
-  <span class="c-prop">--od-paper</span>:        <span class="c-val">#FFFFFF</span>;  <span class="c-cmt">/* pure white */</span>
+  <span class="c-cmt">/* Primary */</span>
+  <span class="c-prop">--od-navy</span>:     <span class="c-val">#1D3D60</span>;  <span class="c-cmt">/* primary brand ink */</span>
+  <span class="c-prop">--od-orange</span>:   <span class="c-val">#E5763C</span>;  <span class="c-cmt">/* Tico Orange — accent, pupils, CTAs, voice */</span>
 
-  <span class="c-cmt">/* Neutrals — cool blue-grey */</span>
-  <span class="c-prop">--od-mist-50</span>:       <span class="c-val">#F4F6FA</span>;
-  <span class="c-prop">--od-mist-100</span>:      <span class="c-val">#E7EBF2</span>;
-  <span class="c-prop">--od-mist-200</span>:      <span class="c-val">#CDD4E0</span>;
-  <span class="c-prop">--od-mist-300</span>:      <span class="c-val">#A6AFC0</span>;
-  <span class="c-prop">--od-mist-500</span>:      <span class="c-val">#6B7588</span>;
-  <span class="c-prop">--od-mist-700</span>:      <span class="c-val">#3D475A</span>;
-  <span class="c-prop">--od-mist-900</span>:      <span class="c-val">#0E1B33</span>;
+  <span class="c-cmt">/* Navy scale (deep → light) */</span>
+  <span class="c-prop">--od-navy-900</span>: <span class="c-val">#12273E</span>;
+  <span class="c-prop">--od-navy-800</span>: <span class="c-val">#173352</span>;
+  <span class="c-prop">--od-navy-700</span>: <span class="c-val">#1D3D60</span>;  <span class="c-cmt">/* == --od-navy */</span>
+  <span class="c-prop">--od-navy-500</span>: <span class="c-val">#3A5D83</span>;
+  <span class="c-prop">--od-navy-300</span>: <span class="c-val">#8499B3</span>;
+  <span class="c-prop">--od-navy-100</span>: <span class="c-val">#DDE4ED</span>;
+  <span class="c-prop">--od-navy-50</span>:  <span class="c-val">#EEF2F7</span>;
 
-  <span class="c-cmt">/* Semantic — light */</span>
-  <span class="c-prop">--od-bg</span>:            <span class="c-val">var(--od-paper)</span>;
-  <span class="c-prop">--od-bg-alt</span>:        <span class="c-val">var(--od-ivory)</span>;
-  <span class="c-prop">--od-bg-sunken</span>:     <span class="c-val">var(--od-mist-50)</span>;
-  <span class="c-prop">--od-fg</span>:            <span class="c-val">var(--od-navy)</span>;
-  <span class="c-prop">--od-fg-muted</span>:      <span class="c-val">var(--od-mist-700)</span>;
-  <span class="c-prop">--od-fg-subtle</span>:     <span class="c-val">var(--od-mist-500)</span>;
-  <span class="c-prop">--od-border</span>:        <span class="c-val">var(--od-mist-100)</span>;
-  <span class="c-prop">--od-border-strong</span>: <span class="c-val">var(--od-mist-200)</span>;
+  <span class="c-cmt">/* Orange scale */</span>
+  <span class="c-prop">--od-orange-900</span>:<span class="c-val">#A4481D</span>;
+  <span class="c-prop">--od-orange-700</span>:<span class="c-val">#C75D29</span>;
+  <span class="c-prop">--od-orange-500</span>:<span class="c-val">#E5763C</span>;  <span class="c-cmt">/* == --od-orange */</span>
+  <span class="c-prop">--od-orange-300</span>:<span class="c-val">#F0A575</span>;
+  <span class="c-prop">--od-orange-100</span>:<span class="c-val">#FBE3D3</span>;
+  <span class="c-prop">--od-orange-50</span>:<span class="c-val">#FDF2EA</span>;
 
-  <span class="c-cmt">/* Semantic signals (from tokens.css) */</span>
-  <span class="c-prop">--od-success</span>:       <span class="c-val">#1F8A5B</span>;
-  <span class="c-prop">--od-warning</span>:       <span class="c-val">#C58A1A</span>;
-  <span class="c-prop">--od-danger</span>:        <span class="c-val">var(--od-red)</span>;
-  <span class="c-prop">--od-info</span>:          <span class="c-val">#2A6FDB</span>;
+  <span class="c-cmt">/* Sand neutrals (warm) */</span>
+  <span class="c-prop">--od-sand-50</span>:  <span class="c-val">#FAF6F0</span>;  <span class="c-cmt">/* default light bg */</span>
+  <span class="c-prop">--od-sand-100</span>: <span class="c-val">#F4EFE7</span>;
+  <span class="c-prop">--od-sand-200</span>: <span class="c-val">#E9E0D2</span>;
+  <span class="c-prop">--od-sand-300</span>: <span class="c-val">#D6CAB4</span>;
+  <span class="c-prop">--od-sand-400</span>: <span class="c-val">#B6A78C</span>;
 
-  <span class="c-cmt">/* Type */</span>
-  <span class="c-prop">--od-font-sans</span>:     <span class="c-val">'Sora', system-ui, sans-serif</span>;
-  <span class="c-prop">--od-font-mono</span>:     <span class="c-val">'JetBrains Mono', ui-monospace, monospace</span>;
-  <span class="c-cmt">/* Hebrew body uses 'Heebo' (loaded in site.css) */</span>
+  <span class="c-cmt">/* Travel accents */</span>
+  <span class="c-prop">--od-teal</span>:     <span class="c-val">#2F8F93</span>;
+  <span class="c-prop">--od-teal-deep</span>:<span class="c-val">#1C6B6F</span>;
+  <span class="c-prop">--od-teal-light</span>:<span class="c-val">#9CCCCD</span>;
+  <span class="c-prop">--od-sun</span>:      <span class="c-val">#F2C14E</span>;
+  <span class="c-prop">--od-sun-light</span>:<span class="c-val">#F8DD96</span>;
+
+  <span class="c-cmt">/* Semantic signals */</span>
+  <span class="c-prop">--od-success</span>:  <span class="c-val">#3F9D6B</span>;
+  <span class="c-prop">--od-warning</span>:  <span class="c-val">#E5A13C</span>;
+  <span class="c-prop">--od-error</span>:    <span class="c-val">#D2553F</span>;
+
+  <span class="c-cmt">/* Base */</span>
+  <span class="c-prop">--od-white</span>:    <span class="c-val">#FFFFFF</span>;
+  <span class="c-prop">--od-ink</span>:      <span class="c-val">#1D3D60</span>;
+
+  <span class="c-cmt">/* Signature gradient — Sunset */</span>
+  <span class="c-prop">--od-gradient-sunset</span>:<span class="c-val">linear-gradient(90deg, #12273E 0%, #1D3D60 38%, #E5763C 100%)</span>;
+
+  <span class="c-cmt">/* Typography — two families + mono */</span>
+  <span class="c-prop">--od-font-display</span>:<span class="c-val">'Sora', system-ui, sans-serif</span>;
+  <span class="c-prop">--od-font-body</span>:<span class="c-val">'Sora', system-ui, sans-serif</span>;
+  <span class="c-prop">--od-font-hebrew</span>:<span class="c-val">'Heebo', system-ui, sans-serif</span>;
+  <span class="c-prop">--od-font-mono</span>:<span class="c-val">'JetBrains Mono', ui-monospace, monospace</span>;
 
   <span class="c-cmt">/* Spacing — 8pt grid */</span>
   <span class="c-prop">--od-s-1</span>: <span class="c-val">4px</span>;   <span class="c-prop">--od-s-2</span>: <span class="c-val">8px</span>;   <span class="c-prop">--od-s-3</span>: <span class="c-val">12px</span>;
@@ -1999,42 +2043,45 @@ body { overflow-x: hidden; }
   <span class="c-prop">--od-s-7</span>: <span class="c-val">48px</span>;  <span class="c-prop">--od-s-8</span>: <span class="c-val">64px</span>;  <span class="c-prop">--od-s-9</span>: <span class="c-val">96px</span>;
 
   <span class="c-cmt">/* Radius */</span>
-  <span class="c-prop">--od-r-sm</span>:   <span class="c-val">6px</span>;
   <span class="c-prop">--od-r-md</span>:   <span class="c-val">10px</span>;
   <span class="c-prop">--od-r-lg</span>:   <span class="c-val">16px</span>;
-  <span class="c-prop">--od-r-xl</span>:   <span class="c-val">24px</span>;
   <span class="c-prop">--od-r-pill</span>: <span class="c-val">999px</span>;
 
-  <span class="c-cmt">/* Motion */</span>
-  <span class="c-prop">--od-ease-out</span>: <span class="c-val">cubic-bezier(0.16, 1, 0.3, 1)</span>;
-  <span class="c-prop">--od-dur-fast</span>: <span class="c-val">140ms</span>;
-  <span class="c-prop">--od-dur-base</span>: <span class="c-val">240ms</span>;
-  <span class="c-prop">--od-dur-slow</span>: <span class="c-val">480ms</span>;
+  <span class="c-cmt">/* Motion — Tico */</span>
+  <span class="c-prop">--od-ease-tico</span>:<span class="c-val">cubic-bezier(.34, 1.56, .64, 1)</span>;
+  <span class="c-prop">--od-dur-idle</span>: <span class="c-val">4s</span>;
+  <span class="c-prop">--od-dur-think</span>:<span class="c-val">1.5s</span>;
+
+  <span class="c-cmt">/* Semantic surface aliases (light = default) */</span>
+  <span class="c-prop">--od-bg</span>:         <span class="c-val">var(--od-sand-50)</span>;
+  <span class="c-prop">--od-surface</span>:    <span class="c-val">var(--od-white)</span>;
+  <span class="c-prop">--od-text</span>:       <span class="c-val">var(--od-navy-900)</span>;
+  <span class="c-prop">--od-text-muted</span>: <span class="c-val">var(--od-navy-500)</span>;
+  <span class="c-prop">--od-border</span>:     <span class="c-val">var(--od-sand-200)</span>;
 }
 
-<span class="c-cmt">/* Dark theme — flip semantic layer (exhibition only) */</span>
+<span class="c-cmt">/* Dark / navy surfaces — site hero, footer, exhibition */</span>
 <span class="c-key">[data-theme="dark"]</span> {
-  <span class="c-prop">--od-bg</span>:        <span class="c-val">var(--od-navy)</span>;
-  <span class="c-prop">--od-bg-alt</span>:    <span class="c-val">var(--od-navy-deep)</span>;
-  <span class="c-prop">--od-bg-sunken</span>: <span class="c-val">#060F22</span>;
-  <span class="c-prop">--od-fg</span>:        <span class="c-val">var(--od-paper)</span>;
-  <span class="c-prop">--od-fg-muted</span>:  <span class="c-val">#B5BCC9</span>;
-  <span class="c-prop">--od-fg-subtle</span>: <span class="c-val">#6B7588</span>;
-  <span class="c-prop">--od-link</span>:      <span class="c-val">#FF6A5F</span>;  <span class="c-cmt">/* lifted terracotta for AA on navy */</span>
+  <span class="c-prop">--od-bg</span>:         <span class="c-val">var(--od-navy-900)</span>;
+  <span class="c-prop">--od-surface</span>:    <span class="c-val">var(--od-navy-800)</span>;
+  <span class="c-prop">--od-text</span>:       <span class="c-val">var(--od-sand-50)</span>;
+  <span class="c-prop">--od-text-muted</span>: <span class="c-val">var(--od-navy-300)</span>;
+  <span class="c-prop">--od-border</span>:     <span class="c-val">var(--od-navy-700)</span>;
 }</pre>
   </div>
 
   <p style="margin-top:18px;font-size:12px;color:var(--text-muted);">
-    This block mirrors <code style="font-family:var(--font-mono);font-size:11px;color:#4ECDC4;">brand/odysee-tokens.css</code>,
-    the single source of truth. The teal / purple / amber accents shown in the Status System below sit
-    <em class="em">outside</em> the brand palette by design — they are a project-management overlay, not brand tokens.
+    This block mirrors <code style="font-family:var(--font-mono);font-size:11px;color:#2F8F93;">brand/odysee-tokens.css</code>,
+    the single source of truth. The Status System's pill colours reuse the travel accents (teal, sun)
+    together with navy-500, warning, and error as a project-management code — a convention layered on the
+    palette, not separate brand tokens.
   </p>
 </div>
 
 <!-- doc-foot -->
 <div class="doc-foot">
   <div class="foot-rule"></div>
-  <p>Odysee · Design System · v1.0 · M.Design Thesis · HIT 2026</p>
+  <p>Odysee · Design System · V5 · M.Design Thesis · HIT 2026</p>
   <p style="margin-top:8px;">Brand foundation · Color · Typography · Components · Voice</p>
 </div>
 
@@ -2045,7 +2092,7 @@ body { overflow-x: hidden; }
       <a href="project-plan.html">Project Plan</a><span aria-hidden="true">·</span><a href="odysee-prototype.html">Prototype</a>
     </div>
   </div>
-  <div class="site-footer__right">Odysee · Design System · v1.0 · 2026</div>
+  <div class="site-footer__right">Odysee · Design System · V5 · 2026</div>
 </footer>
 
 <div class="copy-toast" id="copy-toast">Copied!</div>
