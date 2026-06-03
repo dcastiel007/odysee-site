@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Odysee — Departures / Arrivals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Heebo:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* --- Board palette (the world's generic infrastructure) --- */
+  --bg:        #0a1019;          /* deep navy-black, not pure black */
+  --bg2:       #0d1622;
+  --rail:      #14202f;
+  --line:      #1c2c40;
+  --txt:       #e7eef6;
+  --txt-dim:   #6f819a;
+  --amber:     #f5b942;          /* delayed / last call */
+  --green:     #4fd08a;          /* boarding / on approach */
+  --red:       #ef5d63;          /* cancelled */
+  --landed:    #7fb0d8;
+
+  /* --- Odysee V5 brand (the voice of Tico — popup only) --- */
+  --navy:      #1d3d60;
+  --orange:    #e5763c;
+  --orange700: #c75d29;
+  --sand:      #faf6f0;
+  --sand2:     #f0e7da;
+
+  --ease: cubic-bezier(.34,1.56,.64,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);}
+body{
+  font-family:"JetBrains Mono","Heebo",monospace;
+  color:var(--txt);
+  display:flex;flex-direction:column;
+  background:
+    radial-gradient(120% 80% at 50% -10%, #12203200 0%, #0a101900 60%),
+    linear-gradient(180deg,#0c1421 0%,#0a1019 100%);
+}
+
+/* ---------- HEADER ---------- */
+header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding: 1.2vh 2.2vw;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#0e1929,#0a1019);
+}
+.brand{display:flex;align-items:center;gap:.9vw;}
+.brand svg{width:clamp(34px,3.4vw,64px);height:auto;display:block}
+.brand .frame{display:flex;flex-direction:column;line-height:1.05;gap:clamp(3px,.7vh,8px)}
+.brand .frame .name{font-family:"Sora";font-weight:700;font-size:clamp(15px,1.5vw,26px);letter-spacing:.02em;color:#fff}
+.brand .frame .tag{font-family:"Sora";font-weight:600;font-size:clamp(8px,.72vw,12px);letter-spacing:.34em;text-transform:uppercase;color:var(--orange)}
+
+.boardtitle{display:flex;align-items:baseline;gap:1vw}
+.boardtitle .mode-en{font-family:"Sora";font-weight:700;font-size:clamp(22px,2.6vw,46px);letter-spacing:.08em;color:#fff;transition:opacity .5s var(--ease)}
+.boardtitle .mode-he{font-family:"Heebo";font-weight:500;font-size:clamp(16px,1.7vw,30px);color:var(--txt-dim);transition:opacity .5s var(--ease)}
+
+.clock{display:flex;flex-direction:column;align-items:flex-end;line-height:1}
+.clock .time{font-family:"JetBrains Mono";font-weight:700;font-size:clamp(22px,2.6vw,46px);letter-spacing:.04em;color:#fff}
+.clock .date{font-size:clamp(9px,.8vw,14px);letter-spacing:.18em;color:var(--txt-dim);margin-top:.5vh}
+
+/* ---------- TABLE ---------- */
+.board{flex:1;padding: .6vh 2.2vw 2vh;display:flex;flex-direction:column;min-height:0}
+.cols{
+  display:grid;
+  grid-template-columns: 8% 40% 16% 12% 24%;
+  align-items:center;
+  padding:.9vh 1.2vw;
+  border-bottom:2px solid var(--line);
+  font-size:clamp(9px,.8vw,14px);letter-spacing:.22em;text-transform:uppercase;color:var(--txt-dim);
+}
+.cols .he{display:block;font-family:"Heebo";font-size:.85em;letter-spacing:.04em;margin-top:.2vh}
+
+#rows{flex:1;display:flex;flex-direction:column;min-height:0}
+.row{
+  display:grid;
+  grid-template-columns: 8% 40% 16% 12% 24%;
+  align-items:center;
+  padding:1.05vh 1.2vw;
+  border-bottom:1px solid var(--rail);
+  animation:rowIn .45s var(--ease) both;
+}
+@keyframes rowIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.row.leaving{animation:rowOut .5s ease forwards}
+@keyframes rowOut{to{opacity:0;transform:translateX(-14px)}}
+
+.c-time{font-weight:700;font-size:clamp(15px,1.7vw,30px);letter-spacing:.03em}
+.dest{display:flex;flex-direction:column;line-height:1.08}
+.dest .en{font-family:"Sora";font-weight:600;font-size:clamp(14px,1.5vw,28px);letter-spacing:.05em}
+.dest .he{font-family:"Heebo";font-weight:400;font-size:clamp(11px,1.05vw,19px);color:var(--txt-dim);direction:rtl}
+.dest .code{color:var(--txt-dim);font-weight:400}
+.c-flt{font-weight:500;font-size:clamp(13px,1.35vw,24px);letter-spacing:.06em;color:#cdd8e6}
+.c-gate{font-weight:700;font-size:clamp(15px,1.6vw,28px)}
+.status{display:flex;flex-direction:column;line-height:1.1}
+.status .en{font-family:"Sora";font-weight:600;font-size:clamp(12px,1.25vw,22px);letter-spacing:.04em}
+.status .he{font-family:"Heebo";font-size:clamp(10px,.95vw,17px);direction:rtl;color:inherit;opacity:.7}
+
+.s-ontime{color:var(--txt)}
+.s-checkin{color:var(--landed)}
+.s-boarding{color:var(--green)}
+.s-lastcall{color:var(--amber);animation:blink 1.1s steps(2,start) infinite}
+.s-delayed{color:var(--amber)}
+.s-cancelled{color:var(--red)}
+.s-departed,.s-landed-dim{color:var(--txt-dim);opacity:.55}
+.s-approach{color:var(--green)}
+.s-landed{color:var(--landed)}
+.s-baggage{color:var(--txt)}
+@keyframes blink{50%{opacity:.25}}
+
+/* flip feedback when a status cell changes */
+.flip{animation:flip .55s var(--ease)}
+@keyframes flip{0%{transform:rotateX(0);filter:brightness(1)}45%{transform:rotateX(-90deg);filter:brightness(2)}55%{transform:rotateX(90deg)}100%{transform:rotateX(0);filter:brightness(1)}}
+
+/* ---------- POPUP (Tico) ---------- */
+#popup{
+  position:fixed;left:2.4vw;top:62vh;
+  width:min(34vw,560px);
+  background:var(--sand);
+  color:var(--navy);
+  border-radius:22px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  padding:2.4vh 1.8vw 2.4vh 1.8vw;
+  display:none;
+  opacity:0;transform:translateY(40px) scale(.96);
+  border:1px solid var(--sand2);
+  overflow:hidden;
+}
+#popup.show{display:block;animation:popIn .6s var(--ease) forwards}
+#popup.hide{animation:popOut .45s ease forwards}
+@keyframes popIn{to{opacity:1;transform:none}}
+@keyframes popOut{to{opacity:0;transform:translateY(30px) scale(.97)}}
+#popup::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--orange)}
+.pop-head{display:flex;align-items:center;gap:.9vw;margin-bottom:1.4vh}
+.pop-head svg{width:clamp(40px,3.6vw,68px);height:auto;flex:none}
+.pop-head .who{font-family:"Sora";font-weight:700;font-size:clamp(11px,.95vw,16px);letter-spacing:.22em;text-transform:uppercase;color:var(--orange700)}
+.pop-head .flt{font-family:"JetBrains Mono";font-weight:500;font-size:clamp(11px,.95vw,15px);color:#7a8aa0;margin-top:.3vh}
+.pop-body{font-family:"Heebo";font-weight:400;font-size:clamp(15px,1.4vw,25px);line-height:1.5;direction:rtl;text-align:right}
+.pop-action{
+  margin-top:1.8vh;display:inline-flex;align-items:center;gap:.6vw;
+  font-family:"Heebo";font-weight:500;font-size:clamp(13px,1.15vw,20px);direction:rtl;
+  background:var(--orange);color:#fff;border-radius:999px;padding:.9vh 1.3vw;
+}
+.pop-action .dot{width:8px;height:8px;border-radius:50%;background:#fff;opacity:.85}
+
+/* framing strap bottom-left */
+.strap{position:fixed;left:2.4vw;bottom:2.6vh;font-family:"Sora";font-weight:600;
+  font-size:clamp(8px,.72vw,12px);letter-spacing:.34em;text-transform:uppercase;color:var(--txt-dim);opacity:.8}
+.strap b{color:var(--orange)}
+.hint{position:fixed;left:50%;top:1vh;transform:translateX(-50%);font-size:10px;color:#3a4a5e;letter-spacing:.2em}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <!-- Tico mark (real asset: white outline, orange pupils — for dark bg) -->
+    <svg viewBox="0 0 1000 1000" aria-label="Tico">
+      <path fill="none" stroke="#ffffff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"></path>
+      <path fill="none" stroke="#ffffff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"></path>
+      <path fill="none" stroke="#ffffff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"></path>
+      <circle fill="#e5763c" cx="725" cy="399" r="48"></circle>
+      <circle fill="#e5763c" cx="300" cy="399" r="48"></circle>
+    </svg>
+    <div class="frame">
+      <span class="name">Odysee</span>
+      <span class="tag">every traveler · a companion</span>
+    </div>
+  </div>
+
+  <div class="boardtitle">
+    <span class="mode-en" id="modeEn">DEPARTURES</span>
+    <span class="mode-he" id="modeHe">המראות</span>
+  </div>
+
+  <div class="clock">
+    <span class="time" id="clock">--:--:--</span>
+    <span class="date" id="date"></span>
+  </div>
+</header>
+
+<div class="board">
+  <div class="cols">
+    <div>TIME<span class="he">שעה</span></div>
+    <div id="colDest">DESTINATION<span class="he">יעד</span></div>
+    <div>FLIGHT<span class="he">טיסה</span></div>
+    <div id="colGate">GATE<span class="he">שער</span></div>
+    <div>STATUS<span class="he">סטטוס</span></div>
+  </div>
+  <div id="rows"></div>
+</div>
+
+<div class="strap">Odysee · <b>a board of care, not logistics</b></div>
+<div class="hint">F = fullscreen</div>
+
+<div id="popup">
+  <div class="pop-head">
+    <!-- Tico mark (real asset: navy outline, orange pupils — for light bg) -->
+    <svg viewBox="0 0 1000 1000">
+      <path fill="none" stroke="#1d3d60" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"></path>
+      <path fill="none" stroke="#1d3d60" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"></path>
+      <path fill="none" stroke="#1d3d60" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"></path>
+      <circle fill="#e5763c" cx="725" cy="399" r="48"></circle>
+      <circle fill="#e5763c" cx="300" cy="399" r="48"></circle>
+    </svg>
+    <div>
+      <div class="who" id="popWho">Tico</div>
+      <div class="flt" id="popFlt"></div>
+    </div>
+  </div>
+  <div class="pop-body" id="popBody"></div>
+  <div class="pop-action" id="popAction"><span class="dot"></span><span id="popActionTxt"></span></div>
+</div>
+
+<script>
+/* ============================================================
+   Odysee live board — LOCAL LOGIC ONLY (no external API).
+   Flights are anchored to the real wall clock and "age" through
+   statuses derived from (scheduledTime - now). Departed flights
+   drop off the top; the future pool refills so it runs for hours.
+   ============================================================ */
+
+const DEST = [
+  {en:"LONDON",     he:"לונדון",   code:"LHR", lines:["LY","BA"]},
+  {en:"PARIS",      he:"פריז",     code:"CDG", lines:["LY","AF"]},
+  {en:"ROME",       he:"רומא",     code:"FCO", lines:["LY","AZ"]},
+  {en:"TOKYO",      he:"טוקיו",    code:"NRT", lines:["LY"]},
+  {en:"VENICE",     he:"ונציה",    code:"VCE", lines:["LY"]},
+  {en:"LISBON",     he:"ליסבון",   code:"LIS", lines:["LY","TP"]},
+  {en:"NEW YORK",   he:"ניו יורק", code:"JFK", lines:["LY"]},
+  {en:"ATHENS",     he:"אתונה",    code:"ATH", lines:["LY","A3"]},
+  {en:"AMSTERDAM",  he:"אמסטרדם",  code:"AMS", lines:["LY","KL"]},
+  {en:"BARCELONA",  he:"ברצלונה",  code:"BCN", lines:["LY","VY"]},
+  {en:"BANGKOK",    he:"בנגקוק",   code:"BKK", lines:["LY"]},
+  {en:"DELHI",      he:"דלהי",     code:"DEL", lines:["LY","AI"]},
+  {en:"FRANKFURT",  he:"פרנקפורט", code:"FRA", lines:["LY","LH"]},
+];
+const ORIG = DEST; // arrivals reuse the same city set as origins
+
+const rnd  = (a)=>a[Math.floor(Math.random()*a.length)];
+const pad  = (n)=>String(n).padStart(2,"0");
+const jit  = (n)=>Math.floor(Math.random()*n);
+
+let MODE = "dep";           // "dep" | "arr"
+let pool = [];              // generated flight pool
+let lastStatus = {};        // flightNo -> status code, for flip detection
+let rendered = [];          // currently visible flights (for popup matching)
+
+function makeFlight(t){
+  const d = rnd(DEST);
+  const line = rnd(d.lines);
+  const num = 100 + jit(800);
+  const delayed = Math.random() < 0.16;
+  const cancelled = Math.random() < 0.05;
+  return {
+    id: line+" "+num,
+    en: d.en, he: d.he, code: d.code,
+    sched: t,
+    delay: delayed && !cancelled ? (10 + jit(50)) : 0,   // minutes
+    cancelled,
+    gate: rnd(["A","B","C","D"]) + (1 + jit(28)),
+    belt: 1 + jit(8),
+  };
+}
+
+function refillPool(){
+  // ensure pool spans roughly now-8min .. now+150min
+  const now = Date.now();
+  if(pool.length===0){
+    let t = now - 6*60000;
+    for(let i=0;i<46;i++){ pool.push(makeFlight(t)); t += (3 + jit(5))*60000; }
+  } else {
+    let last = pool[pool.length-1].sched;
+    while(last < now + 150*60000){
+      last += (3 + jit(5))*60000;
+      pool.push(makeFlight(last));
+    }
+  }
+  // prune very old
+  pool = pool.filter(f => f.effective > now - 9*60000 || true);
+}
+
+function deriveStatus(f, now){
+  const eff = f.sched + f.delay*60000;
+  f.effective = eff;
+  const mins = (eff - now)/60000;
+  if(f.cancelled) return {code:"cancelled", en:"CANCELLED", he:"בוטלה"};
+  if(MODE==="arr"){
+    if(mins > 25)  return {code:"ontime",   en:"ON TIME",     he:"בזמן"};
+    if(mins > 6)   return {code:"approach", en:"ON APPROACH", he:"בגישה לנחיתה"};
+    if(mins > -2)  return {code:"landed",   en:"LANDED",      he:"נחתה"};
+    if(mins > -12) return {code:"baggage",  en:"AT BAGGAGE",  he:"איסוף כבודה"};
+    return {code:"done", en:"", he:""};
+  }
+  if(f.delay && mins > 0) return {code:"delayed", en:"DELAYED "+timeStr(eff), he:"מתעכבת"};
+  if(mins > 35)  return {code:"ontime",   en:"ON TIME",   he:"בזמן"};
+  if(mins > 20)  return {code:"checkin",  en:"CHECK-IN",  he:"צ׳ק-אין"};
+  if(mins > 8)   return {code:"boarding", en:"BOARDING",  he:"עולים למטוס"};
+  if(mins > 0)   return {code:"lastcall", en:"LAST CALL", he:"קריאה אחרונה"};
+  if(mins > -6)  return {code:"departed", en:"DEPARTED",  he:"המריאה"};
+  return {code:"done", en:"", he:""};
+}
+
+function timeStr(ms){const d=new Date(ms);return pad(d.getHours())+":"+pad(d.getMinutes());}
+
+function render(){
+  const now = Date.now();
+  refillPool();
+  // visible window
+  const list = pool
+    .map(f=>{ f.st = deriveStatus(f, now); return f; })
+    .filter(f=> f.st.code!=="done")
+    .filter(f=> f.effective > now - 6*60000 && f.effective < now + 115*60000)
+    .sort((a,b)=>a.effective-b.effective)
+    .slice(0,13);
+  rendered = list;
+
+  const wrap = document.getElementById("rows");
+  wrap.innerHTML = "";
+  for(const f of list){
+    const eff = f.effective;
+    const gateOrBelt = MODE==="arr" ? ("ש"+f.belt) : f.gate;
+    const cityLine = MODE==="arr" ? "from " : "";
+    const r = document.createElement("div");
+    r.className = "row";
+    r.innerHTML = `
+      <div class="c-time">${timeStr(eff)}</div>
+      <div class="dest">
+        <span class="en">${f.en} <span class="code">${f.code}</span></span>
+        <span class="he">${f.he}</span>
+      </div>
+      <div class="c-flt">${f.id}</div>
+      <div class="c-gate">${f.st.code==="cancelled"?"—":gateOrBelt}</div>
+      <div class="status s-${f.st.code}">
+        <span class="en">${f.st.en}</span>
+        <span class="he">${f.st.he}</span>
+      </div>`;
+    // flip the status cell if it changed since last render
+    if(lastStatus[f.id] && lastStatus[f.id] !== f.st.code){
+      r.querySelector(".status").classList.add("flip");
+    }
+    lastStatus[f.id] = f.st.code;
+    wrap.appendChild(r);
+  }
+}
+
+/* ---------- mode switch (departures <-> arrivals) ---------- */
+function setMode(m){
+  MODE = m;
+  const en = document.getElementById("modeEn");
+  const he = document.getElementById("modeHe");
+  en.style.opacity = 0; he.style.opacity = 0;
+  setTimeout(()=>{
+    en.textContent = m==="dep" ? "DEPARTURES" : "ARRIVALS";
+    he.textContent = m==="dep" ? "המראות" : "נחיתות";
+    document.getElementById("colDest").firstChild.textContent = m==="dep" ? "DESTINATION" : "ORIGIN";
+    document.getElementById("colDest").querySelector(".he").textContent = m==="dep" ? "יעד" : "מוצא";
+    document.getElementById("colGate").firstChild.textContent = m==="dep" ? "GATE" : "HALL";
+    document.getElementById("colGate").querySelector(".he").textContent = m==="dep" ? "שער" : "אולם";
+    en.style.opacity = 1; he.style.opacity = 1;
+    lastStatus = {};
+    render();
+  }, 500);
+}
+
+/* ---------- Tico popups ---------- */
+const POPUPS_DEP = [
+  {who:"David",  dest:"LONDON",   body:"שים לב — הרגע פרצה שביתת מוניות בשדה. אם תרצה, אדאג לנהג פרטי שימתין לך.", act:"להזמין נהג"},
+  {who:"Noa",    dest:"PARIS",    body:"השבוע נפתח פופ-אפ של מסעדות שף ליד מגדל אייפל. מומלץ ביותר. שאשמור לך מקום?", act:"לשריין שולחן"},
+  {who:"Daniel", dest:"ROME",     body:"צפי לשרב בסוף השבוע. אפשר לסדר מחדש את המסלול כך שהאתרים יהיו בבוקר ובערב.", act:"לעדכן מסלול"},
+  {who:"Maya",   dest:"TOKYO",    body:"השבוע נפתחת תערוכת אמנות דיגיטלית ייחודית. לא לפספס. נשמח לדאוג לכרטיסים.", act:"להזמין כרטיסים"},
+  {who:"קבוצת HIT", dest:"VENICE", body:"אל תפספסו את הביתנים בביאנלה. כדאי לרכוש כרטיס סטודנט תלת-יומי.", act:"לפרטים והזמנה"},
+  {who:"משפחת כהן", dest:"LISBON", body:"הקונקשן מתעכב בשעתיים. מוצע לדחות את ההזמנה במסעדה ל-21:00 כדי שלא תהיו בלחץ.", act:"לעדכן הזמנה"},
+  {who:"פרופ׳ חנן", dest:"NEW YORK", body:"הפגישה עם נציגי האוניברסיטה תתקיים בקרבת המלון. שאסדר לך הסעה מהמלון?", act:"לסדר הסעה"},
+  {who:"Yotam",  dest:"FRANKFURT",body:"הקונקשן הוקדם ב-20 דקות. השער החדש B27, 8 דקות הליכה משם. שאכוון אותך?", act:"להצגת מסלול"},
+  {who:"Shira",  dest:"LISBON",   body:"פסטיבל רחוב מתחת למלון שלך הערב. שאמצא חלופה שקטה יותר, או להשאיר אותך בלב העניינים?", act:"להציג אפשרויות"},
+  {who:"משפחת לוי", dest:"ATHENS", body:"מחר חג מקומי ורוב החנויות סגורות. ריכזתי מה כן פתוח ליד המלון.", act:"לשלוח למפה"},
+  {who:"Eitan",  dest:"BANGKOK",  body:"צפי לחום כבד בצהריים. סידרתי את היום כך שהביקורים יהיו בשעות הנעימות.", act:"לראות את היום"},
+  {who:"Tamar",  dest:"AMSTERDAM",body:"גשם צפוי בנחיתה. אפשר להזמין מונית מקורה עד הדלת, או להשאיר מטרייה בקבלה.", act:"להזמין מונית"},
+];
+const POPUPS_ARR = [
+  {who:"David",  dest:"LONDON",   body:"ברוך הבא הביתה. ההסעה שהזמנת ממתינה ביציאה 3. נסיעה נעימה.", act:"לאיתור הנהג"},
+  {who:"Noa",    dest:"PARIS",    body:"נחיתה רכה. הצ'ק-אין במלון כבר מוכן בשמך — אפשר לגשת ישירות לחדר.", act:"לפרטי המלון"},
+  {who:"קבוצת HIT", dest:"VENICE", body:"ברוכים הבאים. סירת המים לסן מרקו יוצאת מהרציף הסמוך כל 20 דקות.", act:"להצגת מסלול"},
+  {who:"משפחת לוי", dest:"ATHENS", body:"נחתתם. הכבודה על מסוע 4. אספתי לכם מסעדה פתוחה ב-5 דקות הליכה.", act:"לראות בקרבת מקום"},
+  {who:"Eitan",  dest:"BANGKOK",  body:"ברוך הבא לבנגקוק. בחוץ 33°. סידרתי טוקטוק ממוזג שימתין לך ביציאה.", act:"לאיתור ההסעה"},
+  {who:"Daniel", dest:"ROME",     body:"ברוך הבא לרומא. הנהג שהזמנת ממתין ביציאה עם שלט בשמך.", act:"לאיתור הנהג"},
+  {who:"Maya",   dest:"TOKYO",    body:"נחתת בטוקיו. כרטיס ה-Suica שלך מחכה בקבלת המלון — אפשר לעלות לרכבת ישר.", act:"לפרטי המלון"},
+  {who:"משפחת כהן", dest:"LISBON", body:"נחתתם בליסבון. הדירה מוכנה והקוד לכניסה נשלח אליכם. ברוכים הבאים.", act:"לפרטי הדירה"},
+];
+
+let popTimer=null;
+function showPopup(){
+  const set = MODE==="dep" ? POPUPS_DEP : POPUPS_ARR;
+  const p = rnd(set);
+  // try to bind to a flight currently on the board with the same city
+  const match = rendered.find(f=>f.en===p.dest && !f.cancelled);
+  const flt = match ? match.id : (rnd(["LY","BA","AF","LH"])+" "+(100+jit(800)));
+
+  document.getElementById("popWho").textContent = p.who;
+  document.getElementById("popFlt").textContent =
+     (MODE==="dep"?"טיסה ":"טיסה ")+flt+" · "+p.dest;
+  document.getElementById("popBody").textContent =
+     "לידיעת "+p.who+", "+p.body;
+  document.getElementById("popActionTxt").textContent = p.act;
+
+  const el = document.getElementById("popup");
+  el.classList.remove("hide");
+  el.classList.add("show");
+  // random position — corners + center, with safe margins (avoid the header)
+  const m = 40, topMin = window.innerHeight*0.18;
+  const w = el.offsetWidth, h = el.offsetHeight;
+  const maxL = Math.max(m, window.innerWidth  - w - m);
+  const maxT = Math.max(topMin, window.innerHeight - h - m);
+  const slots = [
+    [m, topMin], [maxL, topMin],
+    [m, maxT],   [maxL, maxT],
+    [(window.innerWidth-w)/2, (window.innerHeight-h)/2],
+    [(window.innerWidth-w)/2, topMin],
+  ];
+  const [L,T] = rnd(slots);
+  el.style.left = L+"px";
+  el.style.top  = T+"px";
+  clearTimeout(popTimer);
+  popTimer = setTimeout(()=>{
+    el.classList.remove("show");
+    el.classList.add("hide");
+    setTimeout(()=>{ el.style.display="none"; el.classList.remove("hide"); el.style.display=""; }, 460);
+  }, 13000);
+}
+
+/* ---------- clock ---------- */
+const DAYS = ["יום ראשון","יום שני","יום שלישי","יום רביעי","יום חמישי","יום שישי","שבת"];
+function tickClock(){
+  const d = new Date();
+  document.getElementById("clock").textContent = pad(d.getHours())+":"+pad(d.getMinutes())+":"+pad(d.getSeconds());
+  document.getElementById("date").textContent = DAYS[d.getDay()]+" · "+pad(d.getDate())+"."+pad(d.getMonth()+1)+"."+d.getFullYear();
+}
+
+/* ---------- fullscreen helper ---------- */
+addEventListener("keydown",e=>{
+  if(e.key.toLowerCase()==="f"){
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+    else document.exitFullscreen();
+  }
+});
+
+/* ---------- boot ---------- */
+render();
+tickClock();
+setInterval(tickClock, 1000);          // clock every second
+setInterval(render, 5000);             // re-derive statuses every 5s
+setInterval(()=>setMode(MODE==="dep"?"arr":"dep"), 80000); // switch board every 80s
+setInterval(showPopup, 30000);         // Tico popup every 30s
+setTimeout(showPopup, 4000);           // first popup soon after load
+</script>
+</body>
+</html>
