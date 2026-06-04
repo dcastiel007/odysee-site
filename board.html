@@ -79,18 +79,18 @@ header{
 .clock .date{font-size:clamp(9px,.8vw,14px);letter-spacing:.18em;color:var(--txt-dim);margin-top:.5vh}
 
 /* ---------- TABLE ---------- */
-.board{flex:1;padding: .6vh 2.2vw 2vh;display:flex;flex-direction:column;min-height:0}
+.board{flex:1;padding: .6vh 2.2vw 5.5vh;display:flex;flex-direction:column;min-height:0}
 .cols{
   display:grid;
   grid-template-columns: 8% 40% 16% 12% 24%;
   align-items:center;
   padding:.9vh 1.2vw;
   border-bottom:2px solid var(--line);
-  font-size:clamp(9px,.8vw,14px);letter-spacing:.22em;text-transform:uppercase;color:var(--txt-dim);
+  font-size:clamp(13px,1.2vw,21px);letter-spacing:.2em;text-transform:uppercase;color:#aeb9c9;font-weight:500;
 }
 .cols .he{display:block;font-family:"Heebo";font-size:.85em;letter-spacing:.04em;margin-top:.2vh}
 
-#rows{flex:1;display:flex;flex-direction:column;min-height:0}
+#rows{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
 .row{
   display:grid;
   grid-template-columns: 8% 40% 16% 12% 24%;
@@ -252,6 +252,15 @@ const DEST = [
   {en:"BANGKOK",    he:"בנגקוק",   code:"BKK", lines:["LY"]},
   {en:"DELHI",      he:"דלהי",     code:"DEL", lines:["LY","AI"]},
   {en:"FRANKFURT",  he:"פרנקפורט", code:"FRA", lines:["LY","LH"]},
+  {en:"MADRID",     he:"מדריד",    code:"MAD", lines:["LY","IB"]},
+  {en:"BERLIN",     he:"ברלין",    code:"BER", lines:["LY","LH"]},
+  {en:"ISTANBUL",   he:"איסטנבול", code:"IST", lines:["LY","TK"]},
+  {en:"COPENHAGEN", he:"קופנהגן",  code:"CPH", lines:["LY","SK"]},
+  {en:"ZURICH",     he:"ציריך",    code:"ZRH", lines:["LY","LX"]},
+  {en:"DUBAI",      he:"דובאי",    code:"DXB", lines:["LY","EK"]},
+  {en:"PRAGUE",     he:"פראג",     code:"PRG", lines:["LY","OK"]},
+  {en:"PORTO",      he:"פורטו",    code:"OPO", lines:["LY","TP"]},
+  {en:"SINGAPORE",  he:"סינגפור",  code:"SIN", lines:["LY","SQ"]},
 ];
 const ORIG = DEST; // arrivals reuse the same city set as origins
 
@@ -330,15 +339,14 @@ function render(){
     .filter(f=> f.st.code!=="done")
     .filter(f=> f.effective > now - 6*60000 && f.effective < now + 115*60000)
     .sort((a,b)=>a.effective-b.effective)
-    .slice(0,13);
-  rendered = list;
+    .slice(0,20);
 
   const wrap = document.getElementById("rows");
   wrap.innerHTML = "";
+  const shown = [];
   for(const f of list){
     const eff = f.effective;
-    const gateOrBelt = MODE==="arr" ? ("ש"+f.belt) : f.gate;
-    const cityLine = MODE==="arr" ? "from " : "";
+    const gateOrBelt = MODE==="arr" ? f.belt : f.gate;
     const r = document.createElement("div");
     r.className = "row";
     r.innerHTML = `
@@ -357,9 +365,13 @@ function render(){
     if(lastStatus[f.id] && lastStatus[f.id] !== f.st.code){
       r.querySelector(".status").classList.add("flip");
     }
-    lastStatus[f.id] = f.st.code;
     wrap.appendChild(r);
+    // stop once the board is full — never overrun the bottom strap
+    if(wrap.scrollHeight > wrap.clientHeight){ wrap.removeChild(r); break; }
+    lastStatus[f.id] = f.st.code;
+    shown.push(f);
   }
+  rendered = shown;
 }
 
 /* ---------- mode switch (departures <-> arrivals) ---------- */
@@ -373,8 +385,8 @@ function setMode(m){
     he.textContent = m==="dep" ? "המראות" : "נחיתות";
     document.getElementById("colDest").firstChild.textContent = m==="dep" ? "DESTINATION" : "ORIGIN";
     document.getElementById("colDest").querySelector(".he").textContent = m==="dep" ? "יעד" : "מוצא";
-    document.getElementById("colGate").firstChild.textContent = m==="dep" ? "GATE" : "HALL";
-    document.getElementById("colGate").querySelector(".he").textContent = m==="dep" ? "שער" : "אולם";
+    document.getElementById("colGate").firstChild.textContent = m==="dep" ? "GATE" : "BAGGAGE";
+    document.getElementById("colGate").querySelector(".he").textContent = m==="dep" ? "שער" : "מסוע";
     en.style.opacity = 1; he.style.opacity = 1;
     lastStatus = {};
     render();
@@ -395,6 +407,18 @@ const POPUPS_DEP = [
   {who:"משפחת לוי", dest:"ATHENS", body:"מחר חג מקומי ורוב החנויות סגורות. ריכזתי מה כן פתוח ליד המלון.", act:"לשלוח למפה"},
   {who:"Eitan",  dest:"BANGKOK",  body:"צפי לחום כבד בצהריים. סידרתי את היום כך שהביקורים יהיו בשעות הנעימות.", act:"לראות את היום"},
   {who:"Tamar",  dest:"AMSTERDAM",body:"גשם צפוי בנחיתה. אפשר להזמין מונית מקורה עד הדלת, או להשאיר מטרייה בקבלה.", act:"להזמין מונית"},
+  {who:"Tom",       dest:"BARCELONA", body:"הכניסה לסגרדה פמיליה מתמלאת כבר בבוקר. שאשריין לך כרטיס לשעה מוקדמת, לפני התורים?", act:"לשריין כרטיס"},
+  {who:"Rachel",    dest:"MADRID",    body:"הערב יש הופעת פלמנקו אותנטית במרחק הליכה מהמלון. נשארו מעט מקומות.", act:"לשמור מקום"},
+  {who:"משפחת אבני", dest:"BERLIN",    body:"סוף השבוע צפוי קריר וגשום. ריכזתי מוזיאונים ופעילויות מקורות ליד המלון.", act:"לראות את הרשימה"},
+  {who:"Liat",      dest:"ISTANBUL",  body:"הבזאר הגדול סגור ביום ראשון. סידרתי את היום כך שתגיעי כשהוא פתוח ושוקק.", act:"לראות את היום"},
+  {who:"Omer",      dest:"COPENHAGEN",body:"מזג האוויר מתבהר אחר הצהריים — שעה מושלמת לשיט בתעלות. שאזמין לך?", act:"להזמין שיט"},
+  {who:"משפחת שרון", dest:"ZURICH",    body:"הרכבת לפסגת היונגפראו יוצאת בבוקר ומתמלאת מהר. כדאי להקדים כרטיסים.", act:"להזמין כרטיסים"},
+  {who:"Adi",       dest:"NEW YORK",  body:"נשארו כרטיסים אחרונים למחזמר מבוקש בברודוויי הערב. שאתפוס לך לפני שייגמרו?", act:"לתפוס כרטיסים"},
+  {who:"Gil",       dest:"DUBAI",     body:"צפוי חום קיצוני בצהריים. סידרתי את הביקורים לשעות הנעימות, עם הפסקות ממוזגות.", act:"לראות את היום"},
+  {who:"משפחת פרץ",  dest:"PRAGUE",    body:"גשר קארל הכי שקט מוקדם בבוקר. שאתחיל את היום שלכם משם, לפני ההמונים?", act:"לעדכן מסלול"},
+  {who:"Noga",      dest:"PORTO",     body:"סיור יקבי הפורט מתחיל אחר הצהריים והמקומות אוזלים. שאשריין לך?", act:"לשריין מקום"},
+  {who:"Yael",      dest:"ROME",      body:"ביום רביעי יש אודיינציה בכיכר פטרוס. הכניסה חינם אך דורשת כרטיס מראש.", act:"לסדר כרטיס"},
+  {who:"משפחת דהן",  dest:"SINGAPORE", body:"הגנים על המפרץ מוארים בערב במופע אורות — מומלץ במיוחד עם ילדים.", act:"לראות פרטים"},
 ];
 const POPUPS_ARR = [
   {who:"David",  dest:"LONDON",   body:"ברוך הבא הביתה. ההסעה שהזמנת ממתינה ביציאה 3. נסיעה נעימה.", act:"לאיתור הנהג"},
@@ -405,6 +429,14 @@ const POPUPS_ARR = [
   {who:"Daniel", dest:"ROME",     body:"ברוך הבא לרומא. הנהג שהזמנת ממתין ביציאה עם שלט בשמך.", act:"לאיתור הנהג"},
   {who:"Maya",   dest:"TOKYO",    body:"נחתת בטוקיו. כרטיס ה-Suica שלך מחכה בקבלת המלון — אפשר לעלות לרכבת ישר.", act:"לפרטי המלון"},
   {who:"משפחת כהן", dest:"LISBON", body:"נחתתם בליסבון. הדירה מוכנה והקוד לכניסה נשלח אליכם. ברוכים הבאים.", act:"לפרטי הדירה"},
+  {who:"Tom",       dest:"BARCELONA", body:"ברוך הבא לברצלונה. הנהג ממתין ביציאה עם שלט בשמך. נסיעה נעימה.", act:"לאיתור הנהג"},
+  {who:"Rachel",    dest:"MADRID",    body:"נחיתה רכה במדריד. הצ'ק-אין במלון כבר מוכן — אפשר לגשת ישר לחדר.", act:"לפרטי המלון"},
+  {who:"משפחת שרון", dest:"ZURICH",    body:"ברוכים הבאים לציריך. הכבודה על מסוע 6, ומונית מקורה ממתינה ביציאה.", act:"לאיתור ההסעה"},
+  {who:"Liat",      dest:"ISTANBUL",  body:"נחתת באיסטנבול. בחוץ 24° ונעים. סידרתי הסעה ישירה למלון בלב העיר העתיקה.", act:"לאיתור ההסעה"},
+  {who:"משפחת פרץ",  dest:"PRAGUE",    body:"ברוכים הבאים לפראג. הדירה מוכנה והקוד לכניסה נשלח אליכם זה עתה.", act:"לפרטי הדירה"},
+  {who:"Adi",       dest:"NEW YORK",  body:"ברוכה הבאה לניו יורק. הנהג ממתין ביציאה והחדר כבר מוכן בשמך.", act:"לאיתור הנהג"},
+  {who:"Gil",       dest:"DUBAI",     body:"ברוך הבא לדובאי. בחוץ 38° — סידרתי רכב ממוזג שימתין לך ממש ביציאה.", act:"לאיתור ההסעה"},
+  {who:"Noga",      dest:"PORTO",     body:"נחתת בפורטו. הכבודה על מסוע 2, ואיסוף ממתין לך ביציאה הראשית.", act:"לאיתור ההסעה"},
 ];
 
 let popTimer=null;
