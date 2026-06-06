@@ -22,6 +22,11 @@ h1{font-family:var(--he);font-weight:800;font-size:40px;margin:4px 0 8px;}
 .fgroup{display:flex;gap:6px;align-items:center;} .flabel{font-size:12px;color:var(--navy300);font-weight:600;}
 .fbtn{font-family:var(--he);font-size:13px;border:1px solid var(--sand200);background:#fff;color:var(--navy700);
 border-radius:999px;padding:6px 14px;cursor:pointer;} .fbtn.active{background:var(--navy);color:var(--sand50);border-color:var(--navy);}
+.fsel{font-family:var(--he);font-size:13px;color:var(--navy700);background:#fff;border:1px solid var(--sand200);
+border-radius:999px;padding:6px 14px 6px 32px;cursor:pointer;appearance:none;-webkit-appearance:none;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231d3d60' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+background-repeat:no-repeat;background-position:left 13px center;}
+.fsel:focus{outline:none;border-color:var(--navy);}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px;}
 .card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--sand200);border-radius:16px;
 padding:16px 17px;text-decoration:none;color:inherit;transition:transform .15s ease, box-shadow .15s ease;min-height:170px;}
@@ -51,8 +56,8 @@ padding:16px 17px;text-decoration:none;color:inherit;transition:transform .15s e
   <div class="filters">
     <div class="fgroup"><span class="flabel">שפה</span><button class="fbtn active" data-filter="lang" data-val="all">הכל</button><button class="fbtn" data-filter="lang" data-val="he">עברית</button><button class="fbtn" data-filter="lang" data-val="en">English</button></div>
     <div class="fgroup"><span class="flabel">אורך</span><button class="fbtn active" data-filter="days" data-val="all">הכל</button><button class="fbtn" data-filter="days" data-val="short">2–3 ימים</button><button class="fbtn" data-filter="days" data-val="mid">4–5 ימים</button><button class="fbtn" data-filter="days" data-val="long">6+ ימים</button></div>
-    <div class="fgroup"><span class="flabel">פרופיל</span><button class="fbtn active" data-filter="profile" data-val="all">הכל</button><button class="fbtn" data-filter="profile" data-val="couple">זוג</button><button class="fbtn" data-filter="profile" data-val="family">משפחה</button><button class="fbtn" data-filter="profile" data-val="solo">סולו</button><button class="fbtn" data-filter="profile" data-val="friends">חברים</button><button class="fbtn" data-filter="profile" data-val="older">מבוגרים</button></div>
-    <div class="fgroup"><span class="flabel">אזור</span><button class="fbtn active" data-filter="region" data-val="all">הכל</button><button class="fbtn" data-filter="region" data-val="europe">אירופה</button><button class="fbtn" data-filter="region" data-val="asia">אסיה</button><button class="fbtn" data-filter="region" data-val="americas">אמריקה</button><button class="fbtn" data-filter="region" data-val="africa">אפריקה</button><button class="fbtn" data-filter="region" data-val="mideast">מזרח תיכון</button></div>
+    <div class="fgroup"><span class="flabel">פרופיל</span><select class="fsel" data-filter="profile"><option value="all">פרופיל — הכל</option><option value="couple">זוג</option><option value="family">משפחה</option><option value="solo">סולו</option><option value="friends">חברים</option><option value="older">מבוגרים</option></select></div>
+    <div class="fgroup"><span class="flabel">אזור</span><select class="fsel" data-filter="region"><option value="all">אזור — הכל</option><option value="europe">אירופה</option><option value="asia">אסיה</option><option value="americas">אמריקה</option><option value="africa">אפריקה</option><option value="mideast">מזרח תיכון</option></select></div>
   </div>
 
   <div class="grid" id="grid">
@@ -78,6 +83,9 @@ document.querySelectorAll(".fbtn").forEach(b=>b.addEventListener("click",()=>{
   const k=b.dataset.filter; F[k]=b.dataset.val;
   document.querySelectorAll(`.fbtn[data-filter="${k}"]`).forEach(x=>x.classList.remove("active"));
   b.classList.add("active"); apply();
+}));
+document.querySelectorAll(".fsel").forEach(s=>s.addEventListener("change",()=>{
+  F[s.dataset.filter]=s.value; apply();
 }));
 apply();
 </script>
