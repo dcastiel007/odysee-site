@@ -26,19 +26,19 @@ except ImportError:
     sys.exit("openpyxl not installed. Run: pip install openpyxl --break-system-packages")
 
 STATUS = {
-    "KEY":      ("#B85A3E", "אבן דרך"),
-    "DESIGN":   ("#7C6FCD", "עיצוב"),
-    "CONTENT":  ("#B85A3E", "תוכן"),
-    "DEV":      ("#4ECDC4", "פיתוח"),
-    "IMPL":     ("#4ECDC4", "יישום"),
-    "QA":       ("#F8B743", "בדיקות"),
-    "FIX":      ("#E05A5F", "תיקונים"),
-    "DOCS":     ("#7C6FCD", "תיעוד"),
-    "PRINT":    ("#4ECDC4", "הדפסה"),
+    "KEY":      ("#E5763C", "אבן דרך"),
+    "DESIGN":   ("#F2C14E", "עיצוב"),
+    "CONTENT":  ("#E5763C", "תוכן"),
+    "DEV":      ("#2F8F93", "פיתוח"),
+    "IMPL":     ("#1C6B6F", "יישום"),
+    "QA":       ("#E5A13C", "בדיקות"),
+    "FIX":      ("#D2553F", "תיקונים"),
+    "DOCS":     ("#3A5D83", "תיעוד"),
+    "PRINT":    ("#1D3D60", "הדפסה"),
     "HW":       ("#6B7588", "חומרה"),
-    "SUBMIT":   ("#B85A3E", "הגשה"),
-    "SETUP":    ("#7C6FCD", "הקמה"),
-    "LIVE":     ("#B85A3E", "תערוכה"),
+    "SUBMIT":   ("#E5763C", "הגשה"),
+    "SETUP":    ("#3A5D83", "הקמה"),
+    "LIVE":     ("#E5763C", "תערוכה"),
     "TEARDOWN": ("#6B7588", "פירוק"),
 }
 DEFAULT_COLOR = "#6B7588"
@@ -130,7 +130,7 @@ FOOT = """<footer class="site-footer">
 </footer>
 <script>
 const root=document.documentElement,mq=matchMedia('(prefers-color-scheme: dark)');
-let cur=localStorage.getItem('odysee-theme')||'system';
+let cur=localStorage.getItem('odysee-theme')||'dark';
 function apply(t){root.setAttribute('data-theme',t==='system'?(mq.matches?'dark':'light'):t);
   ['light','system','dark'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===t));
   cur=t;localStorage.setItem('odysee-theme',t);}
