@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="system">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -629,7 +629,7 @@
 (function () {
   const root = document.documentElement;
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  let cur = localStorage.getItem('odysee-theme') || 'system';
+  let cur = localStorage.getItem('odysee-theme') || 'dark';
 
   function apply(t) {
     root.setAttribute('data-theme', t === 'system' ? (mq.matches ? 'dark' : 'light') : t);
