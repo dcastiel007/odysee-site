@@ -81,14 +81,12 @@ def head(title, active):
     navhtml = "\n".join(
         f'      <li><a href="{u}"{" class=\"active\"" if act else ""}>{n}</a></li>'
         for u,n,act in nav)
-    roundel = ('<svg class="bm__o" viewBox="0 0 100 100" aria-hidden="true">'
-        '<circle class="bm-inner" cx="50" cy="50" r="45.4"/>'
-        '<circle class="bm-ring" cx="50" cy="50" r="45.4" fill="none" stroke-width="9.2"/>'
-        '<g transform="rotate(-32 50 50)">'
-        '<path class="bm-trail" d="M 26 50 A 24 24 0 0 0 74 50" fill="none" stroke-width="6.5" '
-        'stroke-linecap="round" stroke-dasharray="0.1 12"/>'
-        '<circle class="bm-start" cx="26" cy="50" r="3.6"/>'
-        '<circle class="bm-end" cx="74" cy="50" r="5.4"/></g></svg>')
+    roundel = ('<svg class="bm__o" viewBox="0 0 1000 1000" aria-hidden="true" fill="none">'
+        '<path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/>'
+        '<path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/>'
+        '<path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/>'
+        '<circle class="cap-end" cx="725" cy="399" r="48"/>'
+        '<circle class="cap-end" cx="300" cy="399" r="48"/></svg>')
     return f"""<!DOCTYPE html>
 <html lang="he" dir="rtl" data-theme="system">
 <head>
@@ -146,9 +144,8 @@ COMPONENT_CSS = """
 .bm{display:inline-flex;align-items:center;gap:2px;text-decoration:none;line-height:.9}
 .bm__o{width:2.2em;height:2.2em}
 .bm__text{font-family:var(--od-font-sans,'Sora',sans-serif);font-weight:800;font-size:34px;letter-spacing:-.035em;color:var(--od-fg)}
-.bm-inner{fill:#fff}.bm-ring{stroke:var(--od-navy)}.bm-trail{stroke:var(--od-navy)}
-.bm-start{fill:var(--od-navy)}.bm-end{fill:var(--od-red)}
-[data-theme="dark"] .bm-ring{stroke:var(--od-paper)}
+.bm__o .ring{stroke:var(--od-navy)}.bm__o .cap-end{fill:var(--od-red)}
+[data-theme="dark"] .bm__o .ring{stroke:var(--od-paper)}
 .iv-tagline{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--od-fg-subtle);font-weight:500;margin-top:2px}
 .iv-wrap{max-width:1200px;margin:0 auto;padding:32px 24px 64px}
 .iv-h1{font-family:var(--od-font-sans,'Sora',sans-serif);font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--od-fg);margin-bottom:4px}
