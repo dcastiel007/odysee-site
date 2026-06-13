@@ -78,50 +78,183 @@
   opacity: 0.3;
 }
 
-/* Coming Soon hero */
-.coming-soon {
-  max-width: 720px;
+/* ─── Exhibition content ─── */
+.ex-cover {
+  max-width: 820px;
   margin: 0 auto;
-  padding: 120px 32px 160px;
+  padding: 116px 32px 64px;
   text-align: center;
 }
-.coming-soon__label {
+.ex-cover__label {
   font-family: var(--od-font-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: var(--od-red);
+  color: var(--od-red-deep);
   text-transform: uppercase;
   margin-bottom: 24px;
   font-weight: 500;
 }
-.coming-soon__title {
+.ex-cover__title {
   font-family: var(--od-font-sans);
-  font-size: clamp(40px, 5vw, 56px);
+  font-size: clamp(40px, 5vw, 60px);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.035em;
   color: var(--od-fg);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
-.coming-soon__rule {
+.ex-cover__rule {
   width: 64px;
   height: 1px;
   background: var(--od-red);
   margin: 0 auto 28px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
-.coming-soon__body {
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--od-fg-subtle);
-  margin-bottom: 36px;
+.ex-cover__lead {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--od-fg-muted);
+  margin-bottom: 32px;
 }
-.coming-soon__meta {
+.ex-cover__meta {
   font-family: var(--od-font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--od-fg-subtle);
+}
+
+.ex-section {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 64px 32px;
+  border-top: 1px solid var(--od-border);
+}
+.ex-section__label {
+  font-family: var(--od-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--od-red-deep);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.ex-section__title {
+  font-family: var(--od-font-sans);
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--od-fg);
+  margin-bottom: 20px;
+}
+.ex-section__lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--od-fg-muted);
+  max-width: 680px;
+}
+.ex-section__lead + .ex-section__lead { margin-top: 16px; }
+.ex-pull {
+  font-family: var(--od-font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--od-fg);
+  margin: 28px 0;
+  line-height: 1.4;
+}
+.ex-pull em { color: var(--od-red-deep); font-style: normal; }
+
+.ex-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+.ex-card {
+  background: var(--od-bg-alt);
+  border: 1px solid var(--od-border);
+  border-radius: var(--od-r-lg);
+  padding: 24px;
+}
+.ex-card__name {
+  font-family: var(--od-font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--od-fg);
+  margin-bottom: 8px;
+}
+.ex-card__desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--od-fg-muted);
+}
+
+.ex-steps {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+.ex-step {
+  display: flex;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--od-border);
+}
+.ex-step:last-child { border-bottom: none; }
+.ex-step__num {
+  font-family: var(--od-font-mono);
+  font-size: 13px;
+  color: var(--od-red-deep);
+  font-weight: 500;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.ex-step__body h4 {
+  font-family: var(--od-font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--od-fg);
+  margin-bottom: 5px;
+}
+.ex-step__body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--od-fg-muted);
+}
+
+.ex-chain {
+  margin-top: 28px;
+  border: 1px solid var(--od-border);
+  border-radius: var(--od-r-lg);
+  overflow: hidden;
+}
+.ex-chain__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--od-border);
+}
+.ex-chain__row:last-child { border-bottom: none; }
+.ex-chain__tech {
+  font-family: var(--od-font-mono);
+  font-size: 13px;
+  color: var(--od-fg);
+  margin-bottom: 4px;
+}
+.ex-chain__role {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--od-fg-muted);
+}
+.ex-chain__lat {
+  font-family: var(--od-font-mono);
+  font-size: 12px;
+  color: var(--od-red-deep);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 </style>
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
@@ -158,17 +291,205 @@
   </nav>
 </header>
 
-<main class="coming-soon">
-  <p class="coming-soon__label">Coming Soon</p>
-  <h1 class="coming-soon__title">The Final Exhibition</h1>
-  <div class="coming-soon__rule"></div>
-  <p class="coming-soon__body">
-    An interactive installation at HIT Holon Institute of Technology — Odysee's
-    multi-agent architecture rendered as a live, walk-in experience. Visitor flow,
-    spatial design, and technical specifications will be published here once the
-    institute's exhibition brief is finalized.
-  </p>
-  <p class="coming-soon__meta">Exhibition · 6–19 August 2026</p>
+<main>
+
+  <!-- HERO -->
+  <section class="ex-cover">
+    <p class="ex-cover__label">Odysee Live</p>
+    <h1 class="ex-cover__title">The Exhibition</h1>
+    <div class="ex-cover__rule"></div>
+    <p class="ex-cover__lead">
+      A walk-in installation at HIT — Odysee's multi-agent architecture made into
+      something you can hear, see, and take part in. For two weeks, visitors don't
+      read about Odysee. They meet it.
+    </p>
+    <p class="ex-cover__meta">6–19 August 2026 · HIT, Holon</p>
+  </section>
+
+  <!-- 01 VISION -->
+  <section class="ex-section">
+    <p class="ex-section__label">01 — Vision</p>
+    <h2 class="ex-section__title">A companion, not an oracle</h2>
+    <p class="ex-section__lead">
+      The installation is not a chatbot demo. It is a living visualization of the
+      thesis claim itself, shown as an experience. Odysee is the system; Tico, the
+      companion, is its voice. Tico is not a photorealistic human figure but a
+      minimal mark — a circle with two eyes — that looks outward. The choice is
+      deliberate: a human avatar would pose as a person, while the abstract mark
+      keeps Tico honest — a companion that senses the world, not an entity
+      pretending to be human.
+    </p>
+    <p class="ex-pull"><em>Sensing the world, not reading the mind.</em></p>
+    <p class="ex-section__lead">
+      Tico points at what surrounds the visitor — time, place, weather, events —
+      and never at their inner state. The principle is built into the space: the
+      installation has no camera. An earlier version considered presence-detection
+      to wake Tico; it was removed for privacy — and that refusal is the argument
+      in physical form. The conversation opens with a button press, on the
+      visitor's initiative alone.
+    </p>
+    <p class="ex-section__lead">
+      The departures-and-arrivals board behind the station — airport-style — is the
+      central metaphor: a system that points at the world outside. When a visitor
+      speaks with Tico, the agent architecture is revealed in the background in
+      real time — which agent is handling what, and why.
+    </p>
+  </section>
+
+  <!-- 02 INSTALLATION -->
+  <section class="ex-section">
+    <p class="ex-section__label">02 — The Installation</p>
+    <h2 class="ex-section__title">Six elements, one experience</h2>
+    <div class="ex-grid">
+      <div class="ex-card">
+        <div class="ex-card__name">Departures &amp; Arrivals Board</div>
+        <p class="ex-card__desc">A 65″ airport-style board (bilingual, Hebrew and English) with rotating Tico messages — the installation's central visual metaphor for a system that points at the world.</p>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card__name">The Pipeline Station</div>
+        <p class="ex-card__desc">The live demo: a transparent acrylic shell over a thin floating oak desk, housing a Mac mini M4, a 24″ screen with Tico's face, a Shure MV5 microphone, near-field speakers, keyboard and mouse, a label printer, and a stack of "boarding-pass" cards. A single button opens the conversation.</p>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card__name">The Explainer (iMac)</div>
+        <p class="ex-card__desc">A 21.5″ iMac cycling through designed screens about the project — static mockups, nothing live — including the intro film, the homepage, the agent visualization, and the Odysee 2030 page.</p>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card__name">Poster</div>
+        <p class="ex-card__desc">A single 100×70 cm poster in the Odysee design system, printed on matte stock — wall-mounted or on a stand.</p>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card__name">The Book</div>
+        <p class="ex-card__desc">A low pedestal holding the printed book under a focused downlight — the full record of the research and design.</p>
+      </div>
+      <div class="ex-card">
+        <div class="ex-card__name">Infrastructure</div>
+        <p class="ex-card__desc">A cellular modem, network switch, cabling and power, with supplementary LED accents on select elements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 VISITOR EXPERIENCE -->
+  <section class="ex-section">
+    <p class="ex-section__label">03 — Visitor Experience</p>
+    <h2 class="ex-section__title">Six steps, about three minutes</h2>
+    <div class="ex-steps">
+      <div class="ex-step">
+        <div class="ex-step__num">01</div>
+        <div class="ex-step__body">
+          <h4>Activate</h4>
+          <p>The visitor presses the button. Tico wakes — a gentle animation and a spoken greeting. On the visitor's initiative alone, with no sensors identifying them.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step__num">02</div>
+        <div class="ex-step__body">
+          <h4>Dream</h4>
+          <p>"Where have you always wanted to go?" The visitor answers freely; the turn closes when they finish speaking. AGT-01 begins profiling in the background.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step__num">03</div>
+        <div class="ex-step__body">
+          <h4>Live Planning</h4>
+          <p>A map takes shape. Day-by-day activities appear in real time as AGT-02 builds the itinerary. The agent arcs glow.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step__num">04</div>
+        <div class="ex-step__body">
+          <h4>Cultural Discovery</h4>
+          <p>Tico offers a phrase in the destination's language, with pronunciation and cultural context. AGT-06 runs live.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step__num">05</div>
+        <div class="ex-step__body">
+          <h4>Architecture Reveal</h4>
+          <p>The agent map animates in the background — showing which agents fired and why. The system explains itself, and the visitor leaves with a visual understanding of how it worked for them.</p>
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step__num">06</div>
+        <div class="ex-step__body">
+          <h4>Personal Takeaway</h4>
+          <p>At the end, the visitor chooses to take a souvenir. A press generates a designed itinerary document, and a QR code appears on screen to scan (and, optionally, a printed "boarding-pass" card). Initiated by the visitor — never pushed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 UNDER THE HOOD -->
+  <section class="ex-section">
+    <p class="ex-section__label">04 — Under the Hood</p>
+    <h2 class="ex-section__title">The conversation pipeline</h2>
+    <p class="ex-section__lead">
+      Every spoken word passes through a four-layer chain. The end-to-end target is
+      under four seconds — the threshold below which conversation feels natural; in
+      practice, measured latency runs around 2.9 seconds. Claude streaming lets
+      ElevenLabs begin speaking before the answer is fully formed, saving roughly two
+      seconds of perceived wait. Everything is coordinated by a local FastAPI server
+      over WebSocket.
+    </p>
+    <div class="ex-chain">
+      <div class="ex-chain__row">
+        <div>
+          <div class="ex-chain__tech">mlx_whisper (local)</div>
+          <div class="ex-chain__role">Speech to text on the Metal GPU, automatic language detection</div>
+        </div>
+        <div class="ex-chain__lat">~475 ms</div>
+      </div>
+      <div class="ex-chain__row">
+        <div>
+          <div class="ex-chain__tech">Claude API / Anthropic</div>
+          <div class="ex-chain__role">The orchestrator — analyzes, routes to agents, summarizes</div>
+        </div>
+        <div class="ex-chain__lat">~1,500 ms</div>
+      </div>
+      <div class="ex-chain__row">
+        <div>
+          <div class="ex-chain__tech">AGT-01 / 02 / 06</div>
+          <div class="ex-chain__role">Profiling · itinerary · translation &amp; culture</div>
+        </div>
+        <div class="ex-chain__lat">parallel</div>
+      </div>
+      <div class="ex-chain__row">
+        <div>
+          <div class="ex-chain__tech">ElevenLabs TTS (streaming)</div>
+          <div class="ex-chain__role">Natural voice (eleven_v3, improved Hebrew)</div>
+        </div>
+        <div class="ex-chain__lat">~400 ms</div>
+      </div>
+    </div>
+    <p class="ex-section__lead" style="margin-top:28px">
+      Instead of a human avatar, Tico is a minimal on-screen mark — a circle with two
+      eyes — moving between five states: Wake, Idle, Curious, Speaking, Thinking. The
+      mouth appears only while speaking. This is not a technical compromise but a
+      stance: a photorealistic figure would pose as a person and invite the uncanny
+      valley, while the abstract mark keeps Tico honest — a voice that accompanies,
+      not a face that pretends.
+    </p>
+  </section>
+
+  <!-- 05 TAKEAWAY -->
+  <section class="ex-section">
+    <p class="ex-section__label">05 — The Takeaway</p>
+    <h2 class="ex-section__title">A souvenir, taken — never pushed</h2>
+    <p class="ex-section__lead">
+      At the end of the conversation, the visitor can take a designed itinerary
+      document. The mechanism is built and working: on a press, the server assembles
+      the itinerary points already gathered during the conversation, renders them to a
+      designed PDF with Playwright (HTML→PDF), uploads it to Cloudflare R2, and shows a
+      QR code on screen to scan. If desired, a QR sticker prints onto a "boarding-pass"
+      card.
+    </p>
+    <p class="ex-section__lead">
+      It is designed to fail gracefully: if copy generation fails, a deterministic
+      document is produced rather than blocking the takeaway, and files auto-delete
+      after 14 days. Like the removed camera, the action is initiated by the visitor
+      and never pushed by the system.
+    </p>
+  </section>
+
 </main>
 
 <footer class="site-footer">
