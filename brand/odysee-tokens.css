@@ -66,7 +66,7 @@
   --od-dur-think:   1.5s;
 
   /* --- Semantic surface aliases (light = default) --- */
-  --od-bg:          var(--od-sand-50);
+  --od-bg:          var(--od-sand-100);
   --od-surface:     var(--od-white);
   --od-text:        var(--od-navy-900);
   --od-text-muted:  var(--od-navy-500);
