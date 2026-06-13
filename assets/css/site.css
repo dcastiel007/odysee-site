@@ -218,9 +218,10 @@ pre {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  background: var(--od-bg-alt);
+  background: var(--od-sand-50);
   direction: ltr;
 }
+[data-theme="dark"] .site-header { background: var(--od-bg-alt); }
 
 .site-logo {
   font-family: var(--od-font-sans);
