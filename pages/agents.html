@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odysee — System Architecture — v3.0</title>
+<title>Odysee - System Architecture - v3.0</title>
 <link rel="stylesheet" href="../brand/odysee-tokens.css" />
   <link rel="stylesheet" href="../assets/css/site.css" />
 <style>
@@ -121,7 +121,7 @@
   .io-lbl  { font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px;font-family:var(--font-latin); }
   .io-list { list-style:none;margin-bottom:12px; }
   .io-list li { font-size:11px;color:var(--text-secondary);padding:2px 0 2px 14px;position:relative;font-family:var(--font-latin);direction:ltr;text-align:left; }
-  .io-list li::before { content:'—';position:absolute;left:0;color:var(--gold);opacity:0.4;font-size:10px; }
+  .io-list li::before { content:'-';position:absolute;left:0;color:var(--gold);opacity:0.4;font-size:10px; }
   .agent-foot { display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);flex-wrap:wrap;gap:8px; }
   .api-list   { display:flex;flex-wrap:wrap;gap:4px; }
   .api-tag    { font-size:9px;background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:3px;padding:2px 7px;color:var(--text-muted);font-family:var(--font-latin); }
@@ -191,7 +191,7 @@
 
 <header class="site-header">
   <div class="site-header__brand">
-    <a href="../index.html" class="brand-mark" aria-label="Odysee — home">
+    <a href="../index.html" class="brand-mark" aria-label="Odysee - home">
       <svg class="brand-mark__o" viewBox="0 0 1000 1000" aria-hidden="true" fill="none"><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/><circle class="cap-end" cx="725" cy="399" r="48"/><circle class="cap-end" cx="300" cy="399" r="48"/></svg>
       <span class="brand-mark__text">dysee</span>
     </a>
@@ -279,10 +279,10 @@
 
 <!-- 01 SUMMARY -->
 <div class="doc-section" id="summary">
-  <p class="section-label">01 — <span  >Executive Summary</span></p>
+  <p class="section-label">01 - <span  >Executive Summary</span></p>
   <h2  >A Lifelong Companion for Every Journey</h2>
   <div style="max-width:720px;margin-top:20px">
-    <p>The Personal AI Travel Concierge is a multi-agent system designed to deliver hyper-personalized travel assistance at every stage of the journey — from initial inspiration to long-term travel memory. Unlike conventional travel apps that treat each booking as an isolated transaction, this system builds a continuous, evolving model of the traveler's preferences, behaviors, and aspirations.</p>
+    <p>The Personal AI Travel Concierge is a multi-agent system designed to deliver hyper-personalized travel assistance at every stage of the journey - from initial inspiration to long-term travel memory. Unlike conventional travel apps that treat each booking as an isolated transaction, this system builds a continuous, evolving model of the traveler's preferences, behaviors, and aspirations.</p>
     <p style="margin-top:14px">At its core, an orchestrating AI coordinates eleven specialized agents across four distinct stages: pre-trip planning and booking, real-time in-trip guidance, post-trip curation and reflection, and long-term companion intelligence. Each stage feeds the next, creating a feedback loop that makes the system smarter and more attuned with every journey.</p>
     <p style="margin-top:14px">This architecture document provides a complete specification of the system's agent topology, data flows, technical dependencies, and exhibition implementation scope.</p>
   </div>
@@ -290,9 +290,9 @@
 
 <!-- 02 ARCHITECTURE -->
 <div class="doc-section" id="architecture">
-  <p class="section-label">02 — <span  >System Architecture</span></p>
+  <p class="section-label">02 - <span  >System Architecture</span></p>
   <h2  >The Four-Stage Agent Ecosystem</h2>
-  <p style="margin-top:16px;max-width:680px">The system is organized around a central orchestrating intelligence — the Core Personal AI — which coordinates four specialized stage clusters. Data and context flow continuously between stages, with a feedback loop from Stage 4 back to Stage 1.</p>
+  <p style="margin-top:16px;max-width:680px">The system is organized around a central orchestrating intelligence - the Core Personal AI - which coordinates four specialized stage clusters. Data and context flow continuously between stages, with a feedback loop from Stage 4 back to Stage 1.</p>
   <div class="diagram-box">
     <svg width="860" height="540" viewBox="0 0 860 540" xmlns="http://www.w3.org/2000/svg">
       <rect x="28" y="28" width="270" height="185" rx="10" fill="#1C2230" stroke="rgba(78,205,196,0.45)" stroke-width="1.5"/>
@@ -357,13 +357,13 @@
 
 <!-- 03 AGENT CATALOG -->
 <div class="doc-section" id="catalog">
-  <p class="section-label">03 — <span  >Agent Catalog</span></p>
+  <p class="section-label">03 - <span  >Agent Catalog</span></p>
   <h2  >Eleven Specialized Agents</h2>
 
   <div class="stage-hdr">
     <div class="stage-badge sb-1">S1</div>
     <div class="stage-info">
-      <h3   style="color:var(--teal)">Before Trip — Planning &amp; Booking</h3>
+      <h3   style="color:var(--teal)">Before Trip - Planning &amp; Booking</h3>
       <p>Transforms raw travel intent into a confirmed, personalized itinerary with all reservations secured.</p>
     </div>
   </div>
@@ -381,7 +381,7 @@
     <div class="agent-card ac-s1">
       <div class="agent-id">AGT-02</div>
       <div class="agent-name"  >Itinerary Creation Agent</div>
-      <div class="agent-role">Generates complete day-by-day travel plans optimized for the user's profile — balancing must-sees with hidden gems, respecting energy levels and budget.</div>
+      <div class="agent-role">Generates complete day-by-day travel plans optimized for the user's profile - balancing must-sees with hidden gems, respecting energy levels and budget.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>User profile (AGT-01 output)</li><li>Destination, dates, group size</li><li>Budget envelope</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -391,7 +391,7 @@
     <div class="agent-card ac-s1">
       <div class="agent-id">AGT-03</div>
       <div class="agent-name"  >Booking &amp; Management Agent</div>
-      <div class="agent-role">Executes reservations across flights, hotels, and restaurants — organizes all confirmations, tickets, and calendar entries into a single travel pack.</div>
+      <div class="agent-role">Executes reservations across flights, hotels, and restaurants - organizes all confirmations, tickets, and calendar entries into a single travel pack.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Confirmed itinerary (AGT-02)</li><li>Payment preferences &amp; loyalty accounts</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -403,8 +403,8 @@
   <div class="stage-hdr">
     <div class="stage-badge sb-2">S2</div>
     <div class="stage-info">
-      <h3   style="color:var(--teal)">During Trip — Real-Time Guidance</h3>
-      <p>Acts as an always-on local guide — sensing context, resolving disruptions, and bridging language barriers in real time.</p>
+      <h3   style="color:var(--teal)">During Trip - Real-Time Guidance</h3>
+      <p>Acts as an always-on local guide - sensing context, resolving disruptions, and bridging language barriers in real time.</p>
     </div>
   </div>
   <div class="agents-grid">
@@ -421,7 +421,7 @@
     <div class="agent-card ac-s2">
       <div class="agent-id">AGT-05</div>
       <div class="agent-name"  >Schedule Optimization Agent</div>
-      <div class="agent-role">Continuously monitors for disruptions — delays, weather, closures — and automatically re-plans, triggering rebooking actions where needed.</div>
+      <div class="agent-role">Continuously monitors for disruptions - delays, weather, closures - and automatically re-plans, triggering rebooking actions where needed.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Live itinerary state</li><li>Flight status feeds</li><li>Weather &amp; event alerts</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -431,7 +431,7 @@
     <div class="agent-card ac-s2">
       <div class="agent-id">AGT-06</div>
       <div class="agent-name"  >Language &amp; Culture Agent</div>
-      <div class="agent-role">Provides real-time spoken translation and culturally nuanced etiquette guidance — from pronunciation help to awareness of local customs.</div>
+      <div class="agent-role">Provides real-time spoken translation and culturally nuanced etiquette guidance - from pronunciation help to awareness of local customs.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>User speech or typed text</li><li>Current GPS location</li><li>Target language context</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -443,7 +443,7 @@
   <div class="stage-hdr">
     <div class="stage-badge sb-3">S3</div>
     <div class="stage-info">
-      <h3   style="color:var(--gold)">Post Trip — Memories &amp; Insights</h3>
+      <h3   style="color:var(--gold)">Post Trip - Memories &amp; Insights</h3>
       <p>Transforms raw trip data into curated memories and actionable insights that feed the next journey.</p>
     </div>
   </div>
@@ -451,17 +451,17 @@
     <div class="agent-card ac-s3">
       <div class="agent-id">AGT-07</div>
       <div class="agent-name"  >Memory Curation Agent</div>
-      <div class="agent-role">Organizes photos, visited locations, and experiences into a coherent travel narrative — ready to share or preserve as a personal travel journal.</div>
+      <div class="agent-role">Organizes photos, visited locations, and experiences into a coherent travel narrative - ready to share or preserve as a personal travel journal.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Trip photos &amp; media</li><li>Location history &amp; timestamps</li><li>Booking records</li></ul>
       <div class="io-lbl"  >Outputs</div>
-      <ul class="io-list"><li>Organized photo albums</li><li>Narrative travel journal</li><li>Social media–ready posts</li></ul>
+      <ul class="io-list"><li>Organized photo albums</li><li>Narrative travel journal</li><li>Social media-ready posts</li></ul>
       <div class="agent-foot"><div class="api-list"><span class="api-tag">Google Photos</span><span class="api-tag">GPT-4 Vision</span></div><span class="st-conc">○ Conceptual</span></div>
     </div>
     <div class="agent-card ac-s3">
       <div class="agent-id">AGT-08</div>
       <div class="agent-name"  >Feedback &amp; Learning Agent</div>
-      <div class="agent-role">Captures explicit ratings and implicit behavioral signals to refine the user's travel profile — ensuring every future trip is better calibrated.</div>
+      <div class="agent-role">Captures explicit ratings and implicit behavioral signals to refine the user's travel profile - ensuring every future trip is better calibrated.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Star ratings &amp; comments</li><li>Behavioral signals (time spent, skips)</li><li>Post-trip survey responses</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -473,15 +473,15 @@
   <div class="stage-hdr">
     <div class="stage-badge sb-4">S4</div>
     <div class="stage-info">
-      <h3   style="color:var(--purple)">Long-Term Value — The Evolving Companion</h3>
-      <p>Grows alongside the traveler over years — optimizing loyalty, safeguarding wellness, and anticipating the next adventure.</p>
+      <h3   style="color:var(--purple)">Long-Term Value - The Evolving Companion</h3>
+      <p>Grows alongside the traveler over years - optimizing loyalty, safeguarding wellness, and anticipating the next adventure.</p>
     </div>
   </div>
   <div class="agents-grid">
     <div class="agent-card ac-s4">
       <div class="agent-id">AGT-09</div>
       <div class="agent-name"  >Loyalty Optimization Agent</div>
-      <div class="agent-role">Tracks points, miles, and status across all programs — maximizing reward redemptions and steering booking decisions toward highest long-term value.</div>
+      <div class="agent-role">Tracks points, miles, and status across all programs - maximizing reward redemptions and steering booking decisions toward highest long-term value.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Booking history</li><li>Loyalty program memberships</li><li>Upcoming trip parameters</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -491,7 +491,7 @@
     <div class="agent-card ac-s4">
       <div class="agent-id">AGT-10</div>
       <div class="agent-name"  >Wellness Agent</div>
-      <div class="agent-role">Monitors trip intensity, jet lag, and physical activity — proactively suggesting rest or recovery to maintain optimal well-being throughout the journey.</div>
+      <div class="agent-role">Monitors trip intensity, jet lag, and physical activity - proactively suggesting rest or recovery to maintain optimal well-being throughout the journey.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Activity &amp; step data</li><li>Trip schedule density</li><li>Health preferences &amp; conditions</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -501,7 +501,7 @@
     <div class="agent-card ac-s4">
       <div class="agent-id">AGT-11</div>
       <div class="agent-name"  >Future Trip Anticipation Agent</div>
-      <div class="agent-role">Proactively surfaces destination proposals — drawing on travel history, seasonal opportunities, trending destinations, and the traveler's evolving interests.</div>
+      <div class="agent-role">Proactively surfaces destination proposals - drawing on travel history, seasonal opportunities, trending destinations, and the traveler's evolving interests.</div>
       <div class="io-lbl"  >Inputs</div>
       <ul class="io-list"><li>Full travel history &amp; feedback</li><li>Trending destination signals</li><li>Seasonal &amp; pricing calendars</li></ul>
       <div class="io-lbl"  >Outputs</div>
@@ -513,9 +513,9 @@
 
 <!-- 04 ORCHESTRATOR -->
 <div class="doc-section" id="orchestrator">
-  <p class="section-label">04 — <span  >Core Orchestrator</span></p>
+  <p class="section-label">04 - <span  >Core Orchestrator</span></p>
   <h2  >The Intelligence at the Center</h2>
-  <p style="margin-top:16px;max-width:680px">The Core Personal AI is not a passive router — it is the persistent intelligence that gives the system its character. It maintains a unified, evolving model of the traveler, mediates between agents, and ensures every interaction feels cohesive and intentional.</p>
+  <p style="margin-top:16px;max-width:680px">The Core Personal AI is not a passive router - it is the persistent intelligence that gives the system its character. It maintains a unified, evolving model of the traveler, mediates between agents, and ensures every interaction feels cohesive and intentional.</p>
   <div class="orch-grid">
     <div class="orch-card">
       <h4  >Core Responsibilities</h4>
@@ -544,7 +544,7 @@
 
 <!-- 05 TECH STACK -->
 <div class="doc-section" id="stack">
-  <p class="section-label">05 — <span  >Technical Stack</span></p>
+  <p class="section-label">05 - <span  >Technical Stack</span></p>
   <h2  >Infrastructure &amp; Integrations</h2>
   <div class="stack-grid">
     <div class="stack-card"><div class="stack-cat">AI / LLM Layer</div><div class="stack-tags"><span class="stack-tag">GPT-4o</span><span class="stack-tag">Claude API</span><span class="stack-tag">LangGraph</span><span class="stack-tag">CrewAI</span></div></div>
@@ -560,33 +560,33 @@
 
 <!-- 06 DEMO SCOPE -->
 <div class="doc-section" id="demo">
-  <p class="section-label">06 — <span  >Demo Scope</span></p>
+  <p class="section-label">06 - <span  >Demo Scope</span></p>
   <h2  >Exhibition Implementation vs. Full Vision</h2>
-  <p style="margin-top:16px;max-width:680px">The exhibition demo presents a working proof-of-concept for the four highest-impact agents, demonstrating the core interaction loop — from preference intake through personalized itinerary generation — with voice interaction and live visual output.</p>
+  <p style="margin-top:16px;max-width:680px">The exhibition demo presents a working proof-of-concept for the four highest-impact agents, demonstrating the core interaction loop - from preference intake through personalized itinerary generation - with voice interaction and live visual output.</p>
   <div class="demo-grid">
     <div class="demo-col impl">
       <div class="demo-ttl"  >✓ Implemented for Exhibition</div>
       <ul>
-        <li>AGT-01 — Preference Profiling (conversational onboarding)</li>
-        <li>AGT-02 — Itinerary Creation (real-time generation + map viz)</li>
-        <li>AGT-06 — Language &amp; Culture Agent (live translation)</li>
-        <li>AGT-04 — Location Context (live nearby suggestions + walking-time)</li>
-        <li>Voice interaction — speech-to-text via Whisper</li>
-        <li>AI voice output — spoken responses via ElevenLabs</li>
+        <li>AGT-01 - Preference Profiling (conversational onboarding)</li>
+        <li>AGT-02 - Itinerary Creation (real-time generation + map viz)</li>
+        <li>AGT-06 - Language &amp; Culture Agent (live translation)</li>
+        <li>AGT-04 - Location Context (live nearby suggestions + walking-time)</li>
+        <li>Voice interaction - speech-to-text via Whisper</li>
+        <li>AI voice output - spoken responses via ElevenLabs</li>
         <li>Real-time itinerary visualization on large screen</li>
-        <li>Interactive agent map — architecture visible as UI layer</li>
+        <li>Interactive agent map - architecture visible as UI layer</li>
       </ul>
     </div>
     <div class="demo-col conc">
       <div class="demo-ttl"  >○ Conceptual / Future Work</div>
       <ul>
-        <li>AGT-03 — Actual booking execution (payment integration)</li>
-        <li>AGT-05 — Real disruption handling &amp; rebooking</li>
-        <li>AGT-07 — Media curation &amp; social sharing</li>
-        <li>AGT-08 — Multi-trip feedback learning loop</li>
-        <li>AGT-09 — Cross-program loyalty optimization</li>
-        <li>AGT-10 — Wearable wellness integration</li>
-        <li>AGT-11 — Long-horizon trip prediction engine</li>
+        <li>AGT-03 - Actual booking execution (payment integration)</li>
+        <li>AGT-05 - Real disruption handling &amp; rebooking</li>
+        <li>AGT-07 - Media curation &amp; social sharing</li>
+        <li>AGT-08 - Multi-trip feedback learning loop</li>
+        <li>AGT-09 - Cross-program loyalty optimization</li>
+        <li>AGT-10 - Wearable wellness integration</li>
+        <li>AGT-11 - Long-horizon trip prediction engine</li>
       </ul>
     </div>
   </div>
@@ -594,15 +594,15 @@
 
 <!-- 07 EXHIBITION -->
 <div class="doc-section" id="exhibition">
-  <p class="section-label">07 — <span  >Exhibition Experience</span></p>
+  <p class="section-label">07 - <span  >Exhibition Experience</span></p>
   <h2  >The Installation: Travel Intelligence, Live</h2>
-  <p style="margin-top:16px;max-width:680px">The exhibition presents the system as an immersive, large-format installation. A visitor approaches a floor-standing screen — the AI companion initiates a natural conversation about their dream destination. Within minutes, a personalized itinerary materializes in real time.</p>
+  <p style="margin-top:16px;max-width:680px">The exhibition presents the system as an immersive, large-format installation. A visitor approaches a floor-standing screen - the AI companion initiates a natural conversation about their dream destination. Within minutes, a personalized itinerary materializes in real time.</p>
   <div class="ex-steps">
     <div class="ex-step"><div class="ex-num">01</div><h4  >Approach &amp; Engage</h4><p>Visitor approaches the screen. The AI avatar activates and greets them. Keyboard available as fallback.</p></div>
     <div class="ex-step"><div class="ex-num">02</div><h4  >Dream Destination</h4><p>The AI asks: "Where have you always wanted to go?" Preference profiling begins in natural dialogue.</p></div>
     <div class="ex-step"><div class="ex-num">03</div><h4  >Live Itinerary</h4><p>A map materializes. Day-by-day activities appear in real time as the Itinerary Agent thinks.</p></div>
     <div class="ex-step"><div class="ex-num">04</div><h4  >Language Demo</h4><p>The Language Agent demonstrates pronunciation help and cultural context for the destination.</p></div>
-    <div class="ex-step"><div class="ex-num">05</div><h4  >Architecture Reveal</h4><p>The background agent map animates — showing which agents activated and how decisions were made.</p></div>
+    <div class="ex-step"><div class="ex-num">05</div><h4  >Architecture Reveal</h4><p>The background agent map animates - showing which agents activated and how decisions were made.</p></div>
   </div>
 </div>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odysee — Personal AI Travel Concierge</title>
+<title>Odysee - Personal AI Travel Concierge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Noto+Sans+Hebrew:wght@300;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@ body{
   border-right:1px solid var(--border);
 }
 
-/* Screen layers — fade in/out */
+/* Screen layers - fade in/out */
 .screen{
   position:absolute;inset:0;
   display:flex;flex-direction:column;
@@ -332,7 +332,7 @@ body{
   overflow:hidden;
 }
 
-/* Voice interface — top half of step 0 */
+/* Voice interface - top half of step 0 */
 .voice-section{
   padding:20px;border-bottom:1px solid var(--border);
   display:flex;flex-direction:column;align-items:center;gap:12px;
@@ -667,7 +667,7 @@ body{
           </div>
           <div class="ct-route">
             <div class="ct-city">TLV</div>
-            <div class="ct-arrow">——✈——</div>
+            <div class="ct-arrow">--✈--</div>
             <div class="ct-city">NRT</div>
           </div>
           <div class="ct-info">
@@ -691,7 +691,7 @@ body{
         </div>
 
         <div class="hotels-grid">
-          <div style="font-size:9px;color:var(--text-3);letter-spacing:0.10em;text-transform:uppercase;" id="hotels-label">מלונות מומלצים — טוקיו</div>
+          <div style="font-size:9px;color:var(--text-3);letter-spacing:0.10em;text-transform:uppercase;" id="hotels-label">מלונות מומלצים - טוקיו</div>
           <div class="hotel-card" id="hc1" onclick="selectHotel(1)">
             <div class="hotel-thumb">🏯</div>
             <div class="hotel-info">
@@ -737,7 +737,7 @@ body{
       <div class="itinerary-panel">
         <div class="itin-header">
           <div class="itin-title" id="itin-title">טוקיו, יפן · 7 ימים</div>
-          <div class="itin-sub" id="itin-sub">12–19 אפריל 2026 · Park Hyatt Tokyo</div>
+          <div class="itin-sub" id="itin-sub">12-19 אפריל 2026 · Park Hyatt Tokyo</div>
           <div class="itin-stats">
             <div class="istat"><div class="istat-val">₪12,550</div><div class="istat-key" id="is1">סה"כ</div></div>
             <div class="istat"><div class="istat-val">7</div><div class="istat-key" id="is2">לילות</div></div>
@@ -769,19 +769,19 @@ body{
             </div>
             <div class="day-events">
               <div class="event"><div class="event-time">09:00</div><div class="event-dot gold"></div><div class="event-text" id="e5">מקדש Shinjuku Gyoen · בוקר שקט</div></div>
-              <div class="event"><div class="event-time">12:00</div><div class="event-dot teal"></div><div class="event-text" id="e6">צהריים · Omoide Yokocho — גלות הטעמים</div></div>
+              <div class="event"><div class="event-time">12:00</div><div class="event-dot teal"></div><div class="event-text" id="e6">צהריים · Omoide Yokocho - גלות הטעמים</div></div>
               <div class="event"><div class="event-time">15:00</div><div class="event-dot"></div><div class="event-text" id="e7">חנויות Takashimaya · קניות</div></div>
             </div>
           </div>
 
           <div class="day-card">
             <div class="day-header">
-              <div class="day-num">3–7</div>
+              <div class="day-num">3-7</div>
               <div class="day-title" id="day3-t">מסלול מלא · 9 יעדים נוספים</div>
-              <div class="day-date">15–19 אפר</div>
+              <div class="day-date">15-19 אפר</div>
             </div>
             <div class="day-events">
-              <div class="event"><div class="event-time">—</div><div class="event-dot teal"></div><div class="event-text" id="e8">Akihabara · Asakusa · TeamLab Planets · Shibuya · Harajuku · Mt. Fuji day trip · Tsukiji</div></div>
+              <div class="event"><div class="event-time">-</div><div class="event-dot teal"></div><div class="event-text" id="e8">Akihabara · Asakusa · TeamLab Planets · Shibuya · Harajuku · Mt. Fuji day trip · Tsukiji</div></div>
             </div>
           </div>
         </div>
@@ -863,7 +863,7 @@ const T = {
     inputPh: 'כתוב הודעה...',
     qr0: ['✈ רוצה לטוס לטוקיו','🌍 הפתע אותי','📅 תכנן טיול שבועי'],
     qr1: ['בחר טיסה ישירה','הצג טיסה הזולה ביותר','סנן עפ"י זמן'],
-    qr2: ['Park Hyatt — בחר','הצג ביקורות','הוסף ארוחות בוקר'],
+    qr2: ['Park Hyatt - בחר','הצג ביקורות','הוסף ארוחות בוקר'],
     qr3: ['שמור מסלול','שלח למייל','הוסף יעד'],
     msgs: {
       0: [
@@ -875,15 +875,15 @@ const T = {
         { role:'ai', agent:'AGT-02 · Flight Scout', text:'נמצאו 3 טיסות מתאימות מת"א לטוקיו (NRT) ב-12 אפריל. בוחר עבורך את האפשרויות הטובות ביותר:' },
         { role:'ai', card: true, label:'הטיסה המומלצת', val:'EL AL LY085 · ₪3,890' },
       ],
-      sel_flight: { role:'user', text:'אני בוחר EL AL — הטיסה הישירה.' },
-      2_response: { role:'ai', agent:'AGT-03 · Hotel Scout', text:'מצוין! כרטיס אושר ✓\nכעת מחפש מלונות 5 כוכבים בטוקיו לתאריכים 13–19 אפריל:' },
+      sel_flight: { role:'user', text:'אני בוחר EL AL - הטיסה הישירה.' },
+      2_response: { role:'ai', agent:'AGT-03 · Hotel Scout', text:'מצוין! כרטיס אושר ✓\nכעת מחפש מלונות 5 כוכבים בטוקיו לתאריכים 13-19 אפריל:' },
       sel_hotel: { role:'user', text:'Park Hyatt נשמע מושלם.' },
       3_response: { role:'ai', agent:'AGT-01 · Trip Planner', text:'מסלול מלא נוצר! 7 ימים בטוקיו כולל טיסה ישירה, Park Hyatt ו-11 אטרקציות. סה"כ: ₪12,550 ✓' },
     },
     ctLabel: 'כרטיס מאושר',
-    hotelsLbl: 'מלונות מומלצים — טוקיו',
+    hotelsLbl: 'מלונות מומלצים - טוקיו',
     itinTitle: 'טוקיו, יפן · 7 ימים',
-    itinSub: '12–19 אפריל 2026 · Park Hyatt Tokyo',
+    itinSub: '12-19 אפריל 2026 · Park Hyatt Tokyo',
     is: ['סה"כ','לילות','אטרקציות','סוכנים'],
     fc_stops: ['ישיר · 11:15 שעות','עצירה 1 · 23:15 שעות','עצירה 1 · 22:10 שעות'],
     fc_per: '/נוסע',
@@ -896,7 +896,7 @@ const T = {
       'צ\'ק-אין Park Hyatt · חדר מלא נוף',
       'ארוחת ערב · New York Bar at Park Hyatt',
       'מקדש Shinjuku Gyoen · בוקר שקט',
-      'צהריים · Omoide Yokocho — גלות הטעמים',
+      'צהריים · Omoide Yokocho - גלות הטעמים',
       'חנויות Takashimaya · קניות',
       'Akihabara · Asakusa · TeamLab Planets · Shibuya · Harajuku · Mt. Fuji · Tsukiji',
     ],
@@ -913,7 +913,7 @@ const T = {
     inputPh: 'Type a message...',
     qr0: ['✈ Fly me to Tokyo','🌍 Surprise me','📅 Plan a week trip'],
     qr1: ['Select direct flight','Show cheapest','Filter by duration'],
-    qr2: ['Park Hyatt — select','Show reviews','Add breakfast'],
+    qr2: ['Park Hyatt - select','Show reviews','Add breakfast'],
     qr3: ['Save itinerary','Send by email','Add destination'],
     msgs: {
       0: [
@@ -925,15 +925,15 @@ const T = {
         { role:'ai', agent:'AGT-02 · Flight Scout', text:'Found 3 flights from TLV to Tokyo (NRT) on April 12. Here are the best options:' },
         { role:'ai', card: true, label:'Recommended', val:'EL AL LY085 · ₪3,890' },
       ],
-      sel_flight: { role:'user', text:'I\'ll take EL AL — the direct flight.' },
-      2_response: { role:'ai', agent:'AGT-03 · Hotel Scout', text:'Great choice! Ticket confirmed ✓\nSearching 5-star hotels in Tokyo for Apr 13–19:' },
+      sel_flight: { role:'user', text:'I\'ll take EL AL - the direct flight.' },
+      2_response: { role:'ai', agent:'AGT-03 · Hotel Scout', text:'Great choice! Ticket confirmed ✓\nSearching 5-star hotels in Tokyo for Apr 13-19:' },
       sel_hotel: { role:'user', text:'Park Hyatt sounds perfect.' },
       3_response: { role:'ai', agent:'AGT-01 · Trip Planner', text:'Full itinerary ready! 7 days in Tokyo with direct flight, Park Hyatt & 11 attractions. Total: ₪12,550 ✓' },
     },
     ctLabel: 'Confirmed Ticket',
-    hotelsLbl: 'Recommended Hotels — Tokyo',
+    hotelsLbl: 'Recommended Hotels - Tokyo',
     itinTitle: 'Tokyo, Japan · 7 Days',
-    itinSub: 'Apr 12–19, 2026 · Park Hyatt Tokyo',
+    itinSub: 'Apr 12-19, 2026 · Park Hyatt Tokyo',
     is: ['Total','Nights','Attractions','Agents'],
     fc_stops: ['Direct · 11h 15m','1 stop · 23h 15m','1 stop · 22h 10m'],
     fc_per: '/person',
@@ -946,7 +946,7 @@ const T = {
       'Check-in Park Hyatt · Full city view room',
       'Dinner · New York Bar at Park Hyatt',
       'Shinjuku Gyoen Temple · quiet morning',
-      'Lunch · Omoide Yokocho — taste of Tokyo',
+      'Lunch · Omoide Yokocho - taste of Tokyo',
       'Takashimaya Department Store · shopping',
       'Akihabara · Asakusa · TeamLab Planets · Shibuya · Harajuku · Mt. Fuji · Tsukiji',
     ],

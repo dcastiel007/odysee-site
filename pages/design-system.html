@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odysee — Design System — V5</title>
+<title>Odysee - Design System - V5</title>
 <link rel="stylesheet" href="../brand/odysee-tokens.css" />
 <link rel="stylesheet" href="../assets/css/site.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,12 +11,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Heebo:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* =================================================================
-   Odysee Design System — Brand V5
+   Odysee Design System - Brand V5
    Part I: Philosophy (marketing) · Part II: Storybook (technical)
    Structure follows pages/agents.html (cover + TOC + doc-section)
    ================================================================= */
 
-/* ─── Brand mark in header (Brand V5 — Tico face) ─── */
+/* ─── Brand mark in header (Brand V5 - Tico face) ─── */
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -104,7 +104,7 @@
   position: relative; z-index: 2;
 }
 
-/* The hero brand mark — the entire reason this page exists */
+/* The hero brand mark - the entire reason this page exists */
 .hero-mark {
   display: flex;
   align-items: center;
@@ -124,7 +124,7 @@
   color: var(--od-fg, var(--text-primary));
   line-height: 0.9;
 }
-/* Tico face — mirrors the header (.brand-mark__o) exactly: same vars, same
+/* Tico face - mirrors the header (.brand-mark__o) exactly: same vars, same
    fallback chain, so header and hero render identically. Schema unification
    (site.css) is the real fix; until then, share the header's working hooks. */
 .hero-mark__o .ring    { stroke: var(--od-navy, var(--text-primary)); }
@@ -175,7 +175,7 @@
   padding: 72px 40px;
   border-bottom: 1px solid var(--border);
 }
-/* First doc-section after cover (TOC) — tighter top padding */
+/* First doc-section after cover (TOC) - tighter top padding */
 .cover + .doc-section { padding-top: 48px; }
 .doc-section:last-of-type { border-bottom: none; }
 .section-label {
@@ -768,7 +768,7 @@
   50% { opacity: 0.6; transform: scale(0.92); }
 }
 
-/* Components — Buttons */
+/* Components - Buttons */
 .btn-row {
   display: flex; flex-wrap: wrap; gap: 10px;
   align-items: center;
@@ -798,7 +798,7 @@
 .btn-lg { font-size: 15px; padding: 13px 28px; border-radius: 10px; }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-/* Components — Pills */
+/* Components - Pills */
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
 .pill {
   display: inline-flex; align-items: center;
@@ -821,7 +821,7 @@
 .pill-submit  { background: rgba(229,118,60,0.24); color: #E5763C; }
 .pill-live    { background: rgba(229,118,60,0.22); color: #E5763C; }
 
-/* Components — Cards */
+/* Components - Cards */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -871,7 +871,7 @@
 }
 @media (max-width: 700px) { .card-grid { grid-template-columns: 1fr; } }
 
-/* Components — Inputs */
+/* Components - Inputs */
 .input-stack { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; max-width: 460px; }
 .ds-input-wrap { display: flex; flex-direction: column; gap: 6px; }
 .ds-label {
@@ -903,7 +903,7 @@
 }
 .input-hint.error { color: #D2553F; }
 
-/* Components — Tables */
+/* Components - Tables */
 .ds-table-wrap { overflow-x: auto; margin-top: 24px; }
 .ds-table {
   width: 100%;
@@ -1069,7 +1069,7 @@ body { overflow-x: hidden; }
 
 <header class="site-header">
   <div class="site-header__brand">
-    <a href="../index.html" class="brand-mark" aria-label="Odysee — home">
+    <a href="../index.html" class="brand-mark" aria-label="Odysee - home">
       <svg class="brand-mark__o" viewBox="0 0 1000 1000" aria-hidden="true" fill="none"><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/><circle class="cap-end" cx="725" cy="399" r="48"/><circle class="cap-end" cx="300" cy="399" r="48"/></svg>
       <span class="brand-mark__text">dysee</span>
     </a>
@@ -1116,13 +1116,13 @@ body { overflow-x: hidden; }
   <div class="toc-box">
     <div class="toc-title">Table of Contents</div>
     <ol class="toc-list">
-      <li class="toc-divider-row">Part I — Philosophy</li>
+      <li class="toc-divider-row">Part I - Philosophy</li>
       <li><a href="#name">The Name</a></li>
       <li><a href="#mark">The Mark</a></li>
       <li><a href="#palette">The Palette</a></li>
-      <li><a href="#voice">The Voice — Tico</a></li>
+      <li><a href="#voice">The Voice - Tico</a></li>
       <li><a href="#principles">Design Principles</a></li>
-      <li class="toc-divider-row">Part II — Storybook</li>
+      <li class="toc-divider-row">Part II - Storybook</li>
       <li><a href="#logo">Logo &amp; Brand Mark</a></li>
       <li><a href="#colors">Colors</a></li>
       <li><a href="#typography">Typography</a></li>
@@ -1137,21 +1137,21 @@ body { overflow-x: hidden; }
 </div>
 
 <!-- =========================================
-     PART I — PHILOSOPHY
+     PART I - PHILOSOPHY
      ========================================= -->
 
-<!-- 01 — THE NAME -->
+<!-- 01 - THE NAME -->
 <div class="doc-section" id="name">
-  <p class="section-label">01 — <span>Philosophy</span></p>
+  <p class="section-label">01 - <span>Philosophy</span></p>
   <h2>The Name</h2>
   <span class="h2-he">השם</span>
   <p class="lead">
-    <em class="em">Odysee</em> is a respelling of <em>Odyssey</em> — the long journey home.
+    <em class="em">Odysee</em> is a respelling of <em>Odyssey</em> - the long journey home.
     The original is Homer's. The respelling is ours.
   </p>
   <p>
     Removing the second 'y' separates the product from the literary reference and grants the name
-    its own visual identity. It reads quietly — not a brand demanding attention, but a word that
+    its own visual identity. It reads quietly - not a brand demanding attention, but a word that
     suggests motion and patience. The kind of name that earns its meaning over time, the way a
     well-worn passport does.
   </p>
@@ -1165,30 +1165,30 @@ body { overflow-x: hidden; }
     </div>
     <div>
       <p>
-        The mark sits where the 'O' should be — the Tico face.
+        The mark sits where the 'O' should be - the Tico face.
         The brand and the word are the same thing: <em class="em">[face]dysee</em>.
-        Tico looks out from inside the name itself — a companion present in the word
+        Tico looks out from inside the name itself - a companion present in the word
         before you've read a line of copy.
       </p>
       <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">
-        Always written in Latin script — even within Hebrew text. Never transliterated.
+        Always written in Latin script - even within Hebrew text. Never transliterated.
         Capital O, lowercase rest. <em class="em">Tico</em> follows the same rule.
       </p>
     </div>
   </div>
 </div>
 
-<!-- 02 — THE MARK -->
+<!-- 02 - THE MARK -->
 <div class="doc-section" id="mark">
-  <p class="section-label">02 — <span>Philosophy</span></p>
+  <p class="section-label">02 - <span>Philosophy</span></p>
   <h2>The Mark</h2>
   <span class="h2-he">הסמל</span>
   <p class="lead">
-    A circle, two lenses, two points of attention. The circle is Tico. The pupils look out at the world — with you, not at you.
+    A circle, two lenses, two points of attention. The circle is Tico. The pupils look out at the world - with you, not at you.
   </p>
   <p>
     The face is one outer circle and two lenses, with two pupils that always sit in Tico Orange. The pupils
-    point outward — at the world you're moving through — never inward at the person using it. A mouth appears
+    point outward - at the world you're moving through - never inward at the person using it. A mouth appears
     only when Tico speaks; the rest of the time the face is simply present and attentive. This settles a tension
     that runs through the project: a companion is not an oracle. The face shows Tico's own state and looks out at
     the world. It senses lightly, and refuses to read inward.
@@ -1230,34 +1230,34 @@ body { overflow-x: hidden; }
     </div>
     <dl class="anatomy-notes">
       <dt>Face circle</dt>
-      <dd>Outer ring, stroke 50. Navy on light, sand-white on dark. Tico — present, attentive.</dd>
+      <dd>Outer ring, stroke 50. Navy on light, sand-white on dark. Tico - present, attentive.</dd>
       <dt>Lenses</dt>
       <dd>Two eye forms. How Tico takes in the world around you.</dd>
       <dt>Pupils · Orange</dt>
-      <dd>r = 48 at (725,399) and (300,399). Always Tico Orange. The point of attention — aimed outward.</dd>
+      <dd>r = 48 at (725,399) and (300,399). Always Tico Orange. The point of attention - aimed outward.</dd>
       <dt>Mouth</dt>
-      <dd>Appears only in the speaking state — never in the static mark. Silent by default.</dd>
+      <dd>Appears only in the speaking state - never in the static mark. Silent by default.</dd>
     </dl>
   </div>
 
   <p style="margin-top:32px;">
     The wordmark replaces the 'O' of Odysee with the face itself. The mark and the word are not separate
-    elements that sit beside each other — they share a glyph. There is no version of the name without the face.
+    elements that sit beside each other - they share a glyph. There is no version of the name without the face.
   </p>
 </div>
 
-<!-- 03 — THE PALETTE -->
+<!-- 03 - THE PALETTE -->
 <div class="doc-section" id="palette">
-  <p class="section-label">03 — <span>Philosophy</span></p>
+  <p class="section-label">03 - <span>Philosophy</span></p>
   <h2>The Palette</h2>
   <span class="h2-he">הפלטה</span>
   <p class="lead">
     Navy. Tico Orange. Sand. A cool night sky, one warm point of life, and the warm paper that holds them both.
   </p>
   <p>
-    The contrast is older than design — it's how almost every culture has rendered the difference
+    The contrast is older than design - it's how almost every culture has rendered the difference
     between the technological and the human. <em class="em">Navy</em> is the system: precise, dark,
-    cool. <em class="em">Tico Orange</em> is the companion's voice: warm, human, alive — the single
+    cool. <em class="em">Tico Orange</em> is the companion's voice: warm, human, alive - the single
     point of attention on the page. <em class="em">Sand</em> is the surface that lets both speak.
   </p>
 
@@ -1275,7 +1275,7 @@ body { overflow-x: hidden; }
       <div class="label-block">
         <div class="name">Tico Orange</div>
         <div class="hex">#E5763C</div>
-        <div class="meaning">The companion's voice. Warm, human, alive. Interactive elements, CTAs, the pupils — never body text.</div>
+        <div class="meaning">The companion's voice. Warm, human, alive. Interactive elements, CTAs, the pupils - never body text.</div>
       </div>
     </div>
     <div class="palette-card">
@@ -1283,72 +1283,72 @@ body { overflow-x: hidden; }
       <div class="label-block">
         <div class="name">Sand</div>
         <div class="hex">#FAF6F0</div>
-        <div class="meaning">The page. Light, warm, restful. Not white — warm paper. Default light surface, and the warm-white the mark flips to on dark.</div>
+        <div class="meaning">The page. Light, warm, restful. Not white - warm paper. Default light surface, and the warm-white the mark flips to on dark.</div>
       </div>
     </div>
   </div>
 
   <p style="margin-top:32px;">
     Around these three sit a warm family of <em class="em">Sand</em> neutrals (50→400) for surfaces and
-    text, two travel accents — <em class="em">teal</em> and <em class="em">sun</em> — for wayfinding
+    text, two travel accents - <em class="em">teal</em> and <em class="em">sun</em> - for wayfinding
     moments, and a functional signal layer: <em class="em">green</em> for success, <em class="em">amber</em>
-    for warnings, a distinct <em class="em">red</em> for errors — defined as semantic tokens outside the
+    for warnings, a distinct <em class="em">red</em> for errors - defined as semantic tokens outside the
     brand palette. Purple is retired; orange now carries the warmth it used to hint at. The signals appear
     sparingly. The brand is the three.
   </p>
 </div>
 
-<!-- 04 — THE VOICE -->
+<!-- 04 - THE VOICE -->
 <div class="doc-section" id="voice">
-  <p class="section-label">04 — <span>Philosophy</span></p>
-  <h2>The Voice — Tico</h2>
+  <p class="section-label">04 - <span>Philosophy</span></p>
+  <h2>The Voice - Tico</h2>
   <span class="h2-he">הקול של Tico</span>
   <p class="lead">
-    <em class="em">Tico</em> — the persona of Odysee — speaks like a friend who has traveled a lot.
+    <em class="em">Tico</em> - the persona of Odysee - speaks like a friend who has traveled a lot.
     Not like a search engine. Not like a call center.
   </p>
   <p>
     Five attributes define the tone. Each is a constraint, not a flavor. If a sentence violates
-    any of them, it's not Tico — even if it's technically correct.
+    any of them, it's not Tico - even if it's technically correct.
   </p>
 
   <div class="voice-grid">
     <div class="voice-card">
       <div class="principle">חכם</div>
-      <div class="principle-en">Smart — Offers depth without being asked</div>
-      <div class="example yes"><b>Yes</b>"טוקיו עובד הכי טוב בסוף אוקטובר — הקהל דועך והעלווה בשיא."</div>
+      <div class="principle-en">Smart - Offers depth without being asked</div>
+      <div class="example yes"><b>Yes</b>"טוקיו עובד הכי טוב בסוף אוקטובר - הקהל דועך והעלווה בשיא."</div>
       <div class="example no"><b>No</b>"טוקיו היא עיר נפלאה עם הרבה אפשרויות מעניינות!"</div>
     </div>
     <div class="voice-card">
       <div class="principle">חם</div>
-      <div class="principle-en">Warm — Natural language, never jargon</div>
-      <div class="example yes"><b>Yes</b>"שמתי לב שאתה מעדיף מקומות שקטים — תדלג על Tsukiji בשעת פתיחה."</div>
+      <div class="principle-en">Warm - Natural language, never jargon</div>
+      <div class="example yes"><b>Yes</b>"שמתי לב שאתה מעדיף מקומות שקטים - תדלג על Tsukiji בשעת פתיחה."</div>
       <div class="example no"><b>No</b>"בהתאם להעדפות שהוזנו, האתרים הבאים מומלצים."</div>
     </div>
     <div class="voice-card">
       <div class="principle">בטוח</div>
-      <div class="principle-en">Confident — Recommends, doesn't suggest</div>
-      <div class="example yes"><b>Yes</b>"קח את Shinkansen ב-7 בבוקר — שווה להתחיל מוקדם."</div>
+      <div class="principle-en">Confident - Recommends, doesn't suggest</div>
+      <div class="example yes"><b>Yes</b>"קח את Shinkansen ב-7 בבוקר - שווה להתחיל מוקדם."</div>
       <div class="example no"><b>No</b>"אולי כדאי לשקול לקחת רכבת מוקדמת, אם אפשרי."</div>
     </div>
     <div class="voice-card">
       <div class="principle">תמציתי</div>
-      <div class="principle-en">Concise — Says what's needed, stops</div>
+      <div class="principle-en">Concise - Says what's needed, stops</div>
       <div class="example yes"><b>Yes</b>"טיסה עוכבה ב-40 דקות. הזזתי ארוחת הערב שלך."</div>
       <div class="example no"><b>No</b>"זיהינו עדכון לוח זמנים. יש לעיין במידע הבא..."</div>
     </div>
     <div class="voice-card">
       <div class="principle">אישי</div>
-      <div class="principle-en">Personal — References what he knows</div>
-      <div class="example yes"><b>Yes</b>"אהבת את הראמן באוסקה — יש מקום דומה ליד המלון."</div>
+      <div class="principle-en">Personal - References what he knows</div>
+      <div class="example yes"><b>Yes</b>"אהבת את הראמן באוסקה - יש מקום דומה ליד המלון."</div>
       <div class="example no"><b>No</b>"הנה מסעדות פופולריות ליד מיקומך."</div>
     </div>
   </div>
 </div>
 
-<!-- 05 — DESIGN PRINCIPLES -->
+<!-- 05 - DESIGN PRINCIPLES -->
 <div class="doc-section" id="principles">
-  <p class="section-label">05 — <span>Philosophy</span></p>
+  <p class="section-label">05 - <span>Philosophy</span></p>
   <h2>Design Principles</h2>
   <span class="h2-he">עקרונות עיצוב</span>
   <p class="lead">
@@ -1377,7 +1377,7 @@ body { overflow-x: hidden; }
       <div class="num">03</div>
       <div class="title">The 8px grid.</div>
       <div class="body">
-        Every space — gap, padding, margin — is a multiple of 8. This isn't OCD; it's the
+        Every space - gap, padding, margin - is a multiple of 8. This isn't OCD; it's the
         difference between a layout that feels deliberate and one that feels arbitrary.
       </div>
     </div>
@@ -1412,16 +1412,16 @@ body { overflow-x: hidden; }
 </div>
 
 <!-- =========================================
-     PART II — STORYBOOK
+     PART II - STORYBOOK
      ========================================= -->
 
-<!-- 06 — LOGO & BRAND MARK -->
+<!-- 06 - LOGO & BRAND MARK -->
 <div class="doc-section" id="logo">
-  <p class="section-label">06 — <span>Storybook</span></p>
+  <p class="section-label">06 - <span>Storybook</span></p>
   <h2>Logo &amp; Brand Mark</h2>
   <span class="h2-he">לוגו וסמל</span>
   <p>
-    The brand mark is the Tico face — one outer circle, two lenses, two pupils. Construction specs
+    The brand mark is the Tico face - one outer circle, two lenses, two pupils. Construction specs
     (viewBox 1000): three structural strokes at <em class="em">stroke-width=50</em>, pupils
     <em class="em">r=48</em> at <em class="em">(725,399)</em> and <em class="em">(300,399)</em>.
     Structural strokes are navy on light, sand-white on dark; pupils are <em class="em">always Tico Orange</em>.
@@ -1431,7 +1431,7 @@ body { overflow-x: hidden; }
   <h3>Wordmark</h3>
   <p>
     The face replaces the 'O' of Odysee. Sora 800, letter-spacing
-    <em class="em">−0.035em</em>. Always lockup — never separated.
+    <em class="em">−0.035em</em>. Always lockup - never separated.
   </p>
 
   <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:24px;">
@@ -1458,7 +1458,7 @@ body { overflow-x: hidden; }
   </div>
 
   <h3>Mark-only</h3>
-  <p>Use the face alone where the wordmark would compete or wouldn't fit — favicons, avatars, app icons, watermarks at small sizes.</p>
+  <p>Use the face alone where the wordmark would compete or wouldn't fit - favicons, avatars, app icons, watermarks at small sizes.</p>
   <div style="display:flex;gap:20px;align-items:flex-end;margin-top:24px;flex-wrap:wrap;">
     <div style="text-align:center;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;">
@@ -1499,9 +1499,9 @@ body { overflow-x: hidden; }
   </div>
 </div>
 
-<!-- 07 — COLORS -->
+<!-- 07 - COLORS -->
 <div class="doc-section" id="colors">
-  <p class="section-label">07 — <span>Storybook</span></p>
+  <p class="section-label">07 - <span>Storybook</span></p>
   <h2>Colors</h2>
   <span class="h2-he">צבעים</span>
   <p>
@@ -1517,7 +1517,7 @@ body { overflow-x: hidden; }
     </div>
     <div class="color-swatch" onclick="copyColor('#12273E')">
       <div class="swatch-block" style="background:#12273E;"></div>
-      <div class="swatch-info"><div class="swatch-name">Navy Deep — pressed</div><div class="swatch-hex">#12273E</div></div>
+      <div class="swatch-info"><div class="swatch-name">Navy Deep - pressed</div><div class="swatch-hex">#12273E</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#E5763C')">
       <div class="swatch-block" style="background:#E5763C;"></div>
@@ -1525,15 +1525,15 @@ body { overflow-x: hidden; }
     </div>
     <div class="color-swatch" onclick="copyColor('#C75D29')">
       <div class="swatch-block" style="background:#C75D29;"></div>
-      <div class="swatch-info"><div class="swatch-name">Orange Deep — pressed</div><div class="swatch-hex">#C75D29</div></div>
+      <div class="swatch-info"><div class="swatch-name">Orange Deep - pressed</div><div class="swatch-hex">#C75D29</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#FAF6F0')">
       <div class="swatch-block" style="background:#FAF6F0; border-bottom:1px solid var(--border);"></div>
-      <div class="swatch-info"><div class="swatch-name">Sand — page tone</div><div class="swatch-hex">#FAF6F0</div></div>
+      <div class="swatch-info"><div class="swatch-name">Sand - page tone</div><div class="swatch-hex">#FAF6F0</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#FFFFFF')">
       <div class="swatch-block" style="background:#FFFFFF; border-bottom:1px solid var(--border);"></div>
-      <div class="swatch-info"><div class="swatch-name">White — pure white</div><div class="swatch-hex">#FFFFFF</div></div>
+      <div class="swatch-info"><div class="swatch-name">White - pure white</div><div class="swatch-hex">#FFFFFF</div></div>
     </div>
   </div>
 
@@ -1548,7 +1548,7 @@ body { overflow-x: hidden; }
   </div>
 
   <div class="color-group-label">Travel Accents · אקסנטים</div>
-  <p style="font-size:12px;color:var(--text-muted);margin-top:-8px;">Teal and Sun — for wayfinding, maps, and live-AI moments. Used sparingly, never as body or primary action.</p>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:-8px;">Teal and Sun - for wayfinding, maps, and live-AI moments. Used sparingly, never as body or primary action.</p>
   <div class="color-grid">
     <div class="color-swatch" onclick="copyColor('#2F8F93')">
       <div class="swatch-block" style="background:#2F8F93;"></div>
@@ -1573,70 +1573,70 @@ body { overflow-x: hidden; }
   </div>
 
   <div class="color-group-label">Status Overlay · שכבת ניהול פרויקט</div>
-  <p style="font-size:12px;color:var(--text-muted);margin:-4px 0 14px;">Tracker and agent-board status colours, borrowing the accent hues as a code. The product's semantic signals (success / warning / error) live in the Tokens reference. Purple is retired in V5 — Design moves to Sun, Docs to Navy 500.</p>
+  <p style="font-size:12px;color:var(--text-muted);margin:-4px 0 14px;">Tracker and agent-board status colours, borrowing the accent hues as a code. The product's semantic signals (success / warning / error) live in the Tokens reference. Purple is retired in V5 - Design moves to Sun, Docs to Navy 500.</p>
   <div class="color-grid">
     <div class="color-swatch" onclick="copyColor('#2F8F93')">
       <div class="swatch-block" style="background:#2F8F93;"></div>
-      <div class="swatch-info"><div class="swatch-name">Teal — Dev</div><div class="swatch-hex">#2F8F93</div></div>
+      <div class="swatch-info"><div class="swatch-name">Teal - Dev</div><div class="swatch-hex">#2F8F93</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#F2C14E')">
       <div class="swatch-block" style="background:#F2C14E;"></div>
-      <div class="swatch-info"><div class="swatch-name">Sun — Design</div><div class="swatch-hex">#F2C14E</div></div>
+      <div class="swatch-info"><div class="swatch-name">Sun - Design</div><div class="swatch-hex">#F2C14E</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#3A5D83')">
       <div class="swatch-block" style="background:#3A5D83;"></div>
-      <div class="swatch-info"><div class="swatch-name">Navy 500 — Docs</div><div class="swatch-hex">#3A5D83</div></div>
+      <div class="swatch-info"><div class="swatch-name">Navy 500 - Docs</div><div class="swatch-hex">#3A5D83</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#E5A13C')">
       <div class="swatch-block" style="background:#E5A13C;"></div>
-      <div class="swatch-info"><div class="swatch-name">Warning — QA</div><div class="swatch-hex">#E5A13C</div></div>
+      <div class="swatch-info"><div class="swatch-name">Warning - QA</div><div class="swatch-hex">#E5A13C</div></div>
     </div>
     <div class="color-swatch" onclick="copyColor('#D2553F')">
       <div class="swatch-block" style="background:#D2553F;"></div>
-      <div class="swatch-info"><div class="swatch-name">Error — Fix</div><div class="swatch-hex">#D2553F</div></div>
+      <div class="swatch-info"><div class="swatch-name">Error - Fix</div><div class="swatch-hex">#D2553F</div></div>
     </div>
   </div>
 </div>
 
-<!-- 08 — TYPOGRAPHY -->
+<!-- 08 - TYPOGRAPHY -->
 <div class="doc-section" id="typography">
-  <p class="section-label">08 — <span>Storybook</span></p>
+  <p class="section-label">08 - <span>Storybook</span></p>
   <h2>Typography</h2>
   <span class="h2-he">טיפוגרפיה</span>
   <p>
     Two families, plus one technical face. <em class="em">Sora</em> for Latin display, UI,
     headings, and body. <em class="em">Heebo</em> for all Hebrew. <em class="em">JetBrains Mono</em>
-    for code, hex values, and technical labels — not a brand text family. The minimal count is itself a statement.
+    for code, hex values, and technical labels - not a brand text family. The minimal count is itself a statement.
   </p>
 
   <h3>Latin Scale · Sora</h3>
   <div class="type-stack">
     <div class="type-row">
-      <div class="specimen t-display">Display — Personal Travel Companion</div>
+      <div class="specimen t-display">Display - Personal Travel Companion</div>
       <div class="meta"><span>64 px</span><span>weight 800</span><span>tracking −0.035em</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-h1">H1 — A System That Knows You</div>
+      <div class="specimen t-h1">H1 - A System That Knows You</div>
       <div class="meta"><span>32 px</span><span>weight 700</span><span>tracking −0.02em</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-h2">H2 — Multi-Agent Architecture</div>
+      <div class="specimen t-h2">H2 - Multi-Agent Architecture</div>
       <div class="meta"><span>24 px</span><span>weight 600</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-h3">H3 — Section Label / Tico Orange</div>
+      <div class="specimen t-h3">H3 - Section Label / Tico Orange</div>
       <div class="meta"><span>20 px</span><span>weight 600</span><span>color Tico Orange</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-body">Body — Odysee analyzes preferences, budget, and schedule to craft a personalized travel experience. Every recommendation is powered by eleven specialized AI agents working in concert.</div>
+      <div class="specimen t-body">Body - Odysee analyzes preferences, budget, and schedule to craft a personalized travel experience. Every recommendation is powered by eleven specialized AI agents working in concert.</div>
       <div class="meta"><span>16 px</span><span>weight 400</span><span>line-height 1.55</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-label">Label — Section Title / Key Info</div>
+      <div class="specimen t-label">Label - Section Title / Key Info</div>
       <div class="meta"><span>12 px</span><span>weight 500</span><span>UPPERCASE · 0.30em</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
-      <div class="specimen t-caption">Caption — Version V5 · HIT M.Design · 2026</div>
+      <div class="specimen t-caption">Caption - Version V5 · HIT M.Design · 2026</div>
       <div class="meta"><span>12 px</span><span>weight 400</span><span>color muted</span><span class="tag">Sora</span></div>
     </div>
     <div class="type-row">
@@ -1662,12 +1662,12 @@ body { overflow-x: hidden; }
   </div>
 </div>
 
-<!-- 09 — SPACING -->
+<!-- 09 - SPACING -->
 <div class="doc-section" id="spacing">
-  <p class="section-label">09 — <span>Storybook</span></p>
+  <p class="section-label">09 - <span>Storybook</span></p>
   <h2>Spacing</h2>
   <span class="h2-he">ריווח</span>
-  <p>All spacing derives from an 8-pixel base unit. Every gap, padding, and margin is a multiple of 8 — or of 4 for the half-step.</p>
+  <p>All spacing derives from an 8-pixel base unit. Every gap, padding, and margin is a multiple of 8 - or of 4 for the half-step.</p>
 
   <div style="margin-top:24px;">
     <div class="spacing-row">
@@ -1761,13 +1761,13 @@ body { overflow-x: hidden; }
   </div>
 
   <p style="font-size:12px;color:var(--text-muted);margin-top:18px;">
-    Max content width: <em class="em">1100 px</em>, centered. No drop shadows anywhere — depth comes from contrast and 1px borders.
+    Max content width: <em class="em">1100 px</em>, centered. No drop shadows anywhere - depth comes from contrast and 1px borders.
   </p>
 </div>
 
-<!-- 10 — MOTION -->
+<!-- 10 - MOTION -->
 <div class="doc-section" id="motion">
-  <p class="section-label">10 — <span>Storybook</span></p>
+  <p class="section-label">10 - <span>Storybook</span></p>
   <h2>Motion</h2>
   <span class="h2-he">תנועה</span>
   <p>Motion is an information device, not a decoration. Hover any tile to test.</p>
@@ -1800,12 +1800,12 @@ body { overflow-x: hidden; }
   </p>
 </div>
 
-<!-- 11 — COMPONENTS -->
+<!-- 11 - COMPONENTS -->
 <div class="doc-section" id="components">
-  <p class="section-label">11 — <span>Storybook</span></p>
+  <p class="section-label">11 - <span>Storybook</span></p>
   <h2>UI Components</h2>
   <span class="h2-he">רכיבים</span>
-  <p>The working library — buttons, badges, cards, inputs, tables, and notifications.</p>
+  <p>The working library - buttons, badges, cards, inputs, tables, and notifications.</p>
 
   <h3>Buttons</h3>
   <p style="font-size:13px;">Four variants × three sizes. Tico Orange primary; transparent or ghost for everything secondary.</p>
@@ -1823,7 +1823,7 @@ body { overflow-x: hidden; }
   </div>
 
   <h3>Status Pills</h3>
-  <p style="font-size:13px;">Used in the project plan, agent dashboard, and spec documents. Labels stay in English even on Hebrew pages — they are codes, not copy.</p>
+  <p style="font-size:13px;">Used in the project plan, agent dashboard, and spec documents. Labels stay in English even on Hebrew pages - they are codes, not copy.</p>
   <div class="pill-row">
     <span class="pill pill-key">KEY</span>
     <span class="pill pill-design">DESIGN</span>
@@ -1897,7 +1897,7 @@ body { overflow-x: hidden; }
   </div>
 
   <h3>Notifications</h3>
-  <p style="font-size:13px;">Left-border accent. Four semantic states — info, success, warning, error — mapped to the semantic tokens. "AI processing" is a motion state (see Motion), never a notification colour.</p>
+  <p style="font-size:13px;">Left-border accent. Four semantic states - info, success, warning, error - mapped to the semantic tokens. "AI processing" is a motion state (see Motion), never a notification colour.</p>
   <div class="notif-stack">
     <div class="ds-notif notif-info">
       <div class="icon">◈</div>
@@ -1930,9 +1930,9 @@ body { overflow-x: hidden; }
   </div>
 </div>
 
-<!-- 12 — STATUS SYSTEM -->
+<!-- 12 - STATUS SYSTEM -->
 <div class="doc-section" id="status">
-  <p class="section-label">12 — <span>Storybook</span></p>
+  <p class="section-label">12 - <span>Storybook</span></p>
   <h2>Status System</h2>
   <span class="h2-he">מערכת סטטוסים</span>
   <p>Consistent across the project plan, agent dashboard, and spec documents.</p>
@@ -1951,9 +1951,9 @@ body { overflow-x: hidden; }
   </div>
 </div>
 
-<!-- 13 — ICONS -->
+<!-- 13 - ICONS -->
 <div class="doc-section" id="icons">
-  <p class="section-label">13 — <span>Storybook</span></p>
+  <p class="section-label">13 - <span>Storybook</span></p>
   <h2>Icons</h2>
   <span class="h2-he">אייקונים</span>
   <p>Inline SVG only. 22×22 default, stroke 1.5. Color via <code style="font-family:var(--font-mono);font-size:13px;color:#2F8F93">currentColor</code>.</p>
@@ -1972,9 +1972,9 @@ body { overflow-x: hidden; }
   </div>
 </div>
 
-<!-- 14 — TOKENS REFERENCE -->
+<!-- 14 - TOKENS REFERENCE -->
 <div class="doc-section" id="tokens">
-  <p class="section-label">14 — <span>Storybook</span></p>
+  <p class="section-label">14 - <span>Storybook</span></p>
   <h2>CSS Tokens Reference</h2>
   <span class="h2-he">משתני CSS</span>
   <p>
@@ -1988,7 +1988,7 @@ body { overflow-x: hidden; }
 <span class="c-key">:root</span> {
   <span class="c-cmt">/* Primary */</span>
   <span class="c-prop">--od-navy</span>:     <span class="c-val">#1D3D60</span>;  <span class="c-cmt">/* primary brand ink */</span>
-  <span class="c-prop">--od-orange</span>:   <span class="c-val">#E5763C</span>;  <span class="c-cmt">/* Tico Orange — accent, pupils, CTAs, voice */</span>
+  <span class="c-prop">--od-orange</span>:   <span class="c-val">#E5763C</span>;  <span class="c-cmt">/* Tico Orange - accent, pupils, CTAs, voice */</span>
 
   <span class="c-cmt">/* Navy scale (deep → light) */</span>
   <span class="c-prop">--od-navy-900</span>: <span class="c-val">#12273E</span>;
@@ -2030,16 +2030,16 @@ body { overflow-x: hidden; }
   <span class="c-prop">--od-white</span>:    <span class="c-val">#FFFFFF</span>;
   <span class="c-prop">--od-ink</span>:      <span class="c-val">#1D3D60</span>;
 
-  <span class="c-cmt">/* Signature gradient — Sunset */</span>
+  <span class="c-cmt">/* Signature gradient - Sunset */</span>
   <span class="c-prop">--od-gradient-sunset</span>:<span class="c-val">linear-gradient(90deg, #12273E 0%, #1D3D60 38%, #E5763C 100%)</span>;
 
-  <span class="c-cmt">/* Typography — two families + mono */</span>
+  <span class="c-cmt">/* Typography - two families + mono */</span>
   <span class="c-prop">--od-font-display</span>:<span class="c-val">'Sora', system-ui, sans-serif</span>;
   <span class="c-prop">--od-font-body</span>:<span class="c-val">'Sora', system-ui, sans-serif</span>;
   <span class="c-prop">--od-font-hebrew</span>:<span class="c-val">'Heebo', system-ui, sans-serif</span>;
   <span class="c-prop">--od-font-mono</span>:<span class="c-val">'JetBrains Mono', ui-monospace, monospace</span>;
 
-  <span class="c-cmt">/* Spacing — 8pt grid */</span>
+  <span class="c-cmt">/* Spacing - 8pt grid */</span>
   <span class="c-prop">--od-s-1</span>: <span class="c-val">4px</span>;   <span class="c-prop">--od-s-2</span>: <span class="c-val">8px</span>;   <span class="c-prop">--od-s-3</span>: <span class="c-val">12px</span>;
   <span class="c-prop">--od-s-4</span>: <span class="c-val">16px</span>;  <span class="c-prop">--od-s-5</span>: <span class="c-val">24px</span>;  <span class="c-prop">--od-s-6</span>: <span class="c-val">32px</span>;
   <span class="c-prop">--od-s-7</span>: <span class="c-val">48px</span>;  <span class="c-prop">--od-s-8</span>: <span class="c-val">64px</span>;  <span class="c-prop">--od-s-9</span>: <span class="c-val">96px</span>;
@@ -2049,7 +2049,7 @@ body { overflow-x: hidden; }
   <span class="c-prop">--od-r-lg</span>:   <span class="c-val">16px</span>;
   <span class="c-prop">--od-r-pill</span>: <span class="c-val">999px</span>;
 
-  <span class="c-cmt">/* Motion — Tico */</span>
+  <span class="c-cmt">/* Motion - Tico */</span>
   <span class="c-prop">--od-ease-tico</span>:<span class="c-val">cubic-bezier(.34, 1.56, .64, 1)</span>;
   <span class="c-prop">--od-dur-idle</span>: <span class="c-val">4s</span>;
   <span class="c-prop">--od-dur-think</span>:<span class="c-val">1.5s</span>;
@@ -2062,7 +2062,7 @@ body { overflow-x: hidden; }
   <span class="c-prop">--od-border</span>:     <span class="c-val">var(--od-sand-200)</span>;
 }
 
-<span class="c-cmt">/* Dark / navy surfaces — site hero, footer, exhibition */</span>
+<span class="c-cmt">/* Dark / navy surfaces - site hero, footer, exhibition */</span>
 <span class="c-key">[data-theme="dark"]</span> {
   <span class="c-prop">--od-bg</span>:         <span class="c-val">var(--od-navy-900)</span>;
   <span class="c-prop">--od-surface</span>:    <span class="c-val">var(--od-navy-800)</span>;
@@ -2075,7 +2075,7 @@ body { overflow-x: hidden; }
   <p style="margin-top:18px;font-size:12px;color:var(--text-muted);">
     This block mirrors <code style="font-family:var(--font-mono);font-size:11px;color:#2F8F93;">brand/odysee-tokens.css</code>,
     the single source of truth. The Status System's pill colours reuse the travel accents (teal, sun)
-    together with navy-500, warning, and error as a project-management code — a convention layered on the
+    together with navy-500, warning, and error as a project-management code - a convention layered on the
     palette, not separate brand tokens.
   </p>
 </div>
