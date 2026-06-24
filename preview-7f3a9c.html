@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Odysee - Your Personal Travel Companion</title>
+<meta name="description" content="Odysee - an AI travel companion built around 11 specialized agents and a single conversational interface named Tico. M.Design final project, HIT 2026.">
+<link rel="stylesheet" href="brand/odysee-tokens.css">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<style>
+/* Footer secondary nav */
+.site-footer__secondary {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.site-footer__secondary a {
+  color: var(--od-fg);
+  opacity: 0.55;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s, color 0.2s;
+}
+.site-footer__secondary a:hover {
+  opacity: 1;
+  color: var(--od-red);
+}
+.site-footer__secondary span[aria-hidden] {
+  color: var(--od-fg);
+  opacity: 0.3;
+}
+
+/* ─── Page-specific styles (uses --od-* tokens) ─────────────────── */
+
+/* Wordmark in header - mark replaces the O of Odysee */
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 2px;
+  line-height: 0.9;
+}
+.brand-mark__o {
+  width: 2.9em;
+  height: 2.9em;
+  display: block;
+  flex-shrink: 0;
+}
+.brand-mark__text {
+  font-family: var(--od-font-sans);
+  font-weight: 800;
+  font-size: 42px;
+  letter-spacing: -0.035em;
+  color: var(--od-fg);
+}
+.site-header { gap: 32px; align-items: center; }
+.site-header__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.site-header__tagline {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--od-fg-subtle);
+  font-weight: 500;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+/* Mark colour theming - ring stroke swaps in dark mode.
+   Inner fill stays paper, ink stays navy, destination stays terracotta. */
+.brand-mark__o .ring        { stroke: var(--od-navy); }
+.brand-mark__o .inner       { fill:   #FFFFFF; }
+.brand-mark__o .trail       { stroke: var(--od-navy); }
+.brand-mark__o .cap-start   { fill:   var(--od-navy); }
+.brand-mark__o .cap-end     { fill:   var(--od-red); }
+[data-theme="dark"] .brand-mark__o .ring { stroke: var(--od-paper); }
+
+/* Hero */
+.hero {
+  padding: 80px 32px 72px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.hero__label {
+  font-family: var(--od-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--od-red);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.hero__title {
+  font-family: var(--od-font-sans);
+  font-size: clamp(40px, 5vw, 60px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--od-fg);
+  margin-bottom: 24px;
+}
+.hero__title em {
+  font-style: italic;
+  color: var(--od-red);
+  font-weight: 800;
+}
+.hero__lead {
+  font-size: 17px;
+  color: var(--od-fg-muted);
+  line-height: 1.65;
+  max-width: 540px;
+  margin-bottom: 36px;
+}
+.hero__lead strong {
+  color: var(--od-fg);
+  font-weight: 700;
+}
+.hero__ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hero visual card */
+.hero__visual {
+  background: var(--od-ivory);
+  border: 1px solid var(--od-border);
+  border-radius: 24px;
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 460px;
+}
+[data-theme="dark"] .hero__visual {
+  background: var(--od-bg-alt);
+}
+.hero__visual svg { width: 100%; max-width: 540px; height: auto; }
+
+/* Agent viz - 2x2 stage cards + central core */
+.agent-viz .v-card-fill   { fill:   var(--od-bg); }
+.agent-viz .v-card-stroke { stroke: var(--od-border); }
+.agent-viz .v-stage-label { fill:   var(--od-red); }
+.agent-viz .v-stage-name  { fill:   var(--od-fg); }
+.agent-viz .v-agent-line  { fill:   var(--od-fg-muted); }
+.agent-viz .v-core-fill   { fill:   var(--od-bg); }
+.agent-viz .v-core-ring   { stroke: var(--od-red); }
+.agent-viz .v-core-label  { fill:   var(--od-red); }
+.agent-viz .v-core-name   { fill:   var(--od-fg); }
+.agent-viz .v-core-sub    { fill:   var(--od-fg-muted); }
+.agent-viz .v-flow        { stroke: var(--od-red); }
+.agent-viz .v-radial      { stroke: var(--od-fg-muted); }
+[data-theme="dark"] .agent-viz .v-card-fill { fill: var(--od-mist-900); }
+[data-theme="dark"] .agent-viz .v-core-fill { fill: var(--od-mist-900); }
+
+.hero__visual-caption {
+  font-family: var(--od-font-mono);
+  font-size: 11px;
+  color: var(--od-fg-subtle);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.7;
+}
+.hero__visual-caption strong {
+  color: var(--od-fg);
+  font-weight: 600;
+}
+
+/* Section frame */
+.section {
+  padding: 80px 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--od-border);
+}
+.section:last-of-type { border-bottom: none; }
+.section__head {
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+.section__label {
+  font-family: var(--od-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--od-red);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.section__title {
+  font-family: var(--od-font-sans);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--od-fg);
+  margin-bottom: 14px;
+}
+.section__lead {
+  font-size: 16px;
+  color: var(--od-fg-muted);
+  line-height: 1.65;
+}
+
+/* Phase cards */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.phase-card {
+  background: var(--od-ivory);
+  border: 1px solid var(--od-border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+}
+[data-theme="dark"] .phase-card { background: var(--od-bg-alt); }
+.phase-card__num {
+  font-family: var(--od-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--od-red);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.phase-card__name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--od-fg);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.phase-card__dates {
+  font-family: var(--od-font-mono);
+  font-size: 12px;
+  color: var(--od-fg-muted);
+}
+.phase-card__bar {
+  margin-top: 24px;
+  height: 3px;
+  background: var(--od-mist-200);
+  border-radius: 2px;
+  overflow: hidden;
+}
+[data-theme="dark"] .phase-card__bar { background: var(--od-mist-700); }
+.phase-card__bar > div { height: 100%; background: var(--od-red); }
+.phase-card[data-active="true"] .phase-card__bar > div {
+  background: var(--od-info);
+}
+
+/* Agent cards */
+.agent-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.agent-card {
+  background: var(--od-ivory);
+  border: 1px solid var(--od-border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.2s ease;
+}
+[data-theme="dark"] .agent-card { background: var(--od-bg-alt); }
+.agent-card:hover { border-color: var(--od-red); }
+.agent-card__icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--od-mist-100);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--od-red);
+}
+[data-theme="dark"] .agent-card__icon { background: var(--od-mist-900); }
+.agent-card__code {
+  font-family: var(--od-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--od-red);
+  font-weight: 500;
+  margin-top: 4px;
+}
+.agent-card__title {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--od-fg);
+  margin-bottom: 4px;
+}
+.agent-card__body {
+  font-size: 14px;
+  color: var(--od-fg-muted);
+  line-height: 1.55;
+}
+.agent-card__status {
+  margin-top: auto;
+  font-family: var(--od-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--od-success);
+}
+
+.section__after {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--od-fg-muted);
+}
+.section__after a { color: var(--od-red); font-weight: 500; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; padding: 64px 24px 48px; gap: 40px; }
+  .section { padding: 64px 24px; }
+  .phase-grid { grid-template-columns: repeat(2, 1fr); }
+  .agent-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .hero { padding: 40px 16px 32px; }
+  .section { padding: 48px 16px; }
+  .phase-grid, .agent-grid { grid-template-columns: 1fr; }
+  .hero__visual { padding: 32px 16px 20px; min-height: 320px; }
+  .brand-mark__text { font-size: 30px; }
+}
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+
+<!-- ─── Theme bar ─────────────────────────────────────────── -->
+<div class="theme-bar">
+  <span class="theme-bar__label">Theme</span>
+  <button class="theme-btn" onclick="setTheme('light')"  id="btn-light">☀ Light</button>
+  <button class="theme-btn" onclick="setTheme('system')" id="btn-system">⊙ System</button>
+  <button class="theme-btn" onclick="setTheme('dark')"   id="btn-dark">● Dark</button>
+</div>
+
+<!-- ─── Header ────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="site-header__brand">
+    <a href="index.html" class="brand-mark" aria-label="Odysee - home">
+      <svg class="brand-mark__o" viewBox="0 0 1000 1000" aria-hidden="true" fill="none"><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 941.072449 422.659241 C 932.16748 320.875366 831.286194 246.557617 715.747742 256.665955 C 600.20929 266.774231 513.765747 357.480774 522.670654 459.264648 C 531.575623 561.048523 632.456909 635.366272 747.995361 625.257935 C 863.533813 615.149658 949.977356 524.443115 941.072449 422.659241 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 478.329315 459.264648 C 487.234253 357.480774 400.79071 266.774231 285.252258 256.665955 C 169.713791 246.557617 68.832489 320.875366 59.927555 422.659241 C 51.022621 524.443115 137.466171 615.149658 253.004623 625.257935 C 368.543091 635.366272 469.424408 561.048523 478.329315 459.264648 Z"/><path class="ring" fill="none" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" d="M 900 500 C 900 279.086121 720.913879 100 500 100 C 279.086121 100 100 279.086121 100 500 C 100 720.913879 279.086121 900 500 900 C 720.913879 900 900 720.913879 900 500 Z"/><circle class="cap-end" cx="725" cy="399" r="48"/><circle class="cap-end" cx="300" cy="399" r="48"/></svg>
+      <span class="brand-mark__text">dysee</span>
+    </a>
+    <span class="site-header__tagline">Your Personal Travel Companion</span>
+  </div>
+
+  <nav>
+    <ul class="site-nav">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/agents.html">Architecture</a></li>
+      <li><a href="pages/ux-flows.html">UX Flows</a></li>
+      <li><a href="pages/onboarding.html">Onboarding</a></li>
+      <li><a href="pages/design-system.html">Design System</a></li>
+      <li><a href="pages/book.html">Book</a></li>
+      <li><a href="pages/exhibition.html">Exhibition</a></li>
+      <li><a href="pages/next-generation.html">Next Generation</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ─── Hero ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div>
+    <div class="hero__label">M.Design Final Project · HIT 2026</div>
+    <h1 class="hero__title">A travel companion, <em>designed.</em></h1>
+    <p class="hero__lead">
+      <strong>Odysee</strong> is an AI travel companion built around eleven specialized
+      agents and a single conversational interface named <strong>Tico</strong>.
+      It plans the trip, holds the map, books the train, and remembers the way
+      back to the hotel - so you don't have to. This site documents the
+      project end&#8209;to&#8209;end: research, architecture, UX, design system,
+      and the exhibition installation.
+    </p>
+    <div class="hero__ctas">
+      <p class="hero-etymology" style="font-size:13px;color:var(--od-fg-subtle);margin-top:-8px;margin-bottom:18px;font-style:italic;">The name <strong>Odysee</strong> is a respelling of <em>Odyssey</em> - the long journey.</p>
+  <p class="hero-stat" style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--od-fg-subtle);margin-bottom:18px;opacity:0.7;"><strong style="color:var(--od-red);">56%</strong> use AI for travel · only <strong style="color:var(--od-red);">36%</strong> trust its results · <em>Phocuswright 2026</em></p>
+  <a href="pages/book.html" class="btn btn-primary">Read the project book</a>
+      <a href="pages/agents.html" class="btn btn-outline">View architecture</a>
+    </div>
+  </div>
+
+  <div class="hero__visual" aria-labelledby="agent-constellation-caption">
+    <svg class="agent-viz" viewBox="0 0 600 440" role="img" aria-label="Eleven agents organized into four stages around a central Tico orchestrator">
+      <title>Multi-agent architecture, one continuous journey</title>
+
+      <defs>
+        <marker id="flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 1 1 L 9 5 L 1 9" fill="none" class="v-flow" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- Dotted radial lines from each card inner-corner toward the core centre.
+           The core circle renders on top, so the lines appear to terminate at the
+           core perimeter. -->
+      <g class="v-radial" stroke-width="1" stroke-dasharray="2 5" opacity="0.45" fill="none">
+        <line x1="250" y1="190" x2="300" y2="220"/>   <!-- card 1 → core -->
+        <line x1="350" y1="190" x2="300" y2="220"/>   <!-- card 2 → core -->
+        <line x1="350" y1="250" x2="300" y2="220"/>   <!-- card 3 → core -->
+        <line x1="250" y1="250" x2="300" y2="220"/>   <!-- card 4 → core -->
+      </g>
+
+      <!-- Flow arrows between cards (clockwise: 1→2→3→4→1) -->
+      <g class="v-flow" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.7">
+        <!-- 1 → 2 (top arc) -->
+        <path d="M 250 80 Q 300 30 350 80" marker-end="url(#flow-arrow)"/>
+        <!-- 2 → 3 (right arc) -->
+        <path d="M 555 190 Q 600 220 555 250" marker-end="url(#flow-arrow)"/>
+        <!-- 3 → 4 (bottom arc) -->
+        <path d="M 350 360 Q 300 410 250 360" marker-end="url(#flow-arrow)"/>
+        <!-- 4 → 1 (left arc) -->
+        <path d="M 45 250 Q 0 220 45 190" marker-end="url(#flow-arrow)"/>
+      </g>
+
+      <!-- 4 Stage cards -->
+
+      <!-- Card 1: Before Trip (top-left) -->
+      <g>
+        <rect class="v-card-fill v-card-stroke" x="30" y="50" width="220" height="140" rx="14" stroke-width="1"/>
+        <text class="v-stage-label" x="140" y="80"  font-family="monospace" font-size="10" letter-spacing="1.6" font-weight="600" text-anchor="middle">STAGE 1</text>
+        <text class="v-stage-name"  x="140" y="104" font-family="var(--od-font-sans, sans-serif)" font-size="17" font-weight="700" text-anchor="middle">Before Trip</text>
+        <text class="v-agent-line"  x="140" y="130" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-01 · Preference Profiling</text>
+        <text class="v-agent-line"  x="140" y="148" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-02 · Itinerary Creation</text>
+        <text class="v-agent-line"  x="140" y="166" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-03 · Booking &amp; Mgmt</text>
+      </g>
+
+      <!-- Card 2: During Trip (top-right) -->
+      <g>
+        <rect class="v-card-fill v-card-stroke" x="350" y="50" width="220" height="140" rx="14" stroke-width="1"/>
+        <text class="v-stage-label" x="460" y="80"  font-family="monospace" font-size="10" letter-spacing="1.6" font-weight="600" text-anchor="middle">STAGE 2</text>
+        <text class="v-stage-name"  x="460" y="104" font-family="var(--od-font-sans, sans-serif)" font-size="17" font-weight="700" text-anchor="middle">During Trip</text>
+        <text class="v-agent-line"  x="460" y="130" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-04 · Location Context</text>
+        <text class="v-agent-line"  x="460" y="148" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-05 · Schedule Optimizer</text>
+        <text class="v-agent-line"  x="460" y="166" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-06 · Language &amp; Culture</text>
+      </g>
+
+      <!-- Card 3: Post Trip (bottom-right) -->
+      <g>
+        <rect class="v-card-fill v-card-stroke" x="350" y="250" width="220" height="140" rx="14" stroke-width="1"/>
+        <text class="v-stage-label" x="460" y="280" font-family="monospace" font-size="10" letter-spacing="1.6" font-weight="600" text-anchor="middle">STAGE 3</text>
+        <text class="v-stage-name"  x="460" y="304" font-family="var(--od-font-sans, sans-serif)" font-size="17" font-weight="700" text-anchor="middle">Post Trip</text>
+        <text class="v-agent-line"  x="460" y="334" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-07 / AGT-08</text>
+        <text class="v-agent-line"  x="460" y="354" font-family="var(--od-font-sans, sans-serif)" font-size="11" font-style="italic" text-anchor="middle">Reflection &amp; memory</text>
+      </g>
+
+      <!-- Card 4: Long-Term (bottom-left) -->
+      <g>
+        <rect class="v-card-fill v-card-stroke" x="30" y="250" width="220" height="140" rx="14" stroke-width="1"/>
+        <text class="v-stage-label" x="140" y="280" font-family="monospace" font-size="10" letter-spacing="1.6" font-weight="600" text-anchor="middle">STAGE 4</text>
+        <text class="v-stage-name"  x="140" y="304" font-family="var(--od-font-sans, sans-serif)" font-size="17" font-weight="700" text-anchor="middle">Long-Term</text>
+        <text class="v-agent-line"  x="140" y="334" font-family="var(--od-font-sans, sans-serif)" font-size="11" text-anchor="middle">AGT-09 / AGT-10 / AGT-11</text>
+        <text class="v-agent-line"  x="140" y="354" font-family="var(--od-font-sans, sans-serif)" font-size="11" font-style="italic" text-anchor="middle">Loyalty, wellness, prediction</text>
+      </g>
+
+      <!-- Central core -->
+      <circle class="v-core-fill v-core-ring" cx="300" cy="220" r="50" stroke-width="1.5"/>
+      <text class="v-core-label" x="300" y="208" font-family="monospace" font-size="9" letter-spacing="1.8" font-weight="600" text-anchor="middle">CORE</text>
+      <text class="v-core-name"  x="300" y="228" font-family="var(--od-font-sans, sans-serif)" font-size="18" font-weight="700" text-anchor="middle">Tico</text>
+      <text class="v-core-sub"   x="300" y="246" font-family="var(--od-font-sans, sans-serif)" font-size="10" text-anchor="middle">Orchestrator</text>
+    </svg>
+    <p class="hero__visual-caption" id="agent-constellation-caption">
+      <strong>11 agents</strong> &middot; 4 stages &middot; <strong>1 evolving companion</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ─── Multi-Agent Architecture ──────────────────────────── -->
+<section class="section">
+  <div class="section__head">
+    <div class="section__label">System</div>
+    <h2 class="section__title">Multi&#8209;agent architecture</h2>
+    <p class="section__lead">
+      Eleven specialized agents organized across four travel stages. Four agents
+      are implemented as live tools for the exhibition; the remaining seven are
+      documented as future work.
+    </p>
+  </div>
+
+  <div class="agent-grid">
+
+    <div class="agent-card">
+      <div class="agent-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+      <div>
+        <div class="agent-card__title">Preference Profiling</div>
+        <div class="agent-card__code">AGT&#8209;01</div>
+      </div>
+      <p class="agent-card__body">
+        Adaptive questioning that builds a structured preference profile for downstream agents.
+      </p>
+      <div class="agent-card__status">● Live</div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h12"/>
+        </svg>
+      </div>
+      <div>
+        <div class="agent-card__title">Itinerary Creation</div>
+        <div class="agent-card__code">AGT&#8209;02</div>
+      </div>
+      <p class="agent-card__body">
+        Day&#8209;by&#8209;day travel plans with maps, cost estimates, and arrival times.
+      </p>
+      <div class="agent-card__status">● Live</div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s-8-7-8-13a8 8 0 0 1 16 0c0 6-8 13-8 13z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="agent-card__title">In&#8209;trip Location</div>
+        <div class="agent-card__code">AGT&#8209;04</div>
+      </div>
+      <p class="agent-card__body">
+        Walkable suggestions tuned to where you are, with hard constraints on time and distance.
+      </p>
+      <div class="agent-card__status">● Live</div>
+    </div>
+
+    <div class="agent-card">
+      <div class="agent-card__icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="agent-card__title">Language &amp; Culture</div>
+        <div class="agent-card__code">AGT&#8209;06</div>
+      </div>
+      <p class="agent-card__body">
+        Live translation, etiquette tips, and pronunciation guidance in context.
+      </p>
+      <div class="agent-card__status">● Live</div>
+    </div>
+
+  </div>
+
+  <p class="section__after">
+    Seven additional agents covering booking, disruption handling, media, feedback,
+    loyalty, wellness, and long&#8209;horizon prediction are described in
+    <a href="pages/agents.html">the architecture document</a>.
+  </p>
+</section>
+
+<!-- ─── Timeline ──────────────────────────────────────────── -->
+<section class="section">
+  <div class="section__head">
+    <div class="section__label">Timeline</div>
+    <h2 class="section__title">From concept to exhibition</h2>
+    <p class="section__lead">
+      Five months of research, design, build, and test - submitted to HIT on
+      August 4, 2026, then exhibited August 6-19.
+    </p>
+  </div>
+
+  <div class="phase-grid">
+    <div class="phase-card" data-active="false">
+      <div class="phase-card__num">Phase 1</div>
+      <div class="phase-card__name">Foundation</div>
+      <div class="phase-card__dates">Apr 1 - Apr 20</div>
+      <div class="phase-card__bar"><div style="width:100%"></div></div>
+    </div>
+    <div class="phase-card" data-active="false">
+      <div class="phase-card__num">Phase 2</div>
+      <div class="phase-card__name">Design</div>
+      <div class="phase-card__dates">Apr 12 - May 25</div>
+      <div class="phase-card__bar"><div style="width:100%"></div></div>
+    </div>
+    <div class="phase-card" data-active="true">
+      <div class="phase-card__num">Phase 3</div>
+      <div class="phase-card__name">Development</div>
+      <div class="phase-card__dates">May 1 - Jul 5</div>
+      <div class="phase-card__bar"><div style="width:48%"></div></div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-card__num">Phases 4-7</div>
+      <div class="phase-card__name">Testing &rarr; Exhibition</div>
+      <div class="phase-card__dates">Jul 1 - Aug 19</div>
+      <div class="phase-card__bar"><div style="width:0%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="site-footer__left">
+    David Castiel · M.Design Final Project · HIT 2026
+    <div class="site-footer__secondary">
+      <a href="pages/project-plan.html">Project Plan</a><span aria-hidden="true">·</span><a href="pages/odysee-prototype.html">Prototype</a>
+    </div>
+  </div>
+  <div class="site-footer__right">Brand V5 · odysee.me</div>
+</footer>
+
+<!-- ─── Theme toggle ──────────────────────────────────────── -->
+<script>
+(function () {
+  const root = document.documentElement;
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  let cur = localStorage.getItem('odysee-theme') || 'light';
+
+  function apply(t) {
+    root.setAttribute('data-theme', t === 'system' ? (mq.matches ? 'dark' : 'light') : t);
+    document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById('btn-' + t);
+    if (btn) btn.classList.add('active');
+  }
+
+  window.setTheme = function (t) {
+    cur = t;
+    localStorage.setItem('odysee-theme', t);
+    apply(t);
+  };
+
+  mq.addEventListener('change', () => { if (cur === 'system') apply('system'); });
+  apply(cur);
+})();
+</script>
+
+</body>
+</html>
