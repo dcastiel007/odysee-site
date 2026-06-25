@@ -100,20 +100,20 @@
 .proto-avatar {
   width: 36px; height: 36px;
   border-radius: 50%;
-  background: var(--gold-dim);
-  border: 1.5px solid var(--gold);
+  background: var(--od-orange-50);
+  border: 1.5px solid var(--od-orange);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-latin);
   font-size: 13px;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--od-orange-700);
   flex-shrink: 0;
 }
 .proto-name { font-size: 13px; font-weight: 500; color: var(--text-primary); font-family: var(--font-latin); }
 .proto-status { font-size: 10px; color: var(--teal); font-family: var(--font-latin); margin-top: 1px; display:flex; align-items:center; gap:4px; }
 .proto-status::before { content:''; display:block; width:6px; height:6px; border-radius:50%; background:var(--teal); }
 .proto-progress-bar { height: 3px; background: var(--border); }
-.proto-progress-fill { height: 100%; background: var(--gold); transition: width 0.5s ease; }
+.proto-progress-fill { height: 100%; background: var(--od-orange); transition: width 0.5s ease; }
 .proto-progress-label { font-size: 10px; color: var(--text-muted); font-family: var(--font-latin); padding: 5px 18px; text-align: right; }
 .proto-messages {
   padding: 16px;
@@ -129,7 +129,7 @@
   gap: 8px;
   align-items: flex-end;
 }
-.msg-tico-avatar { width:28px; height:28px; border-radius:50%; background:var(--gold-dim); border:1px solid var(--gold); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--gold); font-weight:600; flex-shrink:0; font-family:var(--font-latin); }
+.msg-tico-avatar { width:28px; height:28px; border-radius:50%; background:var(--od-orange-50); border:1px solid var(--od-orange); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--od-orange-700); font-weight:600; flex-shrink:0; font-family:var(--font-latin); }
 .msg-tico-bubble {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -142,7 +142,7 @@
   max-width: 78%;
 }
 .msg-user-bubble {
-  background: var(--gold);
+  background: var(--od-orange);
   border-radius: 16px 16px 4px 16px;
   padding: 10px 14px;
   font-size: 13px;
@@ -188,8 +188,8 @@
   background: transparent;
   user-select: none;
 }
-.proto-option:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
-.proto-option.selected { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+.proto-option:hover { border-color: var(--od-orange); color: var(--od-orange-700); background: var(--od-orange-50); }
+.proto-option.selected { border-color: var(--od-orange); color: var(--od-orange-700); background: var(--od-orange-50); }
 .proto-option.multi-selected { border-color: var(--teal); color: var(--teal); background: rgba(78,205,196,0.1); }
 .proto-text-row { display:flex; gap:8px; }
 .proto-text-input {
@@ -197,9 +197,9 @@
   border-radius: 20px; background:var(--card); color:var(--text-primary);
   font-family:var(--font-latin); font-size:12px; outline:none;
 }
-.proto-text-input:focus { border-color:var(--gold); }
+.proto-text-input:focus { border-color:var(--od-orange); }
 .proto-send {
-  padding:8px 16px; background:var(--gold); border:none;
+  padding:8px 16px; background:var(--od-orange); border:none;
   border-radius:20px; color:#0A0A0F; font-size:12px; font-weight:600;
   cursor:pointer; font-family:var(--font-latin); transition:opacity 0.2s;
 }
@@ -208,28 +208,28 @@
 .proto-profile-preview {
   margin: 12px 16px;
   padding: 10px 14px;
-  background: rgba(200,169,110,0.07);
-  border: 1px solid rgba(200,169,110,0.25);
+  background: rgba(229,118,60,0.07);
+  border: 1px solid rgba(229,118,60,0.25);
   border-radius: var(--radius-md);
   display: none;
 }
 .proto-profile-preview.visible { display: block; }
-.pp-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-family: var(--font-latin); margin-bottom: 6px; }
+.pp-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--od-orange-700); font-family: var(--font-latin); margin-bottom: 6px; }
 .pp-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.pp-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--gold-dim); border: 1px solid rgba(200,169,110,0.3); color: var(--gold); font-family: var(--font-latin); }
+.pp-tag { font-size: 10px; padding: 2px 8px; border-radius: 10px; background: var(--od-orange-50); border: 1px solid rgba(229,118,60,0.3); color: var(--od-orange-700); font-family: var(--font-latin); }
 
 /* Reset / nav */
 .proto-reset { font-size:10px; color:var(--text-muted); cursor:pointer; text-decoration:underline; font-family:var(--font-latin); padding:4px 18px 8px; display:block; text-align:center; }
-.proto-reset:hover { color:var(--gold); }
+.proto-reset:hover { color:var(--od-orange-700); }
 
 /* ── Question bank table ── */
 .q-table { width:100%; border-collapse:collapse; font-size:12px; margin-top:16px; }
-.q-table th { background:var(--card); color:var(--gold); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; padding:9px 12px; text-align:left; border-bottom:1px solid var(--border); font-family:var(--font-latin); }
+.q-table th { background:var(--card); color:var(--od-orange-700); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; padding:9px 12px; text-align:left; border-bottom:1px solid var(--border); font-family:var(--font-latin); }
 .q-table td { padding:9px 12px; border-bottom:1px solid var(--border); color:var(--text-primary); vertical-align:top; font-family:var(--font-latin); }
 .q-table tr:nth-child(even) td { background:rgba(255,255,255,0.018); }
 .q-id { font-family:var(--font-mono); font-size:10px; color:var(--teal); white-space:nowrap; }
 .q-type { font-size:9px; padding:2px 7px; border-radius:10px; white-space:nowrap; }
-.qt-choice { background:rgba(200,169,110,0.1); border:1px solid rgba(200,169,110,0.3); color:var(--gold); }
+.qt-choice { background:rgba(229,118,60,0.1); border:1px solid rgba(229,118,60,0.3); color:var(--od-orange-700); }
 .qt-multi { background:rgba(78,205,196,0.1); border:1px solid rgba(78,205,196,0.3); color:var(--teal); }
 .qt-scale { background:rgba(124,111,205,0.1); border:1px solid rgba(124,111,205,0.3); color:var(--purple); }
 .qt-text { background:rgba(138,149,170,0.1); border:1px solid rgba(138,149,170,0.25); color:var(--text-secondary); }
@@ -247,7 +247,7 @@
 .mc-icon { font-size:20px; margin-bottom:10px; }
 .mc-title { font-size:13px; font-weight:600; color:var(--text-primary); font-family:var(--font-latin); margin-bottom:6px; }
 .mc-desc { font-size:12px; color:var(--text-secondary); line-height:1.6; font-family:var(--font-latin); }
-.mc-example { font-size:11px; color:var(--gold); font-family:var(--font-latin); margin-top:8px; padding:6px 8px; background:var(--gold-dim); border-radius:4px; }
+.mc-example { font-size:11px; color:var(--od-orange-700); font-family:var(--font-latin); margin-top:8px; padding:6px 8px; background:var(--od-orange-50); border-radius:4px; }
 
 @media (max-width:768px) { .ds-section { padding:40px 20px; } }
     /* SVG diagrams always on dark card for readability */
@@ -298,7 +298,7 @@
     <span style="color:var(--text-muted)">Avg. completion: <span style="color:var(--teal);font-weight:500">~2.5 min</span></span>
     <span style="color:var(--text-muted)">Questions shown: <span style="color:var(--text-secondary)">8-14 of 24 total</span></span>
     <span style="color:var(--text-muted)">Profile fields set: <span style="color:var(--teal);font-weight:500">18-28</span></span>
-    <span style="color:var(--text-muted)">Target dropout rate: <span style="color:var(--gold);font-weight:500">&lt; 12%</span></span>
+    <span style="color:var(--text-muted)">Target dropout rate: <span style="color:var(--od-orange-700);font-weight:500">&lt; 12%</span></span>
   </div>
   <!-- Mini TOC -->
   <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:20px">
@@ -354,17 +354,17 @@
 
     <!-- Profile output panel -->
     <div style="flex:1;min-width:240px">
-      <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-family:var(--font-latin);margin-bottom:12px">Generated Profile (JSON)</p>
+      <p style="font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--od-orange-700);font-family:var(--font-latin);margin-bottom:12px">Generated Profile (JSON)</p>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;font-family:var(--font-mono);font-size:11px;color:var(--teal);line-height:1.8;min-height:280px;white-space:pre-wrap" id="json-output">{
   "status": "awaiting input…"
 }</div>
-      <div style="margin-top:12px;padding:12px;background:rgba(200,169,110,0.07);border:1px solid rgba(200,169,110,0.2);border-radius:var(--radius-md)">
-        <div style="font-size:9px;color:var(--gold);font-family:var(--font-latin);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Profile Confidence</div>
+      <div style="margin-top:12px;padding:12px;background:rgba(229,118,60,0.07);border:1px solid rgba(229,118,60,0.2);border-radius:var(--radius-md)">
+        <div style="font-size:9px;color:var(--od-orange-700);font-family:var(--font-latin);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px">Profile Confidence</div>
         <div style="display:flex;gap:8px;align-items:center">
           <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden">
-            <div id="confidence-bar" style="height:100%;background:var(--gold);transition:width 0.4s;width:0%"></div>
+            <div id="confidence-bar" style="height:100%;background:var(--od-orange);transition:width 0.4s;width:0%"></div>
           </div>
-          <span id="confidence-pct" style="font-size:11px;color:var(--gold);font-family:var(--font-mono);min-width:28px">0%</span>
+          <span id="confidence-pct" style="font-size:11px;color:var(--od-orange-700);font-family:var(--font-mono);min-width:28px">0%</span>
         </div>
       </div>
     </div>
@@ -426,7 +426,7 @@
   <!-- Question type key -->
   <h3 style="margin-top:32px">Question Input Types</h3>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:14px">
-    <div class="card" style="border-top:2px solid var(--gold)"><div style="font-size:11px;font-weight:600;color:var(--gold);font-family:var(--font-latin);margin-bottom:4px">Single Choice</div><div style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)">Pill buttons - tap one. Fastest interaction, highest completion. Used for destination type, trip style, pacing.</div></div>
+    <div class="card" style="border-top:2px solid var(--od-orange)"><div style="font-size:11px;font-weight:600;color:var(--od-orange-700);font-family:var(--font-latin);margin-bottom:4px">Single Choice</div><div style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)">Pill buttons - tap one. Fastest interaction, highest completion. Used for destination type, trip style, pacing.</div></div>
     <div class="card" style="border-top:2px solid var(--teal)"><div style="font-size:11px;font-weight:600;color:var(--teal);font-family:var(--font-latin);margin-bottom:4px">Multi-Select</div><div style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)">Select all that apply. Max 3 selections enforced. Used for interests, dietary needs, travel priorities.</div></div>
     <div class="card" style="border-top:2px solid var(--purple)"><div style="font-size:11px;font-weight:600;color:var(--purple);font-family:var(--font-latin);margin-bottom:4px">Scale / Slider</div><div style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)">1-5 tap scale or text range. Used for budget, pace preference, adventure level.</div></div>
     <div class="card" style="border-top:2px solid var(--text-secondary)"><div style="font-size:11px;font-weight:600;color:var(--text-secondary);font-family:var(--font-latin);margin-bottom:4px">Free Text</div><div style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)">Short open input. Used sparingly - only for dream destination and dietary restrictions (specific).</div></div>
@@ -445,7 +445,7 @@
     <svg viewBox="0 0 1080 820" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:800px">
       <defs>
         <marker id="arrowg" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
-          <path d="M1,1 L6,3.5 L1,6" fill="none" stroke="rgba(200,169,110,0.7)" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M1,1 L6,3.5 L1,6" fill="none" stroke="rgba(229,118,60,0.7)" stroke-width="1.2" stroke-linecap="round"/>
         </marker>
         <marker id="arrowt" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
           <path d="M1,1 L6,3.5 L1,6" fill="none" stroke="rgba(78,205,196,0.6)" stroke-width="1.2" stroke-linecap="round"/>
@@ -458,7 +458,7 @@
       <!-- LEGEND -->
       <rect x="800" y="20" width="268" height="96" rx="8" fill="rgba(28,34,48,0.8)" stroke="rgba(42,50,69,0.8)" stroke-width="1"/>
       <text x="812" y="42" font-family="'Poppins',sans-serif" font-size="9" fill="#C8A96E" letter-spacing="1">LEGEND</text>
-      <line x1="812" y1="55" x2="840" y2="55" stroke="rgba(200,169,110,0.7)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="812" y1="55" x2="840" y2="55" stroke="rgba(229,118,60,0.7)" stroke-width="1.5" marker-end="url(#arrowg)"/>
       <text x="848" y="59" font-family="'Poppins',sans-serif" font-size="10" fill="#8A95AA">Core path - all users</text>
       <line x1="812" y1="75" x2="840" y2="75" stroke="rgba(78,205,196,0.6)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowt)"/>
       <text x="848" y="79" font-family="'Poppins',sans-serif" font-size="10" fill="#8A95AA">Conditional branch</text>
@@ -466,17 +466,17 @@
       <text x="848" y="99" font-family="'Poppins',sans-serif" font-size="10" fill="#8A95AA">Optional / skippable</text>
 
       <!-- ── ROW 0: START ── -->
-      <rect x="460" y="20" width="160" height="40" rx="20" fill="rgba(200,169,110,0.25)" stroke="#C8A96E" stroke-width="1.5"/>
+      <rect x="460" y="20" width="160" height="40" rx="20" fill="rgba(229,118,60,0.25)" stroke="#C8A96E" stroke-width="1.5"/>
       <text x="540" y="45" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="11" fill="#C8A96E" font-weight="600">START</text>
-      <line x1="540" y1="60" x2="540" y2="85" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="60" x2="540" y2="85" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── ROW 1: Q01 ── -->
-      <rect x="380" y="85" width="320" height="52" rx="8" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="85" width="320" height="52" rx="8" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="107" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q01 · Trip vibe</text>
       <text x="540" y="126" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">What kind of trip sounds perfect right now?</text>
       <!-- Branches from Q01 -->
       <line x1="380" y1="111" x2="180" y2="155" stroke="rgba(78,205,196,0.5)" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrowt)"/>
-      <line x1="540" y1="137" x2="540" y2="155" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="137" x2="540" y2="155" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
       <line x1="700" y1="111" x2="870" y2="155" stroke="rgba(78,205,196,0.5)" stroke-width="1.2" stroke-dasharray="5,3" marker-end="url(#arrowt)"/>
 
       <!-- Branch labels -->
@@ -494,12 +494,12 @@
       <text x="895" y="188" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="8" fill="#8A95AA">% leisure time on business trips?</text>
 
       <!-- ── ROW 2: Q02 core ── -->
-      <rect x="380" y="155" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="155" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="173" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q02 · Who's coming?</text>
       <text x="540" y="188" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Solo · Couple · Small group · Family</text>
 
       <!-- Branch: family → -->
-      <line x1="540" y1="199" x2="540" y2="220" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="199" x2="540" y2="220" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
       <line x1="700" y1="177" x2="810" y2="224" stroke="rgba(78,205,196,0.5)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowt)"/>
       <text x="770" y="216" font-family="'Poppins',sans-serif" font-size="8" fill="rgba(78,205,196,0.6)">Family</text>
 
@@ -509,10 +509,10 @@
       <text x="895" y="253" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="8" fill="#8A95AA">Toddler · Elementary · Teen</text>
 
       <!-- ── ROW 3: Q03 ── -->
-      <rect x="380" y="220" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="220" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="238" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q03 · Budget range</text>
       <text x="540" y="253" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Budget · Mid-range · Premium · Luxury</text>
-      <line x1="540" y1="264" x2="540" y2="285" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="264" x2="540" y2="285" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- Budget branch -->
       <line x1="380" y1="242" x2="250" y2="285" stroke="rgba(78,205,196,0.5)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowt)"/>
@@ -529,16 +529,16 @@
       <text x="895" y="318" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="8" fill="#8A95AA">Accommodation · Dining · Transport</text>
 
       <!-- ── ROW 4: Q04 ── -->
-      <rect x="380" y="285" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="285" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="303" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q04 · Interests (multi-select)</text>
       <text x="540" y="318" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Food · Nature · Culture · Nightlife · Wellness…</text>
-      <line x1="540" y1="329" x2="540" y2="350" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="329" x2="540" y2="350" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── ROW 5: Q05 ── -->
-      <rect x="380" y="350" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="350" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="368" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q05 · Trip pace</text>
       <text x="540" y="383" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Packed · Balanced · Slow · Spontaneous</text>
-      <line x1="540" y1="394" x2="540" y2="415" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="394" x2="540" y2="415" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- Food branch -->
       <line x1="540" y1="377" x2="300" y2="415" stroke="rgba(78,205,196,0.45)" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowt)"/>
@@ -548,28 +548,28 @@
       <text x="175" y="448" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="8" fill="#8A95AA">Vegetarian · Halal · Kosher · Allergies</text>
 
       <!-- ── ROW 6: Q06 ── -->
-      <rect x="380" y="415" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="415" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="433" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q06 · Accommodation style</text>
       <text x="540" y="448" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Hotel · Boutique · Hostel · Airbnb · Resort</text>
-      <line x1="540" y1="459" x2="540" y2="480" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="459" x2="540" y2="480" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── ROW 7: Q07 ── -->
-      <rect x="380" y="480" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="480" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="498" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q07 · Destination region</text>
       <text x="540" y="513" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Europe · Asia · Americas · Middle East…</text>
-      <line x1="540" y1="524" x2="540" y2="545" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="524" x2="540" y2="545" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── ROW 8: Q08 ── -->
-      <rect x="380" y="545" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="545" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="563" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q08 · Dream destination</text>
       <text x="540" y="578" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">"Is there a place you've always wanted to go?"</text>
-      <line x1="540" y1="589" x2="540" y2="610" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="589" x2="540" y2="610" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── ROW 9: Q09 ── -->
-      <rect x="380" y="610" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(200,169,110,0.5)" stroke-width="1.2"/>
+      <rect x="380" y="610" width="320" height="44" rx="7" fill="#1C2230" stroke="rgba(229,118,60,0.5)" stroke-width="1.2"/>
       <text x="540" y="628" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="10" fill="#C8A96E" font-weight="600">Q09 · Typical trip length</text>
       <text x="540" y="643" text-anchor="middle" font-family="'Poppins',sans-serif" font-size="9" fill="#8A95AA">Weekend · 1 week · 2 weeks · Month+</text>
-      <line x1="540" y1="654" x2="540" y2="675" stroke="rgba(200,169,110,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
+      <line x1="540" y1="654" x2="540" y2="675" stroke="rgba(229,118,60,0.6)" stroke-width="1.5" marker-end="url(#arrowg)"/>
 
       <!-- ── COMPLETE ── -->
       <rect x="420" y="675" width="240" height="40" rx="20" fill="rgba(78,205,196,0.2)" stroke="#4ECDC4" stroke-width="1.5"/>
@@ -615,11 +615,11 @@
     </tr></thead>
     <tbody>
       <!-- CORE QUESTIONS -->
-      <tr><td colspan="7" style="background:rgba(200,169,110,0.08);color:var(--gold);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:8px 12px;font-family:var(--font-latin)">CORE - Shown to all users</td></tr>
+      <tr><td colspan="7" style="background:rgba(229,118,60,0.08);color:var(--od-orange-700);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:8px 12px;font-family:var(--font-latin)">CORE - Shown to all users</td></tr>
       <tr>
         <td class="q-id">Q01</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">What kind of trip sounds perfect right now?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Beach escape · City culture · Adventure · Road trip · Wellness · Bleisure</td>
         <td class="q-branch">Adventure → Q02a<br>Bleisure → Q02b<br>Other → Q02</td>
@@ -628,7 +628,7 @@
       <tr>
         <td class="q-id">Q02</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">Who's coming with you?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Just me · My partner · Small group (3-5) · Family with kids</td>
         <td class="q-branch">Family → Q03a (ages)<br>Group → Q03b (dynamic)<br>Solo/Couple → Q03</td>
@@ -637,7 +637,7 @@
       <tr>
         <td class="q-id">Q03</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">How do you usually think about budget?</td>
         <td style="font-size:11px;color:var(--text-secondary)">I stretch every dollar · Mid-range comfort · Premium when it matters · Money is no object</td>
         <td class="q-branch">Budget → Q04a<br>Luxury → Q04b<br>Mid/Premium → Q04</td>
@@ -646,7 +646,7 @@
       <tr>
         <td class="q-id">Q04</td>
         <td><span class="q-type qt-multi">Multi</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">What makes a trip worth it for you? Pick up to 3.</td>
         <td style="font-size:11px;color:var(--text-secondary)">Local food · Nature & outdoors · History & culture · Nightlife · Wellness & spa · Photography · Sports · Shopping · Off-the-beaten-path · Luxury & comfort</td>
         <td class="q-branch">Food → Q05a (dietary)<br>Nature → Q05b (activity level)<br>All → Q05</td>
@@ -655,7 +655,7 @@
       <tr>
         <td class="q-id">Q05</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">What's your ideal trip pace?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Packed (see everything) · Balanced · Slow & deep · Spontaneous (minimal planning)</td>
         <td class="q-branch">Spontaneous → skip Q06<br>Packed → Q06</td>
@@ -664,7 +664,7 @@
       <tr>
         <td class="q-id">Q06</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">Where do you prefer to sleep?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Hotel (4-5★) · Boutique hotel · Airbnb / apartment · Hostel / social · Resort / all-inclusive · Doesn't matter</td>
         <td class="q-branch">→ Q07</td>
@@ -673,7 +673,7 @@
       <tr>
         <td class="q-id">Q07</td>
         <td><span class="q-type qt-multi">Multi</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">Which regions call to you most?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Europe · Southeast Asia · Japan & Korea · Middle East · Americas · Africa · Oceania · Anywhere!</td>
         <td class="q-branch">→ Q08</td>
@@ -682,7 +682,7 @@
       <tr>
         <td class="q-id">Q08</td>
         <td><span class="q-type qt-text">Text</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">Is there a place you've always dreamed of going?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Free text, 80 chars max (or "Not sure yet")</td>
         <td class="q-branch">→ Q09</td>
@@ -691,7 +691,7 @@
       <tr>
         <td class="q-id">Q09</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">CORE</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">CORE</span></td>
         <td style="font-size:12px">How long are your typical trips?</td>
         <td style="font-size:11px;color:var(--text-secondary)">Weekend getaway · 4-7 days · 1-2 weeks · 3+ weeks · It varies</td>
         <td class="q-branch">→ COMPLETE (core done)</td>
@@ -825,7 +825,7 @@
       <tr>
         <td class="q-id">Q15</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">PHOTO</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">PHOTO</span></td>
         <td style="font-size:12px">When are you most likely to be out shooting? <em>[Q04 includes Photography]</em></td>
         <td style="font-size:11px;color:var(--text-secondary)">Golden hour · Blue hour · Midday · Night</td>
         <td class="q-branch">Sets prime hours for AGT-04 location suggestions</td>
@@ -834,7 +834,7 @@
       <tr>
         <td class="q-id">Q16</td>
         <td><span class="q-type qt-multi">Multi</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">PHOTO</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">PHOTO</span></td>
         <td style="font-size:12px">What draws your lens most often? <em>[Q04 includes Photography]</em></td>
         <td style="font-size:11px;color:var(--text-secondary)">Landscape · Street · Architecture · Food · Portraits</td>
         <td class="q-branch">Tunes AGT-02 toward shoot-worthy spots</td>
@@ -843,7 +843,7 @@
       <tr>
         <td class="q-id">Q17</td>
         <td><span class="q-type qt-choice">Choice</span></td>
-        <td><span style="font-size:10px;color:var(--gold);font-family:var(--font-latin)">PHOTO</span></td>
+        <td><span style="font-size:10px;color:var(--od-orange-700);font-family:var(--font-latin)">PHOTO</span></td>
         <td style="font-size:12px">How much gear are you traveling with? <em>[Q04 includes Photography]</em></td>
         <td style="font-size:11px;color:var(--text-secondary)">Phone only · Mirrorless + 1-2 lenses · Full kit (DSLR + tripod)</td>
         <td class="q-branch">Sets mobility constraints for pacing</td>
@@ -999,58 +999,58 @@
 
   <div style="margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;font-family:var(--font-mono);font-size:12px;color:var(--teal);line-height:1.9;overflow-x:auto;direction:ltr">
 <span style="color:var(--text-secondary)">{</span>
-  <span style="color:var(--gold)">"user_id"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"uuid-v4"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"onboarding_version"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"1.0"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"completed_at"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"ISO-8601"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"profile_confidence"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">0.82</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"user_id"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"uuid-v4"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"onboarding_version"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"1.0"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"completed_at"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"ISO-8601"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"profile_confidence"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">0.82</span><span style="color:var(--text-secondary)">,</span>
 
-  <span style="color:var(--gold)">"trip_style"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"culture"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"adventure_level"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">2</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"pace"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"balanced"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"planning_style"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"moderate"</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"planning_horizon_days"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">45</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"trip_style"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"culture"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"adventure_level"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">2</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"pace"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"balanced"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"planning_style"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"moderate"</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"planning_horizon_days"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">45</span><span style="color:var(--text-secondary)">,</span>
 
-  <span style="color:var(--gold)">"group"</span><span style="color:var(--text-secondary)">: {</span>
-    <span style="color:var(--gold)">"type"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"solo"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"size"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">1</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"is_planner"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">true</span>
+  <span style="color:var(--od-orange-700)">"group"</span><span style="color:var(--text-secondary)">: {</span>
+    <span style="color:var(--od-orange-700)">"type"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"solo"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"size"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">1</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"is_planner"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">true</span>
   <span style="color:var(--text-secondary)">},</span>
 
-  <span style="color:var(--gold)">"budget"</span><span style="color:var(--text-secondary)">: {</span>
-    <span style="color:var(--gold)">"tier"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"mid-range"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"priorities"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["experiences", "accommodation"]</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"daily_usd_range"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">[120, 250]</span>
+  <span style="color:var(--od-orange-700)">"budget"</span><span style="color:var(--text-secondary)">: {</span>
+    <span style="color:var(--od-orange-700)">"tier"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"mid-range"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"priorities"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["experiences", "accommodation"]</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"daily_usd_range"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">[120, 250]</span>
   <span style="color:var(--text-secondary)">},</span>
 
-  <span style="color:var(--gold)">"interests"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["local_food", "culture_history", "photography"]</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"dietary"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["vegetarian"]</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"exclusions"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["cruise_ships", "all_inclusive"]</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"activity_level"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">3</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"interests"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["local_food", "culture_history", "photography"]</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"dietary"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["vegetarian"]</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"exclusions"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["cruise_ships", "all_inclusive"]</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"activity_level"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">3</span><span style="color:var(--text-secondary)">,</span>
 
-  <span style="color:var(--gold)">"accommodation"</span><span style="color:var(--text-secondary)">: {</span>
-    <span style="color:var(--gold)">"type"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"boutique_hotel"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"tier"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">3</span>
+  <span style="color:var(--od-orange-700)">"accommodation"</span><span style="color:var(--text-secondary)">: {</span>
+    <span style="color:var(--od-orange-700)">"type"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"boutique_hotel"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"tier"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">3</span>
   <span style="color:var(--text-secondary)">},</span>
 
-  <span style="color:var(--gold)">"geography"</span><span style="color:var(--text-secondary)">: {</span>
-    <span style="color:var(--gold)">"preferred_regions"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["europe", "southeast_asia"]</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"dream_destination"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"Kyoto, Japan"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"typical_duration_days"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">9</span>
+  <span style="color:var(--od-orange-700)">"geography"</span><span style="color:var(--text-secondary)">: {</span>
+    <span style="color:var(--od-orange-700)">"preferred_regions"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["europe", "southeast_asia"]</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"dream_destination"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"Kyoto, Japan"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"typical_duration_days"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">9</span>
   <span style="color:var(--text-secondary)">},</span>
 
-  <span style="color:var(--gold)">"ux_preferences"</span><span style="color:var(--text-secondary)">: {</span>
-    <span style="color:var(--gold)">"notification_mode"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"proactive"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"language_comfort"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"english_only"</span><span style="color:var(--text-secondary)">,</span>
-    <span style="color:var(--gold)">"loyalty_programs"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">false</span>
+  <span style="color:var(--od-orange-700)">"ux_preferences"</span><span style="color:var(--text-secondary)">: {</span>
+    <span style="color:var(--od-orange-700)">"notification_mode"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"proactive"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"language_comfort"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">"english_only"</span><span style="color:var(--text-secondary)">,</span>
+    <span style="color:var(--od-orange-700)">"loyalty_programs"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--purple)">false</span>
   <span style="color:var(--text-secondary)">},</span>
 
-  <span style="color:var(--gold)">"inferred_tags"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["solo_female_safe_areas", "vegetarian_friendly", "avoid_tourist_traps", "boutique_neighborhood"]</span><span style="color:var(--text-secondary)">,</span>
-  <span style="color:var(--gold)">"embedding_vector"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--text-muted)">"[1536-dim float array - stored in Pinecone]"</span>
+  <span style="color:var(--od-orange-700)">"inferred_tags"</span><span style="color:var(--text-secondary)">:</span> <span style="color:#4ECDC4">["solo_female_safe_areas", "vegetarian_friendly", "avoid_tourist_traps", "boutique_neighborhood"]</span><span style="color:var(--text-secondary)">,</span>
+  <span style="color:var(--od-orange-700)">"embedding_vector"</span><span style="color:var(--text-secondary)">:</span> <span style="color:var(--text-muted)">"[1536-dim float array - stored in Pinecone]"</span>
 <span style="color:var(--text-secondary)">}</span>
   </div>
 
-  <div style="margin-top:16px;padding:14px 18px;background:rgba(200,169,110,0.07);border:1px solid rgba(200,169,110,0.2);border-radius:var(--radius-md)">
-    <p style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)"><strong style="color:var(--gold)">Inferred tags</strong> are generated automatically from the combination of answers - not directly asked. "solo_female_safe_areas" is inferred from group=solo + budget=mid + interests=culture. These power the recommendation filters beyond what the user explicitly stated.</p>
+  <div style="margin-top:16px;padding:14px 18px;background:rgba(229,118,60,0.07);border:1px solid rgba(229,118,60,0.2);border-radius:var(--radius-md)">
+    <p style="font-size:12px;color:var(--text-secondary);font-family:var(--font-latin)"><strong style="color:var(--od-orange-700)">Inferred tags</strong> are generated automatically from the combination of answers - not directly asked. "solo_female_safe_areas" is inferred from group=solo + budget=mid + interests=culture. These power the recommendation filters beyond what the user explicitly stated.</p>
   </div>
 </div>
 
