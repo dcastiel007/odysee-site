@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 build-views.py — regenerate internal/tracker.html, internal/gantt.html, and
-the PUBLIC pages/project-plan.html from ticoprojectplanv1.xlsx (single source).
+the PUBLIC pages/project-plan.html from ticoprojectplanv2.xlsx (single source).
 
 Usage:
     python build-views.py [plan.xlsx] [out_dir]
-      plan.xlsx  default: ticoprojectplanv1.xlsx (same folder)
+      plan.xlsx  default: ticoprojectplanv2.xlsx (same folder)
       out_dir    default: internal/
 
 internal/tracker.html, internal/gantt.html  — self-contained Brand pages (RTL).
@@ -340,7 +340,7 @@ def build_public_plan(phases, meta, template_path):
 
 # ── main ──
 def main():
-    xlsx=Path(sys.argv[1]) if len(sys.argv)>1 else Path("ticoprojectplanv1.xlsx")
+    xlsx=Path(sys.argv[1]) if len(sys.argv)>1 else Path("ticoprojectplanv2.xlsx")
     out=Path(sys.argv[2]) if len(sys.argv)>2 else Path("internal")
     if not xlsx.exists(): sys.exit(f"xlsx not found: {xlsx}")
     out.mkdir(parents=True, exist_ok=True)
