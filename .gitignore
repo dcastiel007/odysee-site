@@ -7,3 +7,6 @@ node_modules/
 .claude/
 .vscode/
 odysee-old/
+.DS_Store
+*.bak
+*.bak-*
