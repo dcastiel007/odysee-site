@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
 build-views.py — regenerate internal/tracker.html, internal/gantt.html, and
-the PUBLIC pages/project-plan.html from ticoprojectplanv2.xlsx (single source).
+the PUBLIC pages/project-plan.html from the latest ticoprojectplanvN.xlsx (single source).
 
 Usage:
     python build-views.py [plan.xlsx] [out_dir]
-      plan.xlsx  default: ticoprojectplanv2.xlsx (same folder)
+      plan.xlsx  default: latest ticoprojectplanvN.xlsx (auto-detected, same folder)
       out_dir    default: internal/
 
 internal/tracker.html, internal/gantt.html  — self-contained Brand pages (RTL).
@@ -339,8 +339,21 @@ def build_public_plan(phases, meta, template_path):
     return tpl[:i]+body+tpl[j:]
 
 # ── main ──
+def latest_plan():
+    """Auto-detect the highest ticoprojectplanvN.xlsx next to this script."""
+    here = Path(__file__).resolve().parent
+    cands = []
+    for p in here.glob("ticoprojectplanv*.xlsx"):
+        m = re.match(r"ticoprojectplanv(\d+)\.xlsx$", p.name)
+        if m:
+            cands.append((int(m.group(1)), p))
+    if not cands:
+        sys.exit(f"No ticoprojectplanv*.xlsx found in {here}")
+    cands.sort()
+    return cands[-1][1]
+
 def main():
-    xlsx=Path(sys.argv[1]) if len(sys.argv)>1 else Path("ticoprojectplanv2.xlsx")
+    xlsx=Path(sys.argv[1]) if len(sys.argv)>1 else latest_plan()
     out=Path(sys.argv[2]) if len(sys.argv)>2 else Path("internal")
     if not xlsx.exists(): sys.exit(f"xlsx not found: {xlsx}")
     out.mkdir(parents=True, exist_ok=True)
