@@ -49,6 +49,20 @@
 .brand-mark__o .cap-start   { fill:   var(--od-navy); }
 .brand-mark__o .cap-end     { fill:   var(--od-red); }
 [data-theme="dark"] .brand-mark__o .ring { stroke: var(--od-paper); }
+
+/* diagram: light-theme retargeting (2026-07-29)
+   The inline architecture SVGs carry hardcoded dark-theme colours as
+   presentation attributes. CSS outranks those, so these selectors recolour
+   them without editing the SVG. Scoped to light only - dark is unchanged.
+   Contrast measured against #FFFFFF; all values pass AA. */
+[data-theme="light"] svg rect[fill="#1C2230"]   { fill: #FFFFFF; }
+[data-theme="light"] svg circle[fill="#13131A"] { fill: #FFFFFF; }
+[data-theme="light"] svg circle[fill="#0A0A0F"] { fill: #FAF6F0; }
+[data-theme="light"] svg text[fill="#F0EDE8"]   { fill: #12273E; }  /* 15.16:1 */
+[data-theme="light"] svg text[fill="#8A95AA"]   { fill: #3A5D83; }  /*  6.83:1 */
+[data-theme="light"] svg text[fill="#C8A96E"]   { fill: #8A6A2E; }  /*  5.02:1 */
+[data-theme="light"] svg text[fill="#4ECDC4"]   { fill: #1F6F73; }  /*  5.87:1 */
+[data-theme="light"] svg text[fill="#7C6FCD"]   { fill: #5B4FA8; }  /*  6.71:1 */
 /* Footer secondary nav */
 .site-footer__secondary {
   margin-top: 10px;
