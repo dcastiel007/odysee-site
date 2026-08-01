@@ -10,3 +10,6 @@ odysee-old/
 .DS_Store
 *.bak
 *.bak-*
+
+# Patch revert pointers (local only, reference .bak files)
+.patchstate-*
